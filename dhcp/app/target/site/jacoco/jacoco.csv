@@ -1,0 +1,23 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+onos-app-dhcp,org.onosproject.dhcp.cli,MacIdCompleter,36,0,2,0,8,0,3,0,2,0
+onos-app-dhcp,org.onosproject.dhcp.cli,DhcpRemoveStaticMapping,38,0,2,0,11,0,3,0,2,0
+onos-app-dhcp,org.onosproject.dhcp.cli,FreeIpCompleter,35,0,2,0,8,0,3,0,2,0
+onos-app-dhcp,org.onosproject.dhcp.cli,DhcpListAllMappings,43,0,2,0,7,0,3,0,2,0
+onos-app-dhcp,org.onosproject.dhcp.cli,DhcpLeaseDetails,37,0,0,0,7,0,2,0,2,0
+onos-app-dhcp,org.onosproject.dhcp.cli,DhcpSetStaticMapping,60,0,2,0,19,0,3,0,2,0
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpConfig,341,0,32,0,42,0,46,0,30,0
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpViewMessageHandler,26,0,0,0,3,0,3,0,3,0
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpManager.InternalConfigListener,139,9,35,1,34,3,19,2,1,2
+onos-app-dhcp,org.onosproject.dhcp.impl,DistributedDhcpStore,630,0,78,0,160,0,59,0,19,0
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpManager.DhcpPacketProcessor,216,677,35,29,51,167,30,10,1,6
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpManager.new ConfigFactory() {...},4,9,0,0,1,1,1,1,1,1
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpManager.new Object() {...},3,23,0,0,0,1,0,1,0,1
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpViewMessageHandler.DataRequestHandler,93,0,4,0,22,0,8,0,6,0
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpManager.PurgeListTask,77,6,10,0,13,1,6,1,1,1
+onos-app-dhcp,org.onosproject.dhcp.impl,DistributedDhcpStore.new Object() {...},33,0,0,0,1,0,1,0,1,0
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpUi,75,0,2,0,16,0,8,0,7,0
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpManager,198,259,18,0,32,62,32,6,23,6
+onos-app-dhcp,org.onosproject.dhcp.impl,DhcpManager.InternalHostProvider,1,7,0,0,1,3,1,1,1,1
+onos-app-dhcp,org.onosproject.dhcp.rest,ApiDocRegistrator,10,0,0,0,3,0,1,0,1,0
+onos-app-dhcp,org.onosproject.dhcp.rest,DhcpWebResource,251,0,8,0,50,0,14,0,10,0
+onos-app-dhcp,org.onosproject.dhcp.rest,DhcpWebApplication,12,0,0,0,2,0,2,0,2,0

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DistributedDhcpStore.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">onos-app-dhcp</a> &gt; <a href="index.source.html" class="el_package">org.onosproject.dhcp.impl</a> &gt; <span class="el_source">DistributedDhcpStore.java</span></div><h1>DistributedDhcpStore.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2015-present Open Networking Laboratory
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.onosproject.dhcp.impl;
+
+import com.google.common.collect.ImmutableSet;
+import org.apache.felix.scr.annotations.Activate;
+import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Deactivate;
+import org.apache.felix.scr.annotations.Reference;
+import org.apache.felix.scr.annotations.ReferenceCardinality;
+import org.apache.felix.scr.annotations.Service;
+import org.onlab.packet.Ip4Address;
+import org.onlab.packet.MacAddress;
+import org.onlab.util.KryoNamespace;
+import org.onosproject.dhcp.DhcpStore;
+import org.onosproject.dhcp.IpAssignment;
+import org.onosproject.net.HostId;
+import org.onosproject.store.serializers.KryoNamespaces;
+import org.onosproject.store.service.ConsistentMap;
+import org.onosproject.store.service.DistributedSet;
+import org.onosproject.store.service.Serializer;
+import org.onosproject.store.service.StorageService;
+import org.onosproject.store.service.Versioned;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Date;
+import java.util.Map;
+import java.util.HashMap;
+
+import static org.onosproject.dhcp.IpAssignment.AssignmentStatus.Option_Assigned;
+import static org.onosproject.dhcp.IpAssignment.AssignmentStatus.Option_RangeNotEnforced;
+
+/**
+ * Manages the pool of available IP Addresses in the network and
+ * Remembers the mapping between MAC ID and IP Addresses assigned.
+ */
+
+@Component(immediate = true)
+@Service
+<span class="nc" id="L54">public class DistributedDhcpStore implements DhcpStore {</span>
+
+<span class="nc" id="L56">    private final Logger log = LoggerFactory.getLogger(getClass());</span>
+
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected StorageService storageService;
+
+    private ConsistentMap&lt;HostId, IpAssignment&gt; allocationMap;
+    private DistributedSet&lt;Ip4Address&gt; freeIPPool;
+
+    private static Ip4Address startIPRange;
+    private static Ip4Address endIPRange;
+
+    // Hardcoded values are default values.
+<span class="nc" id="L68">    private static int timeoutForPendingAssignments = 60;</span>
+
+    @Activate
+    protected void activate() {
+<span class="nc" id="L72">        allocationMap = storageService.&lt;HostId, IpAssignment&gt;consistentMapBuilder()</span>
+<span class="nc" id="L73">                .withName(&quot;onos-dhcp-assignedIP&quot;)</span>
+<span class="nc" id="L74">                .withSerializer(Serializer.using(</span>
+                        new KryoNamespace.Builder()
+<span class="nc" id="L76">                                .register(KryoNamespaces.API)</span>
+<span class="nc" id="L77">                                .register(IpAssignment.class,</span>
+                                        IpAssignment.AssignmentStatus.class,
+                                        Date.class)
+<span class="nc" id="L80">                                .build(&quot;dhcp&quot;)))</span>
+<span class="nc" id="L81">                .build();</span>
+
+<span class="nc" id="L83">        freeIPPool = storageService.&lt;Ip4Address&gt;setBuilder()</span>
+<span class="nc" id="L84">                .withName(&quot;onos-dhcp-freeIP&quot;)</span>
+<span class="nc" id="L85">                .withSerializer(Serializer.using(KryoNamespaces.API))</span>
+<span class="nc" id="L86">                .build()</span>
+<span class="nc" id="L87">                .asDistributedSet();</span>
+
+<span class="nc" id="L89">        log.info(&quot;Started&quot;);</span>
+<span class="nc" id="L90">    }</span>
+
+    @Deactivate
+    protected void deactivate() {
+<span class="nc" id="L94">        log.info(&quot;Stopped&quot;);</span>
+<span class="nc" id="L95">    }</span>
+
+    @Override
+    public Ip4Address suggestIP(HostId hostId, Ip4Address requestedIP) {
+
+        IpAssignment assignmentInfo;
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        if (allocationMap.containsKey(hostId)) {</span>
+<span class="nc" id="L102">            assignmentInfo = allocationMap.get(hostId).value();</span>
+<span class="nc" id="L103">            IpAssignment.AssignmentStatus status = assignmentInfo.assignmentStatus();</span>
+<span class="nc" id="L104">            Ip4Address ipAddr = assignmentInfo.ipAddress();</span>
+
+<span class="nc bnc" id="L106" title="All 2 branches missed.">            if (assignmentInfo.assignmentStatus().equals(Option_RangeNotEnforced)) {</span>
+<span class="nc" id="L107">                return assignmentInfo.ipAddress();</span>
+<span class="nc bnc" id="L108" title="All 4 branches missed.">            } else if (status == Option_Assigned ||</span>
+                    status == IpAssignment.AssignmentStatus.Option_Requested) {
+                // Client has a currently Active Binding.
+<span class="nc bnc" id="L111" title="All 2 branches missed.">                if (ipWithinRange(ipAddr)) {</span>
+<span class="nc" id="L112">                    return ipAddr;</span>
+                }
+
+<span class="nc bnc" id="L115" title="All 2 branches missed.">            } else if (status == IpAssignment.AssignmentStatus.Option_Expired) {</span>
+                // Client has a Released or Expired Binding.
+<span class="nc bnc" id="L117" title="All 2 branches missed.">                if (freeIPPool.contains(ipAddr)) {</span>
+<span class="nc" id="L118">                    assignmentInfo = IpAssignment.builder()</span>
+<span class="nc" id="L119">                            .ipAddress(ipAddr)</span>
+<span class="nc" id="L120">                            .timestamp(new Date())</span>
+<span class="nc" id="L121">                            .leasePeriod(timeoutForPendingAssignments)</span>
+<span class="nc" id="L122">                            .assignmentStatus(IpAssignment.AssignmentStatus.Option_Requested)</span>
+<span class="nc" id="L123">                            .build();</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">                    if (freeIPPool.remove(ipAddr)) {</span>
+<span class="nc" id="L125">                        allocationMap.put(hostId, assignmentInfo);</span>
+<span class="nc" id="L126">                        return ipAddr;</span>
+                    }
+                }
+            }
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        } else if (requestedIP.toInt() != 0) {</span>
+            // Client has requested an IP.
+<span class="nc bnc" id="L132" title="All 2 branches missed.">            if (freeIPPool.contains(requestedIP)) {</span>
+<span class="nc" id="L133">                assignmentInfo = IpAssignment.builder()</span>
+<span class="nc" id="L134">                        .ipAddress(requestedIP)</span>
+<span class="nc" id="L135">                        .timestamp(new Date())</span>
+<span class="nc" id="L136">                        .leasePeriod(timeoutForPendingAssignments)</span>
+<span class="nc" id="L137">                        .assignmentStatus(IpAssignment.AssignmentStatus.Option_Requested)</span>
+<span class="nc" id="L138">                        .build();</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">                if (freeIPPool.remove(requestedIP)) {</span>
+<span class="nc" id="L140">                    allocationMap.put(hostId, assignmentInfo);</span>
+<span class="nc" id="L141">                    return requestedIP;</span>
+                }
+            }
+        }
+
+        // Allocate a new IP from the server's pool of available IP.
+<span class="nc" id="L147">        Ip4Address nextIPAddr = fetchNextIP();</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">        if (nextIPAddr != null) {</span>
+<span class="nc" id="L149">            assignmentInfo = IpAssignment.builder()</span>
+<span class="nc" id="L150">                    .ipAddress(nextIPAddr)</span>
+<span class="nc" id="L151">                    .timestamp(new Date())</span>
+<span class="nc" id="L152">                    .leasePeriod(timeoutForPendingAssignments)</span>
+<span class="nc" id="L153">                    .assignmentStatus(IpAssignment.AssignmentStatus.Option_Requested)</span>
+<span class="nc" id="L154">                    .build();</span>
+
+<span class="nc" id="L156">            allocationMap.put(hostId, assignmentInfo);</span>
+        }
+<span class="nc" id="L158">        return nextIPAddr;</span>
+
+    }
+
+    @Override
+    public boolean assignIP(HostId hostId, IpAssignment ipAssignment) {
+<span class="nc" id="L164">        log.trace(&quot;Assign IP Called HostId: {}, ipAssignment: {}&quot;,</span>
+                  hostId, ipAssignment);
+
+<span class="nc" id="L167">        IpAssignment newAssignment = null;</span>
+<span class="nc" id="L168">        Versioned&lt;IpAssignment&gt; versionedAssignment = allocationMap.get(hostId);</span>
+<span class="nc" id="L169">        Ip4Address requestedIp = ipAssignment.ipAddress();</span>
+
+<span class="nc bnc" id="L171" title="All 2 branches missed.">        if (versionedAssignment == null) {</span>
+            // this is new IP assignment of static mapping
+            // dynamic assignment is done in suggestIP
+<span class="nc bnc" id="L174" title="All 2 branches missed.">            if (ipAssignment.assignmentStatus().equals(Option_RangeNotEnforced)) {</span>
+<span class="nc" id="L175">                newAssignment = ipAssignment;</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">            } else if (freeIPPool.remove(requestedIp)) {</span>
+<span class="nc" id="L177">                newAssignment = IpAssignment.builder(ipAssignment)</span>
+<span class="nc" id="L178">                        .assignmentStatus(Option_Assigned)</span>
+<span class="nc" id="L179">                        .timestamp(new Date())</span>
+<span class="nc" id="L180">                        .build();</span>
+            } else {
+<span class="nc" id="L182">                log.trace(&quot;Failed to assign IP for {}&quot;, ipAssignment);</span>
+<span class="nc" id="L183">                return false;</span>
+            }
+<span class="nc" id="L185">            log.trace(&quot;Assigned {}&quot;, newAssignment);</span>
+<span class="nc bnc" id="L186" title="All 2 branches missed.">            return allocationMap.putIfAbsent(hostId, newAssignment) == null;</span>
+            // TODO: handle the case where map changed.
+        } else {
+            // this is lease renew or rebinding
+            // update assignment status and time stamp, and keep the others
+<span class="nc" id="L191">            IpAssignment existingAssignment = versionedAssignment.value();</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">            if (!existingAssignment.ipAddress().equals(requestedIp)) {</span>
+                // return false if existing assignment is not for the
+                // requested host
+<span class="nc" id="L195">                log.trace(&quot;Failed to assign IP for {}&quot;, ipAssignment);</span>
+<span class="nc" id="L196">                return false;</span>
+            }
+
+<span class="nc bnc" id="L199" title="All 4 branches missed.">            switch (existingAssignment.assignmentStatus()) {</span>
+                case Option_RangeNotEnforced:
+<span class="nc" id="L201">                    newAssignment = IpAssignment.builder(existingAssignment)</span>
+<span class="nc" id="L202">                            .timestamp(new Date())</span>
+<span class="nc" id="L203">                            .build();</span>
+<span class="nc" id="L204">                    break;</span>
+                case Option_Expired:
+<span class="nc bnc" id="L206" title="All 2 branches missed.">                    if (!freeIPPool.remove(requestedIp)) {</span>
+                        // requested IP is expired for this host and reserved to the other host
+<span class="nc" id="L208">                        return false;</span>
+                    }
+                case Option_Assigned:
+                case Option_Requested:
+<span class="nc" id="L212">                    newAssignment = IpAssignment.builder(existingAssignment)</span>
+<span class="nc" id="L213">                            .timestamp(new Date())</span>
+<span class="nc" id="L214">                            .assignmentStatus(Option_Assigned)</span>
+<span class="nc" id="L215">                            .build();</span>
+<span class="nc" id="L216">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc" id="L220">            log.trace(&quot;Assigned {}&quot;, newAssignment);</span>
+<span class="nc" id="L221">            return allocationMap.replace(hostId, versionedAssignment.version(), newAssignment);</span>
+        }
+    }
+
+    @Override
+    public Ip4Address releaseIP(HostId hostId) {
+<span class="nc bnc" id="L227" title="All 2 branches missed.">        if (allocationMap.containsKey(hostId)) {</span>
+            // If the IP has been assigned with Option_RangeNotEnforced,
+            // we do not release the IP address nor remove the host from HostService.
+            // Therefore, if the IP is assigned statically, the IP needs to be released statically.
+<span class="nc" id="L231">            Versioned&lt;IpAssignment&gt; assignmentVersioned = allocationMap.get(hostId);</span>
+<span class="nc bnc" id="L232" title="All 2 branches missed.">            if (Versioned.valueOrNull(assignmentVersioned) != null &amp;&amp;</span>
+<span class="nc bnc" id="L233" title="All 2 branches missed.">                    assignmentVersioned.value().assignmentStatus().equals(Option_RangeNotEnforced)) {</span>
+<span class="nc" id="L234">                return null;</span>
+            }
+
+<span class="nc" id="L237">            IpAssignment newAssignment = IpAssignment.builder(allocationMap.get(hostId).value())</span>
+<span class="nc" id="L238">                    .assignmentStatus(IpAssignment.AssignmentStatus.Option_Expired)</span>
+<span class="nc" id="L239">                    .build();</span>
+<span class="nc" id="L240">            Ip4Address freeIP = newAssignment.ipAddress();</span>
+<span class="nc" id="L241">            allocationMap.put(hostId, newAssignment);</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">            if (ipWithinRange(freeIP)) {</span>
+<span class="nc" id="L243">                freeIPPool.add(freeIP);</span>
+            }
+<span class="nc" id="L245">            return freeIP;</span>
+        }
+<span class="nc" id="L247">        return null;</span>
+    }
+
+    @Override
+    public void setDefaultTimeoutForPurge(int timeInSeconds) {
+<span class="nc" id="L252">        timeoutForPendingAssignments = timeInSeconds;</span>
+<span class="nc" id="L253">    }</span>
+
+    @Override
+    public Map&lt;HostId, IpAssignment&gt; listAssignedMapping() {
+
+<span class="nc" id="L258">        Map&lt;HostId, IpAssignment&gt; validMapping = new HashMap&lt;&gt;();</span>
+        IpAssignment assignment;
+<span class="nc bnc" id="L260" title="All 2 branches missed.">        for (Map.Entry&lt;HostId, Versioned&lt;IpAssignment&gt;&gt; entry: allocationMap.entrySet()) {</span>
+<span class="nc" id="L261">            assignment = entry.getValue().value();</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">            if (assignment.assignmentStatus() == Option_Assigned</span>
+<span class="nc bnc" id="L263" title="All 2 branches missed.">                    || assignment.assignmentStatus() == Option_RangeNotEnforced) {</span>
+<span class="nc" id="L264">                validMapping.put(entry.getKey(), assignment);</span>
+            }
+<span class="nc" id="L266">        }</span>
+<span class="nc" id="L267">        return validMapping;</span>
+    }
+
+    @Override
+    public Map&lt;HostId, IpAssignment&gt; listAllMapping() {
+<span class="nc" id="L272">        Map&lt;HostId, IpAssignment&gt; validMapping = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L273" title="All 2 branches missed.">        for (Map.Entry&lt;HostId, Versioned&lt;IpAssignment&gt;&gt; entry: allocationMap.entrySet()) {</span>
+<span class="nc" id="L274">            validMapping.put(entry.getKey(), entry.getValue().value());</span>
+<span class="nc" id="L275">        }</span>
+<span class="nc" id="L276">        return validMapping;</span>
+    }
+
+    @Override
+    public boolean assignStaticIP(MacAddress macAddress, IpAssignment ipAssignment) {
+<span class="nc" id="L281">        HostId host = HostId.hostId(macAddress);</span>
+<span class="nc" id="L282">        return assignIP(host, ipAssignment);</span>
+    }
+
+    @Override
+    public boolean removeStaticIP(MacAddress macID) {
+<span class="nc" id="L287">        HostId host = HostId.hostId(macID);</span>
+<span class="nc bnc" id="L288" title="All 2 branches missed.">        if (allocationMap.containsKey(host)) {</span>
+<span class="nc" id="L289">            IpAssignment assignment = allocationMap.get(host).value();</span>
+
+<span class="nc bnc" id="L291" title="All 2 branches missed.">            if (assignment.assignmentStatus().equals(Option_RangeNotEnforced)) {</span>
+<span class="nc" id="L292">                allocationMap.remove(host);</span>
+<span class="nc" id="L293">                return true;</span>
+            }
+
+<span class="nc" id="L296">            Ip4Address freeIP = assignment.ipAddress();</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">            if (assignment.leasePeriod() &lt; 0) {</span>
+<span class="nc" id="L298">                allocationMap.remove(host);</span>
+<span class="nc bnc" id="L299" title="All 2 branches missed.">                if (ipWithinRange(freeIP)) {</span>
+<span class="nc" id="L300">                    freeIPPool.add(freeIP);</span>
+                }
+<span class="nc" id="L302">                return true;</span>
+            }
+        }
+<span class="nc" id="L305">        return false;</span>
+    }
+
+    @Override
+    public Iterable&lt;Ip4Address&gt; getAvailableIPs() {
+<span class="nc" id="L310">        return ImmutableSet.copyOf(freeIPPool);</span>
+    }
+
+    @Override
+    public void populateIPPoolfromRange(Ip4Address startIP, Ip4Address endIP) {
+        // Clear all entries from previous range.
+<span class="nc" id="L316">        allocationMap.clear();</span>
+<span class="nc" id="L317">        freeIPPool.clear();</span>
+<span class="nc" id="L318">        startIPRange = startIP;</span>
+<span class="nc" id="L319">        endIPRange = endIP;</span>
+
+<span class="nc" id="L321">        int lastIP = endIP.toInt();</span>
+        Ip4Address nextIP;
+<span class="nc bnc" id="L323" title="All 2 branches missed.">        for (int loopCounter = startIP.toInt(); loopCounter &lt;= lastIP; loopCounter++) {</span>
+<span class="nc" id="L324">            nextIP = Ip4Address.valueOf(loopCounter);</span>
+<span class="nc" id="L325">            freeIPPool.add(nextIP);</span>
+        }
+<span class="nc" id="L327">        log.debug(&quot;Updated free IP pool {}:{} size:{}&quot;, startIP, endIP, freeIPPool.size());</span>
+<span class="nc" id="L328">    }</span>
+
+    @Override
+    public IpAssignment getIpAssignmentFromAllocationMap(HostId hostId) {
+<span class="nc bnc" id="L332" title="All 2 branches missed.">        if (allocationMap.get(hostId) != null) {</span>
+<span class="nc" id="L333">            return allocationMap.get(hostId).value();</span>
+        } else {
+<span class="nc" id="L335">            return null;</span>
+        }
+    }
+
+    /**
+     * Fetches the next available IP from the free pool pf IPs.
+     *
+     * @return the next available IP address
+     */
+    private Ip4Address fetchNextIP() {
+<span class="nc bnc" id="L345" title="All 2 branches missed.">        for (Ip4Address freeIP : freeIPPool) {</span>
+<span class="nc bnc" id="L346" title="All 2 branches missed.">            if (freeIPPool.remove(freeIP)) {</span>
+<span class="nc" id="L347">                return freeIP;</span>
+            }
+<span class="nc" id="L349">        }</span>
+<span class="nc" id="L350">        return null;</span>
+    }
+
+    /**
+     * Returns true if the given ip is within the range of available IPs.
+     *
+     * @param ip given ip address
+     * @return true if within range, false otherwise
+     */
+    private boolean ipWithinRange(Ip4Address ip) {
+<span class="nc bnc" id="L360" title="All 4 branches missed.">        if ((ip.toInt() &gt;= startIPRange.toInt()) &amp;&amp; (ip.toInt() &lt;= endIPRange.toInt())) {</span>
+<span class="nc" id="L361">            return true;</span>
+        }
+<span class="nc" id="L363">        return false;</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

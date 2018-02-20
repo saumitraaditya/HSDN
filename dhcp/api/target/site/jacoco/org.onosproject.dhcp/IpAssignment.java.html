@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IpAssignment.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">onos-app-dhcp-api</a> &gt; <a href="index.source.html" class="el_package">org.onosproject.dhcp</a> &gt; <span class="el_source">IpAssignment.java</span></div><h1>IpAssignment.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2015-present Open Networking Laboratory
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.onosproject.dhcp;
+
+import com.google.common.base.MoreObjects;
+import org.onlab.packet.Ip4Address;
+
+import java.util.Date;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+
+/**
+ * Stores the MAC ID to IP Address mapping details.
+ */
+public final class IpAssignment {
+
+    // TODO make some dhcp options optional
+    private final Ip4Address ipAddress;
+    private final Date timestamp;
+    private final long leasePeriod;
+    private final Ip4Address subnetMask;
+    private final Ip4Address broadcast;
+    private final Ip4Address dhcpServer;
+    private final Ip4Address routerAddress;
+    private final Ip4Address domainServer;
+    private final AssignmentStatus assignmentStatus;
+
+<span class="pc" id="L41">    public enum AssignmentStatus {</span>
+        /**
+         * IP has been requested by a host, but not assigned to it yet.
+         */
+<span class="fc" id="L45">        Option_Requested,</span>
+
+        /**
+         * Static IP Assignment with unregistered IP range.
+         * This assignment can only be added or removed by set or remove static mapping.
+         */
+        // TODO allow multiple IP ranges and remove this option
+<span class="fc" id="L52">        Option_RangeNotEnforced,</span>
+        /**
+         * IP has been assigned to a host.
+         */
+<span class="fc" id="L56">        Option_Assigned,</span>
+
+        /**
+         * IP mapping is no longer active.
+         */
+<span class="fc" id="L61">        Option_Expired</span>
+    }
+
+    /**
+     * Constructor for IPAssignment, where the ipAddress, the lease period, the timestamp
+     * and assignment status is supplied.
+     *
+     * @param ipAddress ip address to assign
+     * @param leasePeriod lease period
+     * @param timestamp time stamp of the assignment
+     * @param assignmentStatus statue of the assignment
+     * @param subnetMask subnet mask of assigned ip range
+     * @param broadcast broadcast address
+     * @param dhcpServer dhcp server address
+     * @param routerAddress router address
+     * @param domainServer domain server address
+     */
+    private IpAssignment(Ip4Address ipAddress,
+                         long leasePeriod,
+                         Date timestamp,
+                         AssignmentStatus assignmentStatus,
+                         Ip4Address subnetMask,
+                         Ip4Address broadcast,
+                         Ip4Address dhcpServer,
+                         Ip4Address routerAddress,
+<span class="fc" id="L86">                         Ip4Address domainServer) {</span>
+<span class="fc" id="L87">        this.ipAddress = ipAddress;</span>
+<span class="fc" id="L88">        this.leasePeriod = leasePeriod;</span>
+<span class="fc" id="L89">        this.timestamp = timestamp;</span>
+<span class="fc" id="L90">        this.assignmentStatus = assignmentStatus;</span>
+<span class="fc" id="L91">        this.subnetMask = subnetMask;</span>
+<span class="fc" id="L92">        this.broadcast = broadcast;</span>
+<span class="fc" id="L93">        this.dhcpServer = dhcpServer;</span>
+<span class="fc" id="L94">        this.routerAddress = routerAddress;</span>
+<span class="fc" id="L95">        this.domainServer = domainServer;</span>
+<span class="fc" id="L96">    }</span>
+
+    /**
+     * Returns the IP Address of the IP assignment.
+     *
+     * @return the IP address
+     */
+    public Ip4Address ipAddress() {
+<span class="fc" id="L104">        return this.ipAddress;</span>
+    }
+
+    /**
+     * Returns the timestamp of the IP assignment.
+     *
+     * @return the timestamp
+     */
+    public Date timestamp() {
+<span class="fc" id="L113">        return this.timestamp;</span>
+    }
+
+    /**
+     * Returns the assignment status of the IP assignment.
+     *
+     * @return the assignment status
+     */
+    public AssignmentStatus assignmentStatus() {
+<span class="fc" id="L122">        return this.assignmentStatus;</span>
+    }
+
+    /**
+     * Returns the lease period of the IP assignment.
+     *
+     * @return the lease period in seconds
+     */
+    public int leasePeriod() {
+<span class="fc" id="L131">        return (int) this.leasePeriod;</span>
+    }
+
+    /**
+     * Returns the lease period of the IP assignment.
+     *
+     * @return the lease period in milliseconds
+     */
+    public int leasePeriodMs() {
+<span class="nc" id="L140">        return (int) this.leasePeriod * 1000;</span>
+    }
+
+    /**
+     * Returns subnet mask of the IP assignment.
+     *
+     * @return subnet mask
+     */
+    public Ip4Address subnetMask() {
+<span class="fc" id="L149">        return subnetMask;</span>
+    }
+
+    /**
+     * Returns broadcast address of the IP assignment.
+     *
+     * @return broadcast address
+     */
+    public Ip4Address broadcast() {
+<span class="fc" id="L158">        return broadcast;</span>
+    }
+
+    /**
+     * Returns dhcp server of the IP assignment.
+     *
+     * @return dhcp server ip address
+     */
+    public Ip4Address dhcpServer() {
+<span class="fc" id="L167">        return dhcpServer;</span>
+    }
+
+    /**
+     * Returns router address of the IP assignment.
+     *
+     * @return router ip address
+     */
+    public Ip4Address routerAddress() {
+<span class="fc" id="L176">        return routerAddress;</span>
+    }
+
+    /**
+     * Returns domain server address.
+     *
+     * @return domain server ip address
+     */
+    public Ip4Address domainServer() {
+<span class="fc" id="L185">        return domainServer;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L190">        return MoreObjects.toStringHelper(getClass())</span>
+<span class="fc" id="L191">                .add(&quot;ip&quot;, ipAddress)</span>
+<span class="fc" id="L192">                .add(&quot;timestamp&quot;, timestamp)</span>
+<span class="fc" id="L193">                .add(&quot;lease&quot;, leasePeriod)</span>
+<span class="fc" id="L194">                .add(&quot;assignmentStatus&quot;, assignmentStatus)</span>
+<span class="fc" id="L195">                .add(&quot;subnetMask&quot;, subnetMask)</span>
+<span class="fc" id="L196">                .add(&quot;broadcast&quot;, broadcast)</span>
+<span class="fc" id="L197">                .add(&quot;dhcpServer&quot;, dhcpServer)</span>
+<span class="fc" id="L198">                .add(&quot;routerAddress&quot;, routerAddress)</span>
+<span class="fc" id="L199">                .add(&quot;domainServer&quot;, domainServer)</span>
+<span class="fc" id="L200">                .toString();</span>
+    }
+
+    /**
+     * Creates and returns a new builder instance.
+     *
+     * @return new builder
+     */
+    public static Builder builder() {
+<span class="fc" id="L209">        return new Builder();</span>
+    }
+
+    /**
+     * Creates and returns a new builder instance that clones an existing IPAssignment.
+     *
+     * @param assignment ip address assignment
+     * @return new builder
+     */
+    public static Builder builder(IpAssignment assignment) {
+<span class="fc" id="L219">        return new Builder(assignment);</span>
+    }
+
+    /**
+     * IPAssignment Builder.
+     */
+    public static final class Builder {
+
+        private Ip4Address ipAddress;
+        private Date timeStamp;
+        private long leasePeriod;
+        private AssignmentStatus assignmentStatus;
+        private Ip4Address subnetMask;
+        private Ip4Address broadcast;
+        private Ip4Address dhcpServer;
+        private Ip4Address routerAddress;
+        private Ip4Address domainServer;
+
+<span class="fc" id="L237">        private Builder() {</span>
+<span class="fc" id="L238">        }</span>
+
+<span class="fc" id="L240">        private Builder(IpAssignment ipAssignment) {</span>
+<span class="fc" id="L241">            ipAddress = ipAssignment.ipAddress();</span>
+<span class="fc" id="L242">            timeStamp = ipAssignment.timestamp();</span>
+<span class="fc" id="L243">            leasePeriod = ipAssignment.leasePeriod();</span>
+<span class="fc" id="L244">            assignmentStatus = ipAssignment.assignmentStatus();</span>
+<span class="fc" id="L245">            subnetMask = ipAssignment.subnetMask();</span>
+<span class="fc" id="L246">            broadcast = ipAssignment.broadcast();</span>
+<span class="fc" id="L247">            dhcpServer = ipAssignment.dhcpServer();</span>
+<span class="fc" id="L248">            routerAddress = ipAssignment.routerAddress();</span>
+<span class="fc" id="L249">            domainServer = ipAssignment.domainServer();</span>
+<span class="fc" id="L250">        }</span>
+
+        public IpAssignment build() {
+<span class="fc" id="L253">            validateInputs();</span>
+<span class="fc" id="L254">            return new IpAssignment(ipAddress,</span>
+                                    leasePeriod,
+                                    timeStamp,
+                                    assignmentStatus,
+                                    subnetMask,
+                                    broadcast,
+                                    dhcpServer,
+                                    routerAddress,
+                                    domainServer);
+        }
+
+        public Builder ipAddress(Ip4Address addr) {
+<span class="fc" id="L266">            ipAddress = addr;</span>
+<span class="fc" id="L267">            return this;</span>
+        }
+
+        public Builder timestamp(Date timestamp) {
+<span class="fc" id="L271">            timeStamp = timestamp;</span>
+<span class="fc" id="L272">            return this;</span>
+        }
+
+        public Builder leasePeriod(int leasePeriodinSeconds) {
+<span class="fc" id="L276">            leasePeriod = leasePeriodinSeconds;</span>
+<span class="fc" id="L277">            return this;</span>
+        }
+
+        public Builder assignmentStatus(AssignmentStatus status) {
+<span class="fc" id="L281">            assignmentStatus = status;</span>
+<span class="fc" id="L282">            return this;</span>
+        }
+
+        public Builder subnetMask(Ip4Address subnetMask) {
+<span class="nc" id="L286">            this.subnetMask = subnetMask;</span>
+<span class="nc" id="L287">            return this;</span>
+        }
+
+        public Builder broadcast(Ip4Address broadcast) {
+<span class="nc" id="L291">            this.broadcast = broadcast;</span>
+<span class="nc" id="L292">            return this;</span>
+        }
+
+        public Builder dhcpServer(Ip4Address dhcpServer) {
+<span class="nc" id="L296">            this.dhcpServer = dhcpServer;</span>
+<span class="nc" id="L297">            return this;</span>
+        }
+
+        public Builder domainServer(Ip4Address domainServer) {
+<span class="nc" id="L301">            this.domainServer = domainServer;</span>
+<span class="nc" id="L302">            return this;</span>
+        }
+
+        public Builder routerAddress(Ip4Address routerAddress) {
+<span class="nc" id="L306">            this.routerAddress = routerAddress;</span>
+<span class="nc" id="L307">            return this;</span>
+        }
+
+        private void validateInputs() {
+<span class="fc" id="L311">            checkNotNull(ipAddress, &quot;IP Address must be specified&quot;);</span>
+<span class="fc" id="L312">            checkNotNull(assignmentStatus, &quot;Assignment Status must be specified&quot;);</span>
+<span class="fc" id="L313">            checkNotNull(leasePeriod, &quot;Lease Period must be specified&quot;);</span>
+<span class="fc" id="L314">            checkNotNull(timeStamp, &quot;Timestamp must be specified&quot;);</span>
+
+<span class="pc bpc" id="L316" title="1 of 2 branches missed.">            switch (assignmentStatus) {</span>
+                case Option_Requested:
+                case Option_RangeNotEnforced:
+                case Option_Assigned:
+                case Option_Expired:
+<span class="fc" id="L321">                    break;</span>
+                default:
+<span class="nc" id="L323">                    throw new IllegalStateException(&quot;Unknown assignment status&quot;);</span>
+            }
+<span class="fc" id="L325">        }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
