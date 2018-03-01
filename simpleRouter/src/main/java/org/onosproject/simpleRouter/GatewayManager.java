@@ -231,12 +231,19 @@ public class GatewayManager implements gatewayService{
 
                 MacAddress dst_mac = ip4_to_MacAndPort.containsKey(dst_add)?ip4_to_MacAndPort.get(dst_add).MAC:null;
                 if (dst_mac == null) {
-                    log.error("MAC learnt for " + dst_add.toString() + " is NULL!!");
-                    sendArpRequest(cp,dst_add.toString());
+                    // Try DHCP service before sending a ARP request out.
+                     dst_mac = dhcpService.getMacAddress(dst_add);
+                     if (dst_mac == null)
+                     {
+                         log.error("MAC learnt for " + dst_add.toString() + " is NULL!!");
+                         sendArpRequest(cp,dst_add.toString());
+                     }
                 }
                 PortNumber dst_port = ip4_to_MacAndPort.containsKey(dst_add)?ip4_to_MacAndPort.get(dst_add).PORT:null;
                 if (dst_port == null)
-                    log.error("PORT learnt for "+dst_add.toString()+" is NULL");
+                    dst_port = dhcpService.getPortNumber(dst_add);
+                    if (dst_port == null)
+                        log.error("PORT learnt for "+dst_add.toString()+" is NULL");
 
                 if (dst_mac != null && dst_port!= null && dst_src.containsKey(dst_add)) {
                     TrafficSelector selector = DefaultTrafficSelector.builder()

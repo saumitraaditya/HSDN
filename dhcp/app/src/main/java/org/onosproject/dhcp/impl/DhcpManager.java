@@ -778,7 +778,7 @@ public class DhcpManager implements DhcpService {
 
         @Override
         public void run() {
-            IpAssignment ipAssignment;
+            /*IpAssignment ipAssignment;
             Date dateNow = new Date();
 
             Map<HostId, IpAssignment> ipAssignmentMap = dhcpStore.listAllMapping();
@@ -796,6 +796,7 @@ public class DhcpManager implements DhcpService {
                 }
             }
             timeout = SharedScheduledExecutors.newTimeout(new PurgeListTask(), timerDelay, TimeUnit.MINUTES);
+            */
         }
     }
 }
