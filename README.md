@@ -1,2 +1,2 @@
-# HSDN
-Hybrid SDN-Social network application
+# PerSoNet
+PerSoNet is a SDN based overlay network management layer.
