@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="true" immediate="true" name="org.onosproject.osnBridge.osnBridgeManager" activate="activate" deactivate="deactivate">
+    <implementation class="org.onosproject.osnBridge.osnBridgeManager"/>
+    <property name="service.pid" value="org.onosproject.osnBridge.osnBridgeManager"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="GatewayService" interface="org.onosproject.socialGateway.gatewayService" cardinality="1..1" policy="static" bind="bindGatewayService" unbind="unbindGatewayService"/>
+</scr:component>
