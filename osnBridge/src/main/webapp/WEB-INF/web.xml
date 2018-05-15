@@ -45,7 +45,7 @@
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>org.onosproject.xmpp_application.rest.RestApp</param-value>
+            <param-value>org.onosproject.osnBridge.rest.osnBridgeRest</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

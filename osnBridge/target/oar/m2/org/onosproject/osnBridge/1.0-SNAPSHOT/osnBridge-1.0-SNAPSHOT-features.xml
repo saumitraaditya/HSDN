@@ -16,7 +16,7 @@
   -->
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="osnBridge-1.0-SNAPSHOT">
     <feature name="osnBridge" version="1.0-SNAPSHOT"
-             description="app handles osn communication">
+             description="ONOS OSGi bundle archetype.">
         <feature>onos-api</feature>
         <bundle>mvn:org.onosproject/osnBridge/1.0-SNAPSHOT</bundle>
         <bundle>mvn:org.igniterealtime.smack/smack-java7/4.2.1</bundle>

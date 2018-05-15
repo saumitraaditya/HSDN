@@ -18,7 +18,7 @@
      category="OSN Communication" url="http://onosproject.org" title="osnBridge"
      featuresRepo="mvn:org.onosproject/osnBridge/1.0-SNAPSHOT/xml/features"
      features="osnBridge">
-    <description>app handles osn communication</description>
+    <description>ONOS OSGi bundle archetype.</description>
     <artifact>mvn:org.onosproject/osnBridge/1.0-SNAPSHOT</artifact>
     <!--
     <artifact>mvn:org.onosproject/xmpp_app/1.0-SNAPSHOT</artifact>

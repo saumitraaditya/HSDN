@@ -17,21 +17,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-
-    <packaging>bundle</packaging>
-    <description> app handles osn communication </description>
-    <properties>
-        <onos.version>1.11.0-SNAPSHOT</onos.version>
-    </properties>
-
     <groupId>org.onosproject</groupId>
     <artifactId>osnBridge</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>bundle</packaging>
 
-
-    <url>http://onosproject.org</url>
-
-
+    <description> app handles osn communication </description>
+    <properties>
+        <onos.version>1.11.0-SNAPSHOT</onos.version>
+        <onos.app.name>org.onosproject.osnBridge</onos.app.name>
+        <web.context>/onos/osnBridge</web.context>
+        <onos.app.title>osnBridge</onos.app.title>
+        <onos.app.origin>PerSoNet, Inc.</onos.app.origin>
+        <onos.app.url>http://onosproject.org</onos.app.url>
+        <onos.app.category>default</onos.app.category>
+        <onos.app.readme>ONOS OSGi bundle archetype.</onos.app.readme>
+    </properties>
 
 
     <dependencies>
@@ -70,6 +71,28 @@
             <version>1.9.12</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.onosproject</groupId>
+            <artifactId>onos-rest</artifactId>
+            <version>${onos.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.onosproject</groupId>
+            <artifactId>onlab-rest</artifactId>
+            <version>${onos.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.onosproject</groupId>
+            <artifactId>onos-api</artifactId>
+            <version>${onos.version}</version>
+            <scope>test</scope>
+            <classifier>tests</classifier>
+        </dependency>
           
         <dependency>
             <groupId>org.onosproject</groupId>
@@ -95,6 +118,12 @@
             <artifactId>jersey-container-servlet</artifactId>
             <version>2.25.1</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0.1</version>
         </dependency>
 
         <dependency>
@@ -159,6 +188,22 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <version>3.0.1</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <_wab>src/main/webapp/</_wab>
+                        <!--<Include-Resource>-->
+                            <!--WEB-INF/classes/apidoc/swagger.json=target/swagger.json,-->
+                            <!--{maven-resources}-->
+                        <!--</Include-Resource>-->
+                        <Bundle-SymbolicName>
+                            ${project.groupId}.${project.artifactId}
+                        </Bundle-SymbolicName>
+                        <Import-Package>
+                            *,org.glassfish.jersey.servlet
+                        </Import-Package>
+                        <Web-ContextPath>${web.context}</Web-ContextPath>
+                    </instructions>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

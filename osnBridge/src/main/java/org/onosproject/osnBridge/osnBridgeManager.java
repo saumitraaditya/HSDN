@@ -39,6 +39,10 @@
         import org.onosproject.core.CoreService;
 
 
+        import org.onosproject.net.config.*;
+        import org.onosproject.net.config.basics.SubjectFactories;
+        import org.onosproject.net.device.DeviceAdminService;
+        import org.onosproject.net.driver.DriverService;
         import org.onosproject.socialGateway.gatewayService;
         import org.slf4j.Logger;
         import org.slf4j.LoggerFactory;
@@ -99,6 +103,7 @@ public class osnBridgeManager implements osnBridgeService{
     StanzaListener listener;
 
 
+
     @Reference(cardinality=ReferenceCardinality.MANDATORY_UNARY)
     protected CoreService coreService;
 
@@ -106,13 +111,74 @@ public class osnBridgeManager implements osnBridgeService{
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected gatewayService GatewayService;
 
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected NetworkConfigRegistry configRegistry;
+
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected NetworkConfigService configService;
+
+
     private Thread thread;
     private volatile boolean xmpp_active = false;
+    private osnBridgeConfig.socialGatewayNode socialInfo;
+
+    private final ExecutorService eventExecutor = newSingleThreadExecutor(groupedThreads("onos/osnBridge",
+            "event_handler",log));
+
+    private final NetworkConfigListener configListener= new InternalConfigListener();
+
+    private class InternalConfigListener implements NetworkConfigListener
+    {
+        @Override
+        public void event (NetworkConfigEvent nevent)
+        {
+            if (!nevent.configClass().equals(osnBridgeConfig.class))
+            {
+                return;
+            }
+            switch(nevent.type())
+            {
+                case CONFIG_ADDED:
+                case CONFIG_UPDATED:
+                    eventExecutor.execute(osnBridgeManager.this::readConfiguration);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+    }
+
+    private final ConfigFactory configFactory = new ConfigFactory(SubjectFactories.APP_SUBJECT_FACTORY,osnBridgeConfig.class,
+            "osnBridge_service") {
+        @Override
+        public osnBridgeConfig createConfig() {
+            return new osnBridgeConfig();
+        }
+    };
+
+    private void readConfiguration()
+    {
+        if (this.appId == null)
+            log.debug("Null app ID");
+        osnBridgeConfig config = configRegistry.getConfig(this.appId,osnBridgeConfig.class);
+        if (config == null)
+        {
+            log.error("No configuration found.");
+            return;
+        }
+        this.socialInfo = config.getConfig();
+        log.info("Loaded social coniguration is as follows:+\n"+socialInfo.displayConfig());
+        thread = new Thread(new xmpp_initializer());
+        thread.start();
+    }
 
     @Activate
     public void activate() {
         log.info("XmppAgent started");
-        appId = coreService.getAppId("org.onosproject.osnBridgeManager");
+        appId = coreService.getAppId("org.onosproject.osnBridge");
+        configService.addListener(configListener);
+        configRegistry.registerConfigFactory(configFactory);
 //        try
 //        {
 //            initialize_xmpp();
@@ -121,8 +187,8 @@ public class osnBridgeManager implements osnBridgeService{
 //        {
 //            log.info(e.toString());
 //        }
-        thread = new Thread(new xmpp_initializer());
-        thread.start();
+//        thread = new Thread(new xmpp_initializer());
+//        thread.start();
 
 
     }
@@ -130,6 +196,9 @@ public class osnBridgeManager implements osnBridgeService{
     @Deactivate
     public void deactivate() {
         xmpp_active = false;
+        configService.removeListener(configListener);
+        configRegistry.unregisterConfigFactory(configFactory);
+        eventExecutor.shutdown();
     }
 
     public void send(String to, String setup, String query, String response, String tag)
@@ -239,8 +308,8 @@ public class osnBridgeManager implements osnBridgeService{
     private void initialize_xmpp() throws SmackException, IOException, XMPPException, InterruptedException
     {
         config = XMPPTCPConnectionConfiguration.builder()
-                .setUsernameAndPassword("bob_gnv_gw@xmpp.ipop-project.org", "ipop_bob_gw")
-                .setXmppDomain("xmpp.ipop-project.org")
+                .setUsernameAndPassword(this.socialInfo.CLOSocialId, this.socialInfo.CLOSocialPassword)
+                .setXmppDomain(this.socialInfo.CLOSocialServer)
                 .setPort(5222)
                 .setSecurityMode(ConnectionConfiguration.SecurityMode.disabled)
                 .addEnabledSaslMechanism("PLAIN")
