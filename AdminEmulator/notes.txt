@@ -1,0 +1,19 @@
+1. implement broadcast on the social layer.
+2. implemented has to be tested.
+
+
+steps in implementing a task environment:
+1. initiator sends a resource solicitation request.
+2. peers respond with a solicitation response.
+3. initiator compiles all that information into an in-memory graph
+4. network policy template: how to figure out instructions for setting up a  network from this compiled information.
+5. simple policy:
+a. 3 layer hierarchial network.
+b. lowest layer are the leaf nodes comprised only of camera nodes.
+c. then we have compute nodes, for this policy we have only one root node aggregator.
+d. evenly distribute workload between layer 2 compute nodes, simple policy divide the number of available camera nodes
+by the number of compute nodes in layer 2, then connect them evenly .
+
+
+side idea: can I generate a class from a json configuration file and override methods to implement behavior.
+

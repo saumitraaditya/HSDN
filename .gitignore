@@ -2,4 +2,4 @@
 *.class
 *.jar
 *.oar
-
+AdminEmulator/venv/*
