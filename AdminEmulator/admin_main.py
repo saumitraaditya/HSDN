@@ -1,10 +1,11 @@
 # generic imports
 import threading
 import time
-import sys, random, json, pprint
+import sys, random, json, pprint, asyncio
 from Utilities import *
 from Task import Task
 import argparse
+import traceback, queue
 
 
 # sleekxmpp specific imports
@@ -45,14 +46,14 @@ class SocialAgent(sleekxmpp.ClientXMPP):
 
         # resource_file, is a dict that keeps track of my local resources.
         self.resources = {}
-        self.get_my_resources()
         self._task = None
+        self.broadcast_queue = queue.Queue()
 
     def handle_presence(self, presence):
         print ("presence received from {} to {} with status {}".format(presence['from'], presence['to'],
                                                                        presence['status']))
         # pprint(self.client_roster['jude_gw@xmpp.ipop-project.org']['subscription'])
-        # self.broadcast_request()
+        self.broadcast_request()
 
     def xmpp_handler(self):
         try:
@@ -66,12 +67,18 @@ class SocialAgent(sleekxmpp.ClientXMPP):
         self.send_presence()
         self.add_event_handler("presence_available", self.handle_presence)
 
-    def broadcast_request(self, arg_dict):
-        for friend in self.client_roster.keys():
-            if (self.client_roster[friend]['subscription']=='both'):
-                self.send_remote(setup=arg_dict["setup"], msg_type=arg_dict["msg_type"],\
-                          payload=arg_dict["payload"], sendto=friend)
-                print("sent {} to {}".format(arg_dict["setup"],friend))
+    def  broadcast_request(self, arg_dict=None):
+        print(self.roster.keys())
+        if (self.broadcast_queue.empty()):
+            return
+        else:
+            arg_dict = self.broadcast_queue.get()
+            self._task = Task(json.loads(arg_dict["payload"]))
+            for friend in self.client_roster.keys():
+                if (self.client_roster[friend]['subscription']=='both'):
+                    self.send_remote(setup=arg_dict["setup"], msg_type=arg_dict["msg_type"],\
+                              payload=arg_dict["payload"], sendto=friend)
+                    print("sent {} to {}".format(arg_dict["setup"],friend))
 
     def MSGListener(self, msg):
         setup = msg['remote']['setup']
@@ -87,8 +94,10 @@ class SocialAgent(sleekxmpp.ClientXMPP):
             for device_type in solicited_device_types:
                 if (device_type in self.resources and len(self.resources[device_type])!=0):
                     print ("device of type {} is available.".format(device_type))
+                    response = self.resources[device_type][0]
+                    response['info']['social_gw'] = self.xmpp_id
                     self.send_remote(setup="solicitation_response", msg_type="device_volunteer",\
-                                     payload=json.dumps(self.resources[device_type][0]),sendto=task_initiator)
+                                     payload=json.dumps(response),sendto=task_initiator)
 
         elif (setup=="solicitation_response"):
             response = json.loads(payload)
@@ -109,15 +118,18 @@ class SocialAgent(sleekxmpp.ClientXMPP):
 
 
 
-
     def initiate_task(self, file_path):
         template = loadJsonFile(path=file_path)
-        self._task = Task(template)
-        self._task.description["initiator"] = self.xmpp_id
+        task = Task(template)
+        task.description["initiator"] = self.xmpp_id
         # self.send_remote(setup="resource_solicitation", msg_type="task_template",\
         #                  payload=json.dumps(template),sendto="janice_gw@xmpp.ipop-project.org")
-        self.broadcast_request(dict(setup="resource_solicitation", msg_type="task_template",\
-                         payload=json.dumps(template)))
+        print (task)
+        payload = dict(setup="resource_solicitation", msg_type="task_template",\
+                         payload=json.dumps(template))
+        self.broadcast_queue.put(payload)
+        # self.broadcast_request(dict(setup="resource_solicitation", msg_type="task_template",\
+        #                  payload=json.dumps(template)))
 
     def send_remote(self, setup: object, msg_type: object, payload: object, sendto: object = None) -> object:
         print("received payload is {}".format(payload))
@@ -133,8 +145,8 @@ class SocialAgent(sleekxmpp.ClientXMPP):
     '''This method will eventually get all the resources on 
     the PLO that this admin component is responsible for, in the final version
     this could be done by sending messages over the social network.'''
-    def get_my_resources(self):
-        resources = loadJsonFile(path="static_resources.json")
+    def get_my_resources(self, filename):
+        resources = loadJsonFile(path=filename)
         for device_name in resources:
             device_type = resources[device_name]["device_type"]
             if  device_type not in self.resources:
@@ -178,11 +190,11 @@ if __name__ == '__main__':
     # agent.send_remote("d1_bob_gnv@xmpp.ipop-project.org")
     # loadTemplate(path="./template-one.json")
     parser = argparse.ArgumentParser()
-    parser.add_argument("-s","--social","social account login information file path")
-    parser.add_argument("-r","--resources","static resource information file path")
-    parser.add_argument("-t","--task", "task_description file path")
+    parser.add_argument("-s", dest="social", help="social account login information file path")
+    parser.add_argument("-r", dest="resources", help="static resource information file path")
+    parser.add_argument("-t", dest="task", help="task_description file path")
     args = parser.parse_args()
-    if (args.social == None or args.resources == None or args.task_description == None):
+    if (args.social == None or args.resources == None):
         print("social or resource file not found, please check the path.")
         exit()
     else:
@@ -191,9 +203,11 @@ if __name__ == '__main__':
             config = loadJsonFile(path=file_path)
             agent = SocialAgent(config["username"], config["password"], config["server"])
             agent.get_my_resources(args.resources)
-            agent.initiate_task(args.task_description)
-        except:
+            if (args.task != None):
+                agent.initiate_task(args.task)
+        except Exception as e:
             print("could not parse configuration file, please make sure its valid")
+            print (traceback.format_exc())
             exit()
 
 

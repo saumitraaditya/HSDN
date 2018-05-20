@@ -1,7 +1,7 @@
 {
 	"task": "locate missing cat",
 	"initiator": null,
-	"devices_needed": ["camera", "linux compute"],
+	"devices_needed": ["camera", "linux_computes"],
 	"location_area": "Bogdonoff drive, Seffner, Fl",
 	"camera":[],
 	"linux_computes":[]

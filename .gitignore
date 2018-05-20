@@ -3,3 +3,4 @@
 *.jar
 *.oar
 AdminEmulator/venv/*
+AdminEmulator/configs/*
