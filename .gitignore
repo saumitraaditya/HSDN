@@ -4,3 +4,4 @@
 *.oar
 AdminEmulator/venv/*
 AdminEmulator/configs/*
+AdminEmulator/ipop-configs/*
