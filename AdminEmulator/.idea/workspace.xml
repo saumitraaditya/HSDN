@@ -9,28 +9,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="admin_main.py" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/admin_main.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1230">
-                    <caret line="142" column="18" lean-forward="true" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
-                    <folding>
-                      <element signature="e#18#34#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.53637564">
       <split-first>
@@ -38,7 +16,7 @@
           <file leaf-file-name="admin_main.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/admin_main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1305">
+                <state relative-caret-position="1260">
                   <caret line="99" column="64" selection-start-line="99" selection-start-column="64" selection-end-line="99" selection-end-column="64" />
                   <folding>
                     <element signature="e#18#34#0" expanded="true" />
@@ -47,11 +25,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Graph.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Graph.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Graph.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="373">
-                  <caret line="31" column="43" lean-forward="true" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+                <state relative-caret-position="465">
+                  <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
                   <folding>
                     <element signature="e#58#81#0" expanded="true" />
                   </folding>
@@ -62,7 +40,7 @@
           <file leaf-file-name="LayeredPolicy.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/LayeredPolicy.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="705">
+                <state relative-caret-position="1005">
                   <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
@@ -83,11 +61,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="setUpTests.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="setUpTests.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/setUpTests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="975">
-                  <caret line="68" column="4" selection-start-line="68" selection-start-column="4" selection-end-line="68" selection-end-column="4" />
+                <state relative-caret-position="329">
+                  <caret line="59" column="96" selection-start-line="59" selection-start-column="96" selection-end-line="59" selection-end-column="96" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
                   </folding>
@@ -183,12 +161,13 @@
         <option value="$PROJECT_DIR$/setUpNetwork.py" />
         <option value="$PROJECT_DIR$/social_template.json" />
         <option value="$PROJECT_DIR$/resources_factory_template.json" />
-        <option value="$PROJECT_DIR$/setUpTests.py" />
         <option value="$PROJECT_DIR$/template-one.json" />
         <option value="$PROJECT_DIR$/static_resources.json" />
         <option value="$PROJECT_DIR$/admin_main.py" />
         <option value="$PROJECT_DIR$/Graph.py" />
         <option value="$PROJECT_DIR$/LayeredPolicy.py" />
+        <option value="$PROJECT_DIR$/generate_ipop_configs.py" />
+        <option value="$PROJECT_DIR$/setUpTests.py" />
       </list>
     </option>
   </component>
@@ -203,7 +182,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -215,6 +193,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -233,7 +212,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.LayeredPolicy">
+  <component name="RunManager" selected="Python.setUpTests">
     <configuration name="LayeredPolicy" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AdminEmulator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -319,7 +298,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/setUpTests.py" />
-      <option name="PARAMETERS" value="-s social_template.json -r resources_factory_template.json" />
+      <option name="PARAMETERS" value="-i ipop-config.json" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -333,8 +312,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.LayeredPolicy" />
         <item itemvalue="Python.setUpTests" />
+        <item itemvalue="Python.LayeredPolicy" />
         <item itemvalue="Python.setUpNetwork" />
         <item itemvalue="Python.admin_main_1" />
         <item itemvalue="Python.admin_main" />
@@ -355,13 +334,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17088948" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17088948" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36605316" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36605316" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -370,11 +349,11 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32924336" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -386,13 +365,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static_resources.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template-one.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -701,16 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setUpTests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="68" column="4" selection-start-line="68" selection-start-column="4" selection-end-line="68" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utilities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -742,26 +704,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static_resources.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="99" column="64" selection-start-line="99" selection-start-column="64" selection-end-line="99" selection-end-column="64" />
-          <folding>
-            <element signature="e#18#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LayeredPolicy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
+        <state relative-caret-position="1005">
           <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -769,12 +714,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="99" column="64" selection-start-line="99" selection-start-column="64" selection-end-line="99" selection-end-column="64" />
+          <folding>
+            <element signature="e#18#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Graph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="31" column="43" lean-forward="true" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+        <state relative-caret-position="465">
+          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
           <folding>
             <element signature="e#58#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generate_ipop_configs.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static_resources.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setUpTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="59" column="96" selection-start-line="59" selection-start-column="96" selection-end-line="59" selection-end-column="96" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>

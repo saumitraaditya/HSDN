@@ -29,6 +29,39 @@ class configurationFactory():
         else:
             print("check template json file paths, could not find a valid path.")
 
+    ''' generate ipop configuration files using the given base user name'''
+    def __init__(self, ipop_base_file_path, base_username = None, num_configs = None):
+        if (Path(ipop_base_file_path).exists() and base_username != None and num_configs != None):
+            with open(ipop_base_file_path) as ipop_template:
+                try:
+                    self.ipop_template = json.load(ipop_template)
+                except:
+                    print("malformed json file {}".format(ipop_template))
+                    exit()
+            self.config_dir = Path(Path.cwd(),'ipop-configs')
+            if (not self.config_dir.exists()):
+                self.config_dir.mkdir()
+            self.create_ipop_config(base_username, num_configs)
+        else:
+            print("check template json file paths, could not find a valid path.")
+
+
+    def create_ipop_config(self, base_username, num_configs, bridge_name = "ipopbr0", base_ip = "10.10.10.100"):
+        overlay = self.ipop_template["CFx"]["Overlays"][0]
+        domain_name = self.ipop_template["Signal"]["Overlays"][overlay]["HostAddress"]
+        self.ipop_template["BridgeController"]["Overlays"][overlay]["BridgeName"] = bridge_name
+        ip = base_ip.split(".")
+        last_octet = int(ip[3])
+        base_ip = ""
+        for octet in ip[0:-1]:
+            base_ip += octet+"."
+        for i in range(num_configs):
+            user = base_username+str(i)
+            self.ipop_template["Signal"]["Overlays"][overlay]["Username"] = user+"@"+domain_name
+            self.ipop_template["Signal"]["Overlays"][overlay]["Password"] = user
+            self.ipop_template["BridgeController"]["Overlays"][overlay]["IP4"] = base_ip + str(last_octet+i)
+            self.generate_json( self.ipop_template, file_name = "ipop_config_"+str(i)+".json")
+
 
     '''will create social account configuration files.'''
     def create_social_config(self):
@@ -63,7 +96,11 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", dest="social", help="social account template")
     parser.add_argument("-r", dest="resources", help="static resource template")
+    parser.add_argument("-i", dest="ipop", help="ipop base configuration")
     args = parser.parse_args()
-    cf = configurationFactory(args.social, args.resources)
-    cf.create_social_config()
-    cf.create_static_resources()
+    if (args.social != None  and args.resources != None):
+        cf = configurationFactory(args.social, args.resources)
+        cf.create_social_config()
+        cf.create_static_resources()
+    elif (args.ipop != None):
+        cf = configurationFactory(args.ipop, base_username="perso_", num_configs=5)
