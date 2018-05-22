@@ -251,15 +251,18 @@ public class osnBridgeManager implements osnBridgeService{
             case "QUERY":
                 tag_sender.putIfAbsent(tag,orig_sender);
                 //send(orig_sender,"RESP",query,"127.0.0.1",tag);
-                send(admin+"_gnv_gw@xmpp.ipop-project.org","QUERY_IC",query,response,tag);
+                send(admin+"@"+this.socialInfo.CLOSocialServer,"QUERY_IC",query,response,tag);
                 break;
             case "RESP":
                 break;
             case "QUERY_IC":
                 /* need to do a name query to check availability and to get back IP address of the device*/
                 tag_sender.putIfAbsent(tag,orig_sender);
+                /*
+                not going to use dname to route queries, in new design only one inner social id for all devices
                 String dname = query.split("\\.")[0];
-                send(dname+"@xmpp.ipop-project.org","NAME_QUERY",query,response,tag);
+                */
+                send(this.socialInfo.PLOSocialId,"NAME_QUERY",query,response,tag);
                 //GatewayService.allow_access(4,"10.10.10.100"); // hardcoded for now.
                 //send(orig_sender,"RESP_IC",query,"10.10.10.100",tag);
                 break;
