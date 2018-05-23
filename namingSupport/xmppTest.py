@@ -1,4 +1,3 @@
-import thread
 import threading
 import time
 import sys, random

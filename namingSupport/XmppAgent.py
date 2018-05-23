@@ -80,10 +80,11 @@ class XmppAgent(sleekxmpp.ClientXMPP):
                 q_record[1].set()
                 print ("At agent event {} is {}".format(q_record[1],q_record[1].isSet()))
         elif (setup == "NAME_QUERY"):
-            print ("received name query for {}".format(query))
-            if (query.split(".")[0]==self.device_name):
-                ip_address = self.get_ip()
-                self.send_name_query_response(query, response, tag, self.controller)
+            d_name = query.split(".")[0]
+            print ("received name query for {}, dev name is {}".format(d_name,self.device_name))
+            if (d_name == self.device_name):
+                ip_address = self.get_ip(d_name)
+                self.send_name_query_response(query, ip_address, tag, self.controller)
 
     def send_query(self, qname, event_item=None):
         self.pending_queries[qname]=[qname, event_item, None]
@@ -104,7 +105,7 @@ class XmppAgent(sleekxmpp.ClientXMPP):
         msg['DNS']['query'] = qname
         msg['DNS']['resp'] = "127.0.0.1"
         msg.send()
-        
+
     def send_name_query_response(self, name_query, response, tag, sendto):
         msg = self.Message()
         msg['to'] = sendto
