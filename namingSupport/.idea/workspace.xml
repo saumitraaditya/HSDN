@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="XmppAgent.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XmppAgent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/XmppAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
+            <state relative-caret-position="240">
+              <caret line="19" column="27" lean-forward="true" selection-end-line="137" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -23,13 +23,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dnschef.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dnschef.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dnschef.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="790">
-              <caret line="638" column="172" selection-start-line="638" selection-start-column="172" selection-end-line="638" selection-end-column="172" />
+            <state relative-caret-position="-1655">
+              <caret line="519" column="48" lean-forward="true" selection-start-line="519" selection-start-column="48" selection-end-line="519" selection-end-column="48" />
               <folding>
-                <element signature="e#1859#1904#0" expanded="true" />
+                <element signature="e#285#296#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,9 +39,17 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>device_name</find>
       <find>get_ip</find>
       <find>start_cooking</find>
+      <find>fakedomains</find>
+      <find>-q</find>
+      <find>ProxyViaXmpp</find>
+      <find>DNSHandler</find>
+      <find>UDPHandler</find>
+      <find>ThreadedUDPServer</find>
+      <find>SocketServer</find>
+      <find>dnshandler</find>
+      <find>device_name</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -59,8 +67,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
     <option name="y" value="-4" />
-    <option name="width" value="1851" />
-    <option name="height" value="931" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -82,7 +90,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AdminEmulator" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -149,7 +157,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xmppTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="-1230">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
@@ -157,22 +165,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dnschef.py">
+    <entry file="file://$PROJECT_DIR$/XmppAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="790">
-          <caret line="638" column="172" selection-start-line="638" selection-start-column="172" selection-end-line="638" selection-end-column="172" />
+        <state relative-caret-position="240">
+          <caret line="19" column="27" lean-forward="true" selection-end-line="137" />
           <folding>
-            <element signature="e#1859#1904#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/XmppAgent.py">
+    <entry file="file://$PROJECT_DIR$/dnschef.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
+        <state relative-caret-position="-1655">
+          <caret line="519" column="48" lean-forward="true" selection-start-line="519" selection-start-column="48" selection-end-line="519" selection-end-column="48" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#285#296#0" expanded="true" />
           </folding>
         </state>
       </provider>

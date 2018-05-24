@@ -2,6 +2,11 @@
 *.class
 *.jar
 *.oar
+AdminEmulator/remote_config.zip
 AdminEmulator/venv/*
 AdminEmulator/configs/*
 AdminEmulator/ipop-configs/*
+AdminEmulator/dns_configs/*
+AdminEmulator/onos_dhcp_configs/*
+AdminEmulator/osnBridge_configs/*
+

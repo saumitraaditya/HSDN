@@ -1,8 +1,10 @@
 import json, pprint
 import argparse
 from pathlib import Path
-import random
-
+import random, shutil
+import traceback
+import paramiko
+from paramiko import SSHClient
 '''tailored to my use case no general features.'''
 
 
@@ -45,6 +47,36 @@ class configurationFactory():
         else:
             print("check template json file paths, could not find a valid path.")
 
+    def __init__(self, template_path = None):
+        '''
+        :param template_path:
+        :param config_type:
+        '''
+        if (Path(template_path).exists()):
+            with open(template_path) as template_file:
+                try:
+                    self.custom_template = json.load(template_file)
+                    self.arg_dict = {}
+                    self.arg_dict["config_type"] = self.custom_template["config_type"]
+                    self.arg_dict["base_file"] = self.custom_template["base_file"]
+                    self.arg_dict["base_user"] = self.custom_template["base_user"]
+                    self.arg_dict["server"] = self.custom_template["server"]
+                    self.arg_dict["num_nodes"] = self.custom_template["num_nodes"]
+                except:
+                    print("malformed json file {}".format(template_path))
+                    exit()
+        if (self.arg_dict["config_type"] == "osnBridge"):
+            self.create_onos_osnBridge_config(self.arg_dict)
+        elif (self.arg_dict["config_type"] == "dns"):
+            self.create_dns_config(self.arg_dict)
+        elif (self.arg_dict["config_type"] == "dhcp"):
+            self.create_onos_dhcp_config(self.arg_dict)
+
+    ''' fix this thing, initializers signature is clashing'''
+
+    # def __init__(self, isRemote, remoteinfo_config):
+    #     if (isRemote):
+    #         self.rcd(remoteinfo_config)
 
     def create_ipop_config(self, base_username, num_configs, bridge_name = "ipopbr0", base_ip = "10.10.10.100"):
         overlay = self.ipop_template["CFx"]["Overlays"][0]
@@ -92,11 +124,143 @@ class configurationFactory():
         filename = self.config_dir.joinpath(file_name)
         filename.write_text(json.dumps(data))
 
+    def remote_invocation(self):
+        ssh = SSHClient()
+        ssh.load_system_host_keys()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect("apt071.apt.emulab.net", 25810, "sam")
+        ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command('sudo docker container ls')
+        print(ssh_stdout.read())
+        sftp = ssh.open_sftp()
+        sftp.put('remote_config.zip', 'remote_config.zip')
+        ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command('unzip remote_config.zip')
+
+
+
+    def rcd(self, json_file):
+        folder = self.create_remote_config_folder(json_file)
+
+    ''' this method will create a folder containing executables and configuration for remote test node
+    will need
+    1. create root application folder
+    2. copy all relevant configuration files
+    '''
+    def create_remote_config_folder(self, in_file, index=0):
+
+        if (not Path(in_file).exists()):
+            print("path {} given is not valid".format(in_file))
+            exit()
+        try:
+            with open(in_file) as argument_file:
+                try:
+                    arguments = json.load(argument_file)
+                except:
+                    print("malformed json file {}".format(argument_file))
+                    exit()
+            resource_config = arguments["admin-resource"] + str(index) + ".json"
+            social_config_admin = arguments["admin-social"] + str(index) + ".json"
+            dns_config = arguments["dns"]+ str(index) + ".json"
+            ipop_config = arguments["ipop-config"]+ str(index) + ".json"
+            onos_dhcp_config = arguments["onos-dhcp"]+ str(index) + ".json"
+            onos_osnBridge_config = arguments["onos-social"]+ str(index) + ".json"
+        except Exception:
+            print(traceback.format_exc())
+
+
+        remote_config_dir = Path(Path.cwd(), 'remote-config')
+        if (remote_config_dir.exists()):
+            shutil.rmtree(remote_config_dir.as_posix())
+
+        remote_config_dir.mkdir()
+        shutil.copy(resource_config, Path(remote_config_dir,'static-resources.json').as_posix())
+        shutil.copy(ipop_config, Path(remote_config_dir, 'ipop_config.json').as_posix())
+        shutil.copy(social_config_admin, Path(remote_config_dir, 'social_config_admin.json').as_posix())
+        shutil.copy(dns_config, Path(remote_config_dir, 'dns_config.json').as_posix())
+        shutil.copy(onos_dhcp_config, Path(remote_config_dir, 'onos_dhcp_config.json').as_posix())
+        shutil.copy(onos_osnBridge_config, Path(remote_config_dir, 'onos_osnBridge_config.json').as_posix())
+        shutil.make_archive("remote_config", 'zip', remote_config_dir.as_posix())
+        return Path(Path.cwd(),"remote_config.zip").as_posix()
+    '''for now lets have all social domains use same subnet'''
+    def create_onos_dhcp_config(self, kwargs):
+        base_file = kwargs["base_file"]
+        num_nodes = int(kwargs["num_nodes"])
+        if (Path(base_file).exists()  and num_nodes != None):
+            with open(base_file) as template_file:
+                try:
+                    template = json.load(template_file)
+                except:
+                    print("malformed json file {}".format(template))
+                    exit()
+            self.config_dir = Path(Path.cwd(),'onos_dhcp_configs')
+            if (not self.config_dir.exists()):
+                self.config_dir.mkdir()
+            for i in range(num_nodes):
+                self.generate_json(template, file_name="onos_dhcp_config_" + str(i) + ".json")
+        else:
+            print("check template json file paths, could not find a valid path.")
+
+    def create_onos_osnBridge_config(self, kwargs):
+        base_file = kwargs["base_file"]
+        base_user = kwargs["base_user"]
+        server = kwargs["server"]
+        num_nodes = int(kwargs["num_nodes"])
+        if (Path(base_file).exists() and  num_nodes != None):
+            with open(base_file) as template_file:
+                try:
+                    template = json.load(template_file)
+                except:
+                    print("malformed json file {}".format(template))
+                    exit()
+            self.config_dir = Path(Path.cwd(),'osnBridge_configs')
+            if (not self.config_dir.exists()):
+                self.config_dir.mkdir()
+            for i in range(num_nodes):
+                template["apps"]["org.onosproject.osnBridge"]["osnBridge_service"]\
+                    ["socialConfig"]["CLOSocialId"] = base_user+str(i)+"@"+server
+                template["apps"]["org.onosproject.osnBridge"]["osnBridge_service"]\
+                    ["socialConfig"]["CLOSocialPassword"] = base_user+str(i)
+                template["apps"]["org.onosproject.osnBridge"]["osnBridge_service"]\
+                    ["socialConfig"]["CLOSocialServer"] = server
+                template["apps"]["org.onosproject.osnBridge"]["osnBridge_service"] \
+                    ["socialConfig"]["PLOSocialId"] = "I" + base_user + str(i) + "@" + server
+                self.generate_json(template, file_name="osnBridge_config_" + str(i) + ".json")
+        else:
+            print("check template json file paths, could not find a valid path.")
+
+    def create_dns_config(self, kwargs):
+        base_file = kwargs["base_file"]
+        base_user = kwargs["base_user"]
+        server = kwargs["server"]
+        num_nodes = int(kwargs["num_nodes"])
+        if (Path(base_file).exists() and num_nodes != None):
+            with open(base_file) as template_file:
+                try:
+                    template = json.load(template_file)
+                except:
+                    print("malformed json file {}".format(template))
+                    exit()
+            self.config_dir = Path(Path.cwd(), 'dns_configs')
+            if (not self.config_dir.exists()):
+                self.config_dir.mkdir()
+            for i in range(num_nodes):
+                template["username"] = "I" +base_user + str(i) + "@" + server
+                template["password"] = "I" + base_user + str(i)
+                template["server"] = server
+                template["gateway"] = base_user + str(i) + "@" + server
+                self.generate_json(template, file_name="dns_config_" + str(i) + ".json")
+        else:
+            print("check template json file paths, could not find a valid path.")
+
+
+
 if __name__=='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", dest="social", help="social account template")
     parser.add_argument("-r", dest="resources", help="static resource template")
     parser.add_argument("-i", dest="ipop", help="ipop base configuration")
+    parser.add_argument("-g", dest="generic", help="generic configuration")
+    parser.add_argument("-rem", dest="remote", help="generate")
+
     args = parser.parse_args()
     if (args.social != None  and args.resources != None):
         cf = configurationFactory(args.social, args.resources)
@@ -104,3 +268,7 @@ if __name__=='__main__':
         cf.create_static_resources()
     elif (args.ipop != None):
         cf = configurationFactory(args.ipop, base_username="perso_", num_configs=5)
+    elif (args.generic != None):
+        cf = configurationFactory(args.generic)
+    elif (args.remote != None):
+        cf = configurationFactory(True, remoteinfo=args.remote)

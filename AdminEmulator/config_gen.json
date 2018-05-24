@@ -1,0 +1,7 @@
+{
+  "config_type":"dns",
+  "base_file":"dns_config.json",
+  "base_user":"perso_",
+  "server":"xmpp.ipop-project.org",
+  "num_nodes":"7"
+}

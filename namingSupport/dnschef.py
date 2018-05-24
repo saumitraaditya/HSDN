@@ -4,6 +4,10 @@
 # and Malware Analysts. Please visit http://thesprawl.org/projects/dnschef/
 # for the latest version and documentation. Please forward all issues and
 # concerns to iphelix [at] thesprawl.org.
+import json
+import traceback
+
+from pathlib import Path
 
 DNSCHEF_VERSION = "0.3"
 
@@ -47,12 +51,14 @@ import base64
 import time
 from XmppAgent import XmppAgent
 
-#xmpp_agent = XmppAgent("vm1@xmpp.ipop-project.org","vm1_bob_ipop","xmpp.ipop-project.org", "bob_gnv_gw@xmpp.ipop-project.org", device_name="vm1")
-xmpp_agent = XmppAgent("Iperso_0@xmpp.ipop-project.org","Iperso_0","xmpp.ipop-project.org", "perso_0@xmpp.ipop-project.org", device_name="vm1")
+global xmpp_agent
+
+
 
 # DNSHandler Mixin. The class contains generic functions to parse DNS requests and
 # calculate an appropriate response based on user parameters.
 class DNSHandler():
+
 
     def parse(self,data):
         response = ""
@@ -252,8 +258,8 @@ class DNSHandler():
 
     # Query for IP via XMPP
     def ProxyViaXmpp(self, qname):
-        event = threading.Event()
         global xmpp_agent
+        event = threading.Event()
         print (str(type(event)) + " event at query generation {}".format(event))
         xmpp_agent.send_query(qname, event)
         print ("sending dns query via xmpp")
@@ -456,31 +462,69 @@ if __name__ == "__main__":
     header += "                   iphelix@thesprawl.org  \n"
 
     # Parse command line arguments
-    parser = OptionParser(usage = "dnschef.py [options]:\n" + header, description="DNSChef is a highly configurable DNS Proxy for Penetration Testers and Malware Analysts. It is capable of fine configuration of which DNS replies to modify or to simply proxy with real responses. In order to take advantage of the tool you must either manually configure or poison DNS server entry to point to DNSChef. The tool requires root privileges to run on privileged ports." )
+    parser = OptionParser(usage="dnschef.py [options]:\n" + header,
+                          description="DNSChef is a highly configurable DNS Proxy for Penetration Testers and Malware Analysts. It is capable of fine configuration of which DNS replies to modify or to simply proxy with real responses. In order to take advantage of the tool you must either manually configure or poison DNS server entry to point to DNSChef. The tool requires root privileges to run on privileged ports.")
 
     fakegroup = OptionGroup(parser, "Fake DNS records:")
-    fakegroup.add_option('--fakeip', metavar="192.0.2.1", action="store", help='IP address to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'A\' queries will be spoofed. Consider using --file argument if you need to define more than one IP address.')
-    fakegroup.add_option('--fakeipv6', metavar="2001:db8::1", action="store", help='IPv6 address to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'AAAA\' queries will be spoofed. Consider using --file argument if you need to define more than one IPv6 address.')
-    fakegroup.add_option('--fakemail', metavar="mail.fake.com", action="store", help='MX name to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'MX\' queries will be spoofed. Consider using --file argument if you need to define more than one MX record.')
-    fakegroup.add_option('--fakealias', metavar="www.fake.com", action="store", help='CNAME name to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'CNAME\' queries will be spoofed. Consider using --file argument if you need to define more than one CNAME record.')
-    fakegroup.add_option('--fakens', metavar="ns.fake.com", action="store", help='NS name to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'NS\' queries will be spoofed. Consider using --file argument if you need to define more than one NS record.')
-    fakegroup.add_option('--file', action="store", help="Specify a file containing a list of DOMAIN=IP pairs (one pair per line) used for DNS responses. For example: google.com=1.1.1.1 will force all queries to 'google.com' to be resolved to '1.1.1.1'. IPv6 addresses will be automatically detected. You can be even more specific by combining --file with other arguments. However, data obtained from the file will take precedence over others.")
+    fakegroup.add_option('--fakeip', metavar="192.0.2.1", action="store",
+                         help='IP address to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'A\' queries will be spoofed. Consider using --file argument if you need to define more than one IP address.')
+    fakegroup.add_option('--fakeipv6', metavar="2001:db8::1", action="store",
+                         help='IPv6 address to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'AAAA\' queries will be spoofed. Consider using --file argument if you need to define more than one IPv6 address.')
+    fakegroup.add_option('--fakemail', metavar="mail.fake.com", action="store",
+                         help='MX name to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'MX\' queries will be spoofed. Consider using --file argument if you need to define more than one MX record.')
+    fakegroup.add_option('--fakealias', metavar="www.fake.com", action="store",
+                         help='CNAME name to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'CNAME\' queries will be spoofed. Consider using --file argument if you need to define more than one CNAME record.')
+    fakegroup.add_option('--fakens', metavar="ns.fake.com", action="store",
+                         help='NS name to use for matching DNS queries. If you use this parameter without specifying domain names, then all \'NS\' queries will be spoofed. Consider using --file argument if you need to define more than one NS record.')
+    fakegroup.add_option('--file', action="store",
+                         help="Specify a file containing a list of DOMAIN=IP pairs (one pair per line) used for DNS responses. For example: google.com=1.1.1.1 will force all queries to 'google.com' to be resolved to '1.1.1.1'. IPv6 addresses will be automatically detected. You can be even more specific by combining --file with other arguments. However, data obtained from the file will take precedence over others.")
+    fakegroup.add_option('--socialAccount', action='store', help="social network login information.")
     parser.add_option_group(fakegroup)
 
-    parser.add_option('--fakedomains', metavar="thesprawl.org,google.com", action="store", help='A comma separated list of domain names which will be resolved to FAKE values specified in the the above parameters. All other domain names will be resolved to their true values.')
-    parser.add_option('--truedomains', metavar="thesprawl.org,google.com", action="store", help='A comma separated list of domain names which will be resolved to their TRUE values. All other domain names will be resolved to fake values specified in the above parameters.')
+    parser.add_option('--fakedomains', metavar="thesprawl.org,google.com", action="store",
+                      help='A comma separated list of domain names which will be resolved to FAKE values specified in the the above parameters. All other domain names will be resolved to their true values.')
+    parser.add_option('--truedomains', metavar="thesprawl.org,google.com", action="store",
+                      help='A comma separated list of domain names which will be resolved to their TRUE values. All other domain names will be resolved to fake values specified in the above parameters.')
 
-    rungroup = OptionGroup(parser,"Optional runtime parameters.")
+    rungroup = OptionGroup(parser, "Optional runtime parameters.")
     rungroup.add_option("--logfile", action="store", help="Specify a log file to record all activity")
-    rungroup.add_option("--nameservers", metavar="8.8.8.8#53 or 4.2.2.1#53#tcp or 2001:4860:4860::8888", default='8.8.8.8', action="store", help='A comma separated list of alternative DNS servers to use with proxied requests. Nameservers can have either IP or IP#PORT format. A randomly selected server from the list will be used for proxy requests when provided with multiple servers. By default, the tool uses Google\'s public DNS server 8.8.8.8 when running in IPv4 mode and 2001:4860:4860::8888 when running in IPv6 mode.')
-    rungroup.add_option("-i","--interface", metavar="127.0.0.1 or ::1", default="127.0.0.1", action="store", help='Define an interface to use for the DNS listener. By default, the tool uses 127.0.0.1 for IPv4 mode and ::1 for IPv6 mode.')
-    rungroup.add_option("-t","--tcp", action="store_true", default=False, help="Use TCP DNS proxy instead of the default UDP.")
-    rungroup.add_option("-6","--ipv6", action="store_true", default=False, help="Run in IPv6 mode.")
-    rungroup.add_option("-p","--port", action="store", metavar="53", default="53", help='Port number to listen for DNS requests.')
+    rungroup.add_option("--nameservers", metavar="8.8.8.8#53 or 4.2.2.1#53#tcp or 2001:4860:4860::8888",
+                        default='8.8.8.8', action="store",
+                        help='A comma separated list of alternative DNS servers to use with proxied requests. Nameservers can have either IP or IP#PORT format. A randomly selected server from the list will be used for proxy requests when provided with multiple servers. By default, the tool uses Google\'s public DNS server 8.8.8.8 when running in IPv4 mode and 2001:4860:4860::8888 when running in IPv6 mode.')
+    rungroup.add_option("-i", "--interface", metavar="127.0.0.1 or ::1", default="127.0.0.1", action="store",
+                        help='Define an interface to use for the DNS listener. By default, the tool uses 127.0.0.1 for IPv4 mode and ::1 for IPv6 mode.')
+    rungroup.add_option("-t", "--tcp", action="store_true", default=False,
+                        help="Use TCP DNS proxy instead of the default UDP.")
+    rungroup.add_option("-6", "--ipv6", action="store_true", default=False, help="Run in IPv6 mode.")
+    rungroup.add_option("-p", "--port", action="store", metavar="53", default="53",
+                        help='Port number to listen for DNS requests.')
     rungroup.add_option("-q", "--quiet", action="store_false", dest="verbose", default=True, help="Don't show headers.")
     parser.add_option_group(rungroup)
 
-    (options,args) = parser.parse_args()
+    (options, args) = parser.parse_args()
+
+    # social account information
+    if options.socialAccount:
+        print ("loading social account information.")
+        if (Path(options.socialAccount).exists()):
+            with open(options.socialAccount) as social_account:
+                try:
+                    social_info = json.load(social_account)
+                    global xmpp_agent
+                    xmpp_agent = XmppAgent(social_info)
+                    dns_domain = social_info["dns_domain"]
+                    options.fakedomains = "*.*.{}".format(dns_domain)
+                    print ("Fakedomain is {}".format(options.fakedomains))
+                    devices = social_info["devices"]
+                except Exception:
+                    print traceback.format_exc()
+                    exit()
+        else:
+            print("social account config file cannot be found.")
+            exit()
+    else:
+        print("no social account information provided")
+        exit()
 
     # Print program header
     if options.verbose:

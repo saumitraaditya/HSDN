@@ -26,14 +26,17 @@ class DNS_Msg(ElementBase):
 class XmppAgent(sleekxmpp.ClientXMPP):
 
 
-    def __init__(self, user, pwd, server, controller, device_name = None):
-        self.server_name = server
-        self.controller = controller
-        self.device_name = device_name
+
+    def __init__(self, social_info):
+        print("initializing xmpp agent")
+        self.user_id = social_info["username"]
+        self.social_password = social_info["password"]
+        self.xmpp_host = social_info["server"]
+        self.controller = social_info["gateway"]
+        self.device_names = social_info["devices"]
         self.pending_queries = {}
-        self.xmpp_host = server
         self.xmpp_port = 5222
-        sleekxmpp.ClientXMPP.__init__(self, user, pwd)
+        sleekxmpp.ClientXMPP.__init__(self, self.user_id, self.social_password)
         register_stanza_plugin(Message, DNS_Msg)
         self.register_handler(
             Callback('DNS',
@@ -81,8 +84,8 @@ class XmppAgent(sleekxmpp.ClientXMPP):
                 print ("At agent event {} is {}".format(q_record[1],q_record[1].isSet()))
         elif (setup == "NAME_QUERY"):
             d_name = query.split(".")[0]
-            print ("received name query for {}, dev name is {}".format(d_name,self.device_name))
-            if (d_name == self.device_name):
+            print ("received name query for {}, we have devices {}".format(d_name,self.device_names))
+            if (d_name in self.device_names):
                 ip_address = self.get_ip(d_name)
                 self.send_name_query_response(query, ip_address, tag, self.controller)
 

@@ -1,0 +1,8 @@
+{
+  "ipop-config":"ipop-configs/ipop_config_",
+  "admin-social":"configs/social_config_",
+  "admin-resource":"configs/resource_config_",
+  "dns":"dns_configs/dns_config_",
+  "onos-social":"osnBridge_configs/osnBridge_config_",
+  "onos-dhcp":"onos_dhcp_configs/onos_dhcp_config_"
+}

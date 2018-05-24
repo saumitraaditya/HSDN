@@ -42,9 +42,9 @@ class SocialAgent(sleekxmpp.ClientXMPP):
         self.xmpp_handler()
 
         # resource_file, is a dict that keeps track of my local resources.
-        self.resources = {}
-        self.get_my_resources()
-        self._task = None
+        # self.resources = {}
+        # self.get_my_resources()
+        # self._task = None
 
     def handle_presence(self, presence):
         print ("presence received from {} to {} with status {}".format(presence['from'], presence['to'],
@@ -163,9 +163,9 @@ if __name__ == '__main__':
     # agent.send_ipop("d1_bob_gnv@xmpp.ipop-project.org")
     # agent.send_remote("d1_bob_gnv@xmpp.ipop-project.org")
     # loadTemplate(path="./template-one.json")
-    agent = SocialAgent("jude_gw@xmpp.ipop-project.org","jude_gw","xmpp.ipop-project.org")
+    agent = SocialAgent("perso_0@xmpp.ipop-project.org","perso_0","xmpp.ipop-project.org")
     # agent.initiate_task("/home/osboxes/AdminEmulator/template-one.json")
-    agent.create_tunnel("bruce_gw@xmpp.ipop-project.org")
+    agent.create_tunnel("perso_1@xmpp.ipop-project.org")
 
 
 
