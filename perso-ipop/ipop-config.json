@@ -1,0 +1,86 @@
+{
+  "CFx": {
+    "Model": "Default",
+    "Overlays": [  "A0FB390" ]
+  },
+  "Logger": {
+    "Enabled": true,
+    "LogLevel": "DEBUG",
+    "Device": "File",
+    "Directory": "./logs/",
+    "CtrlLogFileName": "ctrl.log",
+    "TincanLogFileName": "tincan_log",
+    "MaxFileSize": 5000000,
+    "MaxArchives": 15
+  
+  },
+  "TincanInterface": {
+    "Enabled": true
+  },
+  "Signal": {
+    "Enabled": true,
+    "Overlays": {
+      "A0FB390": {
+        "HostAddress": "xmpp.ipop-project.org",
+        "Port": "5222",
+        "Username": "janice_gw@xmpp.ipop-project.org",
+        "Password": "janice_gw",
+        "AuthenticationMethod": "PASSWORD",
+        "AcceptUntrustedServer": true
+      }
+    }
+  },
+  "Topology": {
+    "Enabled": true,
+    "Overlays": {
+      "A0FB390": {
+        "Name": "IpopOverlay1",
+        "Description": "Tunnel Network"
+      }
+    }
+  },
+  "LinkManager": {
+    "Enabled": true,
+    "Stun": [ "10.244.18.150:3478" ],
+    "Turn": [
+      {
+        "Address": "turn.ipop-project.org:19302",
+        "User": "turn1",
+        "Password": "ShrR4754shcTr"
+      }
+	],
+    "Overlays": {
+      "A0FB390": {
+        "Type": "TUNNEL",
+        "TapName": "ipop"
+      }
+    }
+  }, 
+  "Icc": {
+    "Enabled": false
+  },
+  "Broadcaster": {
+    "Enabled": false
+  },
+  "OverlayVisualizer": {
+    "Enabled": false,
+    "TimerInterval": 15,
+    "WebServiceAddress": "10.244.18.150:5000",
+    "NodeName": "U16Tb1"
+  },
+  "BridgeController": {
+    "Enabled": true,
+    "Dependencies": ["Logger", "LinkManager"],
+    "Overlays": {
+      "A0FB390": {
+        "Type": "OVS",
+        "BridgeName": "ipopbr0",
+        "IP4": "10.10.0.11",
+        "PrefixLen": 24
+      }
+    }
+  },
+  "UsageReport": {
+    "Enabled": false
+  }
+}

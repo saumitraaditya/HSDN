@@ -1,0 +1,110 @@
+{
+  "CFx": {
+    "Model": "Default",
+    "Overlays": [  "A0FB389", "A0FB390" ]
+  },
+  "Logger": {
+    "Enabled": true,
+    "LogLevel": "DEBUG",
+    "Device": "File",
+    "Directory": "./logs/",
+    "CtrlLogFileName": "ctrl.log",
+    "TincanLogFileName": "tincan_log",
+    "MaxFileSize": 5000000,
+    "MaxArchives": 5
+  
+  },
+  "TincanInterface": {
+    "Enabled": true
+  },
+  "Signal": {
+    "Enabled": true,
+    "Overlays": {
+      "A0FB389": {
+        "HostAddress": "xmpp.ipop-project.org",
+        "Port": "5222",
+        "Username": "janice@xmpp.ipop-project.org",
+        "Password": "janice",
+        "AuthenticationMethod": "PASSWORD",
+        "AcceptUntrustedServer": true
+      },
+      "A0FB390": {
+        "HostAddress": "xmpp.ipop-project.org",
+        "Port": "5222",
+        "Username": "janice_gw@xmpp.ipop-project.org",
+        "Password": "janice_gw",
+        "AuthenticationMethod": "PASSWORD",
+        "AcceptUntrustedServer": true
+      }
+    }
+  },
+  "Topology": {
+    "Enabled": true,
+    "Overlays": {
+      "A0FB389": {
+        "Name": "IpopVnetOverlay1",
+        "Description": "VNET Network",
+        "EnableIPMapping": false,
+        "EncryptionEnabled": true
+      },
+      "A0FB390": {
+        "Name": "IpopOverlay1",
+        "Description": "Tunnel Network",
+        "EnableIPMapping": false,
+        "EncryptionEnabled": true
+      }
+    }
+  },
+  "LinkManager": {
+    "Enabled": true,
+    "Stun": [ "stun.l.google.com:19302" ],
+    "Turn": [
+      {
+        "Address": "turn.ipop-project.org:19302",
+        "User": "turn1",
+        "Password": "ShrR4754shcTr"
+      }
+	],
+    "Overlays": {
+      "A0FB389": {
+        "Type": "VNET",
+        "IP4": "10.254.0.10",
+        "IP4PrefixLen": 16,
+        "MTU4": 1500,
+        "TapName": "vnet",
+        "IgnoredNetInterfaces": [ "vnet" ]
+      },
+       "A0FB390": {
+        "Type": "TUNNEL",
+        "TapName": "ipop"
+      }
+    }
+  }, 
+  "Icc": {
+    "Enabled": false
+  },
+  "Broadcaster": {
+    "Enabled": false
+  },  
+  "OverlayVisualizer": {
+    "Enabled": false,
+    "WebServiceAddress": "***:5000",
+    "NodeName": "Node1"
+
+  },
+  "BridgeController": {
+    "Enabled": true,
+    "Dependencies": ["Logger", "LinkManager"],
+    "Overlays": {
+      "A0FB390": {
+        "Type": "OVS",
+        "BridgeName": "ipopbr0",
+        "IP4": "10.10.0.11",
+        "PrefixLen": 24
+      }
+    }
+  },
+  "UsageReport": {
+    "Enabled": false
+  }
+}

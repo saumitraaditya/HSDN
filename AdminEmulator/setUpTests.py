@@ -107,17 +107,28 @@ class configurationFactory():
             social_config["server"] = domain_name
             self.generate_json(social_config, file_name="social_config_"+str(i)+".json")
 
-    '''will create resource configuration files. Initially one peer just volunteers one resource'''
+    '''will create resource configuration files. Initially one peer just volunteers one resource, initial plan was to
+    give devices unique names but since experiment assumes one device per peer, we can have the same name it also sim
+    plifies naming of interfaces in the experimental setup.'''
     def create_static_resources(self):
         resources=[]
         for (k,v) in self.resource_template.items():
             for i in range(v):
                 resources.append(k)
         num_nodes = len(resources)
+        # for i in range(num_nodes):
+        #     resource_data = {}
+        #     resource_data[resources[i]+str(random.randint(0,num_nodes))]=dict(device_type=resources[i])
+        #     self.generate_json(resource_data, file_name="resource_config_"+str(i)+".json")
         for i in range(num_nodes):
             resource_data = {}
-            resource_data[resources[i]+str(random.randint(0,num_nodes))]=dict(device_type=resources[i])
+            if (resources[i]=="linux_computes"):
+                dev_name = "compute"
+            elif (resources[i]=="camera"):
+                dev_name = "camera"
+            resource_data[dev_name]=dict(device_type=resources[i])
             self.generate_json(resource_data, file_name="resource_config_"+str(i)+".json")
+
 
     def generate_json(self, data, file_name=None):
         # pprint.pprint(data)

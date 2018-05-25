@@ -1,0 +1,122 @@
+[20180513 08:44:30.446] INFO:Logger: Module loaded
+[20180513 08:44:32.700] INFO:TincanInterface: Creating Tincan control link
+[20180513 08:44:32.702] INFO:TincanInterface: Module loaded
+[20180513 08:44:32.703] INFO:Signal: The key-ring module is not installed. No module named 'keyring'
+[20180513 08:44:32.704] INFO:Signal: Starting connection to XMPP server xmpp.ipop-project.org:5222
+[20180513 08:44:32.705] INFO:Signal: Module loaded
+[20180513 08:44:32.705] WARNING:LinkManager: OverlayVisualizer module not loaded. Visualization data will not be sent.
+[20180513 08:44:32.706] INFO:LinkManager: Module Loaded
+[20180513 08:44:32.707] WARNING:Topology: OverlayVisualizer module not loaded. Visualization data will not be sent.
+[20180513 08:44:32.707] INFO:Topology: Module loaded
+[20180513 08:44:32.708] INFO:BridgeController: Module Loaded
+[20180513 08:44:32.792] INFO:Signal: Start event overlay_id A0FB390
+[20180513 08:44:32.911] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:44:32.912] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:44:32.913] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:45:02.706] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:45:02.707] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:45:02.707] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:45:32.708] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:45:32.709] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:45:32.710] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:46:02.710] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:46:02.711] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:46:02.711] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:46:32.711] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:46:32.712] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:46:32.712] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:47:02.714] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:47:02.714] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:47:02.715] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:47:27.776] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:47:27.777] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:47:27.777] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:47:27.778] INFO:Signal: bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988 not in allowed peers.
+[20180513 08:47:32.715] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:47:32.716] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:47:32.716] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:47:57.403] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:47:57.404] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:47:57.404] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:47:57.404] INFO:Signal: bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988 not in allowed peers.
+[20180513 08:48:02.715] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:48:02.715] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:48:02.723] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:48:16.922] INFO:Signal: Recieved remote command of type tunnel_creation from janice_gw@xmpp.ipop-project.org/269928897809208160881053969350983386537641450706836065717 to connect to bruce_gw@xmpp.ipop-project.org
+[20180513 08:48:16.922] INFO:Signal: Added bruce_gw@xmpp.ipop-project.org to allowed peers
+[20180513 08:48:16.930] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:48:16.930] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:48:16.930] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:48:17.006] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/269928897809208160881053969350983386537641450706836065717
+[20180513 08:48:17.007] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/269928897809208160881053969350983386537641450706836065717
+[20180513 08:48:17.008] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:48:27.408] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:48:27.409] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:48:27.409] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:48:27.410] INFO:Signal: Resolved Peer@Overlay 66cd4db@A0FB390 - bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:48:27.410] DEBUG:Topology: Connecting to peer A0FB390:b2bbd41->66cd4db, bruce_gw@xmpp.ipop-project.org
+[20180513 08:48:31.177] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:48:31.179] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:48:31.179] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:48:31.179] INFO:Signal: Resolved Peer@Overlay 66cd4db@A0FB390 - bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:48:31.256] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/387935049519411962809333584784973241230532851352301043
+[20180513 08:48:31.257] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/387935049519411962809333584784973241230532851352301043
+[20180513 08:48:31.257] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:48:32.719] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:48:32.720] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:48:32.720] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:48:32.778] DEBUG:Signal: Rcvd remote act from peer ID: 66cd4db52fbb4d4f943fefad8634b63c
+ Payload: {"Action": "LNK_REQ_LINK_ENDPT", "OverlayId": "A0FB390", "InitiatorCM": "LinkManager", "Params": {"OverlayId": "A0FB390", "LinkId": "336355d64fc94a4f835db3a87a2dbb92", "NodeData": {"FPR": "sha-1 99:58:BE:A8:81:FC:5D:2F:55:33:57:1D:C9:27:B5:B6:7D:58:2E:34", "VIP4": "", "UID": "66cd4db52fbb4d4f943fefad8634b63c", "MAC": "D287CD32C9CA"}, "peer_jid": "bruce_gw@xmpp.ipop-project.org"}, "InitiatorId": "66cd4db52fbb4d4f943fefad8634b63c", "RecipientId": "b2bbd41abe02485ba09841e21f4a10db", "ActionTag": 128594860698985716, "RecipientCM": "LinkManager"}
+[20180513 08:48:32.781] INFO:LinkManager: Create Link:336355d Phase 1/4 Node B
+[20180513 08:48:32.781] INFO:TincanInterface: {'IgnoredNetInterfaces': ['ipopbr0', 'bruce_gw'], 'MTU4': None, 'OID': 'A0FB390', 'TapName': 'bruce_gw', 'TurnAddress': 'turn.ipop-project.org:19302', 'LinkId': '336355d64fc94a4f835db3a87a2dbb92', 'TurnUser': 'turn1', 'OverlayId': '336355d64fc94a4f835db3a87a2dbb92', 'NodeData': {'UID': '66cd4db52fbb4d4f943fefad8634b63c', 'FPR': 'sha-1 99:58:BE:A8:81:FC:5D:2F:55:33:57:1D:C9:27:B5:B6:7D:58:2E:34', 'VIP4': '', 'MAC': 'D287CD32C9CA'}, 'Type': 'TUNNEL', 'IP4PrefixLen': None, 'TurnPass': 'ShrR4754shcTr', 'StunAddress': '10.244.18.150:3478', 'IP4': None}
+[20180513 08:48:43.357] INFO:LinkManager: Create Link:336355d Phase 2/4 Node B
+[20180513 08:48:43.358] DEBUG:LinkManager: _tunnels:{'336355d64fc94a4f835db3a87a2dbb92': {'Descriptor': {'IP4PrefixLen': 0, 'FPR': 'sha-1 01:B8:8D:8C:88:E4:1A:D0:2E:9A:95:18:78:26:C3:70:B6:69:AD:A0', 'VIP4': '', 'TapName': 'bruce_gw', 'MAC': '46225463A7C5'}}}
+[20180513 08:48:43.361] DEBUG:Signal: Sent completed remote act to  peer ID: 66cd4db52fbb4d4f943fefad8634b63c
+ Payload: {"Action": "LNK_REQ_LINK_ENDPT", "InitiatorId": "66cd4db52fbb4d4f943fefad8634b63c", "ActionTag": 128594860698985716, "Status": true, "OverlayId": "A0FB390", "RecipientId": "b2bbd41abe02485ba09841e21f4a10db", "RecipientCM": "LinkManager", "Params": {"NodeData": {"UID": "66cd4db52fbb4d4f943fefad8634b63c", "FPR": "sha-1 99:58:BE:A8:81:FC:5D:2F:55:33:57:1D:C9:27:B5:B6:7D:58:2E:34", "VIP4": "", "MAC": "D287CD32C9CA"}, "OverlayId": "A0FB390", "LinkId": "336355d64fc94a4f835db3a87a2dbb92", "peer_jid": "bruce_gw@xmpp.ipop-project.org"}, "InitiatorCM": "LinkManager", "Data": {"NodeData": {"UID": "b2bbd41abe02485ba09841e21f4a10db", "FPR": "sha-1 01:B8:8D:8C:88:E4:1A:D0:2E:9A:95:18:78:26:C3:70:B6:69:AD:A0", "VIP4": "", "CAS": "1:udp:10.10.0.11:43799:2122260223:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:2034755259 1:udp:10.244.19.155:41156:2122194687:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:317733758 1:udp:172.18.0.1:49119:2122129151:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:1051995033 1:udp:10.244.19.155:47945:1685987071:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:2478325194 1:udp:10.244.19.155:36559:1685921535:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:3717574005 1:udp:128.227.73.142:62102:41819903:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 1:udp:128.227.73.142:55050:41754367:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 ", "MAC": "46225463A7C5"}, "OverlayId": "A0FB390", "LinkId": "336355d64fc94a4f835db3a87a2dbb92"}}
+[20180513 08:48:53.900] DEBUG:Signal: Rcvd remote act from peer ID: 66cd4db52fbb4d4f943fefad8634b63c
+ Payload: {"Action": "LNK_ADD_PEER_CAS", "OverlayId": "A0FB390", "InitiatorCM": "LinkManager", "Params": {"OverlayId": "336355d64fc94a4f835db3a87a2dbb92", "LinkId": "336355d64fc94a4f835db3a87a2dbb92", "OID": "A0FB390", "NodeData": {"CAS": "1:udp:10.10.0.10:54335:2122260223:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:3254485470 1:udp:10.244.19.119:55231:2122194687:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:2913346054 1:udp:10.244.19.119:36306:1685987071:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:753804466 1:udp:128.227.73.142:57834:41819903:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 ", "FPR": "", "MAC": "", "UID": "66cd4db52fbb4d4f943fefad8634b63c"}, "peer_jid": "bruce_gw@xmpp.ipop-project.org"}, "InitiatorId": "66cd4db52fbb4d4f943fefad8634b63c", "RecipientId": "b2bbd41abe02485ba09841e21f4a10db", "ActionTag": 128594860698985724, "RecipientCM": "LinkManager"}
+[20180513 08:48:53.902] INFO:LinkManager: Create Link: Phase 3/4 Node B
+[20180513 08:48:53.904] INFO:TincanInterface: {'LinkId': '336355d64fc94a4f835db3a87a2dbb92', 'peer_jid': 'bruce_gw@xmpp.ipop-project.org', 'NodeData': {'UID': '66cd4db52fbb4d4f943fefad8634b63c', 'FPR': '', 'CAS': '1:udp:10.10.0.10:54335:2122260223:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:3254485470 1:udp:10.244.19.119:55231:2122194687:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:2913346054 1:udp:10.244.19.119:36306:1685987071:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:753804466 1:udp:128.227.73.142:57834:41819903:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 ', 'MAC': ''}, 'Type': 'TUNNEL', 'OID': 'A0FB390', 'OverlayId': '336355d64fc94a4f835db3a87a2dbb92'}
+[20180513 08:48:53.918] INFO:LinkManager: Create Link:336355d Phase 4/4 Node B
+[20180513 08:48:53.922] DEBUG:LinkManager: Link created: A0FB390:b2bbd41->66cd4db
+[20180513 08:48:53.923] DEBUG:Signal: Sent completed remote act to  peer ID: 66cd4db52fbb4d4f943fefad8634b63c
+ Payload: {"Action": "LNK_ADD_PEER_CAS", "InitiatorId": "66cd4db52fbb4d4f943fefad8634b63c", "ActionTag": 128594860698985724, "Status": true, "OverlayId": "A0FB390", "RecipientId": "b2bbd41abe02485ba09841e21f4a10db", "RecipientCM": "LinkManager", "Params": {"LinkId": "336355d64fc94a4f835db3a87a2dbb92", "peer_jid": "bruce_gw@xmpp.ipop-project.org", "NodeData": {"UID": "66cd4db52fbb4d4f943fefad8634b63c", "FPR": "", "CAS": "1:udp:10.10.0.10:54335:2122260223:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:3254485470 1:udp:10.244.19.119:55231:2122194687:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:2913346054 1:udp:10.244.19.119:36306:1685987071:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:753804466 1:udp:128.227.73.142:57834:41819903:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 ", "MAC": ""}, "Type": "TUNNEL", "OID": "A0FB390", "OverlayId": "336355d64fc94a4f835db3a87a2dbb92"}, "InitiatorCM": "LinkManager", "Data": "LNK_ADD_PEER_CAS successful"}
+[20180513 08:48:53.970] INFO:BridgeController: Port bruce_gw added to bridge <controller.modules.BridgeController.OvsBridge object at 0x7fca4cfbf668>
+[20180513 08:48:57.409] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:48:57.411] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:48:57.412] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:48:57.412] INFO:Signal: Resolved Peer@Overlay 66cd4db@A0FB390 - bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:49:02.718] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:49:02.719] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:49:02.720] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:49:27.407] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:49:27.408] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:49:27.409] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:49:27.409] INFO:Signal: Resolved Peer@Overlay 66cd4db@A0FB390 - bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:49:32.723] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:49:32.724] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:49:32.725] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:49:57.412] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:49:57.413] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:49:57.415] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:49:57.416] INFO:Signal: Resolved Peer@Overlay 66cd4db@A0FB390 - bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:50:02.726] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:50:02.732] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:50:02.734] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:50:27.414] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:50:27.416] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:50:27.416] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:50:27.417] INFO:Signal: Resolved Peer@Overlay 66cd4db@A0FB390 - bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:50:32.728] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:50:32.729] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:50:32.738] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:50:57.417] INFO:Signal: Presence received from bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:50:57.418] INFO:Signal: Full JID is bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:50:57.418] INFO:Signal: Bare JID is  bruce_gw@xmpp.ipop-project.org
+[20180513 08:50:57.418] INFO:Signal: Resolved Peer@Overlay 66cd4db@A0FB390 - bruce_gw@xmpp.ipop-project.org/1489058698297065049120871124017775491872360207861929421988
+[20180513 08:51:02.728] INFO:Signal: Presence received from janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:51:02.729] INFO:Signal: Full JID is janice_gw@xmpp.ipop-project.org/138816049089955713450334561467478163502786560658432978493
+[20180513 08:51:02.737] INFO:Signal: Bare JID is  janice_gw@xmpp.ipop-project.org
+[20180513 08:51:29.877] DEBUG:LinkManager: Link removed 336355d64fc94a4f835db3a87a2dbb92
+[20180513 08:51:29.908] DEBUG:LinkManager: Overlay removed 336355d64fc94a4f835db3a87a2dbb92
+[20180513 08:51:29.927] INFO:BridgeController: Port bruce_gw removed from bridge <controller.modules.BridgeController.OvsBridge object at 0x7fca4cfbf668>

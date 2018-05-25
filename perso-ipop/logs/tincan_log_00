@@ -1,0 +1,1238 @@
+[000:000] [6797] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanResponse",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "ConfigureLogging",
+         "ConsoleLevel" : null,
+         "Device" : "File",
+         "Directory" : "./logs/",
+         "Filename" : "tincan_log",
+         "Level" : "DEBUG",
+         "MaxArchives" : 15,
+         "MaxFileSize" : 5000000
+      },
+      "Response" : {
+         "Message" : "Tincan logging successfully configured.",
+         "Success" : true
+      },
+      "TransactionId" : 938081426215351536
+   }
+}
+
+[240:076] [6797] (control_listener.cc:48): Received CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "CreateLink",
+         "IP4" : null,
+         "IP4PrefixLen" : null,
+         "IgnoredNetInterfaces" : [ "ipopbr0", "bruce_gw" ],
+         "LinkId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "MTU4" : null,
+         "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "PeerInfo" : {
+            "CAS" : null,
+            "FPR" : "sha-1 99:58:BE:A8:81:FC:5D:2F:55:33:57:1D:C9:27:B5:B6:7D:58:2E:34",
+            "MAC" : "D287CD32C9CA",
+            "UID" : "66cd4db52fbb4d4f943fefad8634b63c",
+            "VIP4" : ""
+         },
+         "StunAddress" : "10.244.18.150:3478",
+         "TapName" : "bruce_gw",
+         "TurnAddress" : "turn.ipop-project.org:19302",
+         "TurnPass" : "ShrR4754shcTr",
+         "TurnUser" : "turn1",
+         "Type" : "TUNNEL"
+      },
+      "Response" : {},
+      "TransactionId" : 938081426215351598
+   }
+}
+
+[240:080] [6797] (opensslidentity.cc:43): Making key pair
+[240:103] [6797] (opensslidentity.cc:91): Returning key pair
+[240:103] [6797] (opensslidentity.cc:98): Making certificate for bruce_gw336355d64fc94a4f835db3a87a2dbb92
+[240:105] [6797] (opensslidentity.cc:146): Returning certificate
+[240:107] [6797] (tunnel.cc:53): Creating CONTROLLED vlink w/ peer 66cd4db52fbb4d4f943fefad8634b63c
+[240:109] [7113] (p2ptransportchannel.cc:392): Set ping most likely connection to 0
+[240:109] [7113] (p2ptransportchannel.cc:412): Set presume writable when fully relayed to 0
+[240:115] [7113] (transportcontroller.cc:626): Set remote transport description on 336355d64fc94a4f835db3a87a2dbb92
+[240:115] [7113] (p2ptransportchannel.cc:326): Remote supports ICE renomination ? 0
+[240:117] [7113] (transportcontroller.cc:598): Set local transport description on 336355d64fc94a4f835db3a87a2dbb92
+[240:117] [7113] (p2ptransportchannel.cc:315): Set ICE ufrag: _001IPOPICEUFRAG pwd: _00000001IPOPICEPASSWORD on transport 336355d64fc94a4f835db3a87a2dbb92
+[240:117] [7113] (dtlstransportchannel.cc:322): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Not using DTLS-SRTP.
+[240:117] [7113] (dtlstransportchannel.cc:325): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: DTLS setup complete.
+[240:119] [7113] (basicportallocator.cc:272): Start getting ports with prune_turn_ports disabled
+[240:120] [7113] (basicportallocator.cc:667): Network manager has started
+[240:121] [7113] (basicportallocator.cc:592): Allocate ports on 3 networks
+[240:121] [7113] (basicportallocator.cc:1134): Jingle:Net[ipopbr0:10.10.0.0/24:Unknown]: Allocation Phase=Udp
+[240:121] [7113] (port.cc:205): Jingle:Port[0x7efd14003b10::1:0:local:Net[ipopbr0:10.10.0.0/24:Unknown]]: Port created with network cost 50
+[240:121] [7113] (basicportallocator.cc:689): Adding allocated port for 336355d64fc94a4f835db3a87a2dbb92
+[240:121] [7113] (basicportallocator.cc:709): Jingle:Port[0x7efd14003b10:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ipopbr0:10.10.0.0/24:Unknown]]: Added port to allocator
+[240:121] [7113] (basicportallocator.cc:726): Jingle:Port[0x7efd14003b10:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ipopbr0:10.10.0.0/24:Unknown]]: Gathered candidate: Cand[:2034755259:1:udp:2122260223:10.10.0.11:43799:local::0:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:3:50:0]
+[240:121] [7113] (basicportallocator.cc:753): Jingle:Port[0x7efd14003b10:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ipopbr0:10.10.0.0/24:Unknown]]: Port ready.
+[240:121] [7113] (basicportallocator.cc:769): Not yet signaling candidate because protocol is not yet enabled.
+[240:121] [7113] (basicportallocator.cc:835): Jingle:Port[0x7efd14003b10:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ipopbr0:10.10.0.0/24:Unknown]]: Port completed gathering candidates.
+[240:121] [7113] (port.cc:205): Jingle:Port[0x7efd14014fc0::1:0:local:Net[ipopbr0:10.10.0.0/24:Unknown]]: Port created with network cost 50
+[240:121] [7113] (basicportallocator.cc:689): Adding allocated port for 336355d64fc94a4f835db3a87a2dbb92
+[240:121] [7113] (basicportallocator.cc:709): Jingle:Port[0x7efd14014fc0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ipopbr0:10.10.0.0/24:Unknown]]: Added port to allocator
+[240:121] [7113] (stunport.cc:373): Jingle:Port[0x7efd14014fc0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ipopbr0:10.10.0.0/24:Unknown]]: Starting STUN host lookup for turn.ipop-project.org:19302
+[240:124] [7113] (basicportallocator.cc:885): Signaling candidate because protocol was enabled: Cand[:2034755259:1:udp:2122260223:10.10.0.11:43799:local::0:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:3:50:0]
+[240:124] [7113] (basicportallocator.cc:1134): Jingle:Net[ens33:10.244.19.0/24:Unknown]: Allocation Phase=Udp
+[240:124] [7113] (port.cc:205): Jingle:Port[0x7efd14026c30::1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Port created with network cost 50
+[240:124] [7113] (basicportallocator.cc:689): Adding allocated port for 336355d64fc94a4f835db3a87a2dbb92
+[240:124] [7113] (basicportallocator.cc:709): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Added port to allocator
+[240:124] [7113] (basicportallocator.cc:726): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Gathered candidate: Cand[:317733758:1:udp:2122194687:10.244.19.155:41156:local::0:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:2:50:0]
+[240:124] [7113] (basicportallocator.cc:753): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Port ready.
+[240:124] [7113] (basicportallocator.cc:769): Not yet signaling candidate because protocol is not yet enabled.
+[240:124] [7113] (basicportallocator.cc:835): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Port completed gathering candidates.
+[240:124] [7113] (port.cc:205): Jingle:Port[0x7efd14037af0::1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Port created with network cost 50
+[240:124] [7113] (basicportallocator.cc:689): Adding allocated port for 336355d64fc94a4f835db3a87a2dbb92
+[240:124] [7113] (basicportallocator.cc:709): Jingle:Port[0x7efd14037af0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ens33:10.244.19.0/24:Unknown]]: Added port to allocator
+[240:124] [7113] (stunport.cc:373): Jingle:Port[0x7efd14037af0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ens33:10.244.19.0/24:Unknown]]: Starting STUN host lookup for turn.ipop-project.org:19302
+[240:126] [7113] (basicportallocator.cc:885): Signaling candidate because protocol was enabled: Cand[:317733758:1:udp:2122194687:10.244.19.155:41156:local::0:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:2:50:0]
+[240:126] [7113] (basicportallocator.cc:1134): Jingle:Net[docker_gwbridge:172.18.0.0/16:Unknown]: Allocation Phase=Udp
+[240:126] [7113] (port.cc:205): Jingle:Port[0x7efd14049480::1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Port created with network cost 50
+[240:127] [7113] (basicportallocator.cc:689): Adding allocated port for 336355d64fc94a4f835db3a87a2dbb92
+[240:127] [7113] (basicportallocator.cc:709): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Added port to allocator
+[240:127] [7113] (basicportallocator.cc:726): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Gathered candidate: Cand[:1051995033:1:udp:2122129151:172.18.0.1:49119:local::0:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:1:50:0]
+[240:127] [7113] (basicportallocator.cc:753): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Port ready.
+[240:127] [7113] (basicportallocator.cc:769): Not yet signaling candidate because protocol is not yet enabled.
+[240:127] [7113] (basicportallocator.cc:835): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Port completed gathering candidates.
+[240:127] [7113] (port.cc:205): Jingle:Port[0x7efd1405a650::1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Port created with network cost 50
+[240:127] [7113] (basicportallocator.cc:689): Adding allocated port for 336355d64fc94a4f835db3a87a2dbb92
+[240:127] [7113] (basicportallocator.cc:709): Jingle:Port[0x7efd1405a650:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Added port to allocator
+[240:127] [7113] (stunport.cc:373): Jingle:Port[0x7efd1405a650:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Starting STUN host lookup for turn.ipop-project.org:19302
+[240:131] [7113] (basicportallocator.cc:885): Signaling candidate because protocol was enabled: Cand[:1051995033:1:udp:2122129151:172.18.0.1:49119:local::0:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:1:50:0]
+[240:141] [7113] (basicportallocator.cc:726): Jingle:Port[0x7efd14037af0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ens33:10.244.19.0/24:Unknown]]: Gathered candidate: Cand[:2478325194:1:udp:1685987071:10.244.19.155:47945:stun:10.244.19.155:47945:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:2:50:0]
+[240:141] [7113] (basicportallocator.cc:753): Jingle:Port[0x7efd14037af0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ens33:10.244.19.0/24:Unknown]]: Port ready.
+[240:141] [7113] (basicportallocator.cc:726): Jingle:Port[0x7efd1405a650:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Gathered candidate: Cand[:3717574005:1:udp:1685921535:10.244.19.155:36559:stun:172.18.0.1:36559:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:1:50:0]
+[240:142] [7113] (basicportallocator.cc:753): Jingle:Port[0x7efd1405a650:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Port ready.
+[241:126] [7113] (basicportallocator.cc:1134): Jingle:Net[ipopbr0:10.10.0.0/24:Unknown]: Allocation Phase=Relay
+[241:126] [7113] (port.cc:205): Jingle:Port[0x7efd1406d2c0::1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: Port created with network cost 50
+[241:126] [7113] (basicportallocator.cc:689): Adding allocated port for 336355d64fc94a4f835db3a87a2dbb92
+[241:126] [7113] (basicportallocator.cc:709): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: Added port to allocator
+[241:126] [7113] (turnport.cc:676): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: Starting TURN host lookup for turn.ipop-project.org:19302
+[241:128] [7113] (basicportallocator.cc:1134): Jingle:Net[ens33:10.244.19.0/24:Unknown]: Allocation Phase=Relay
+[241:128] [7113] (port.cc:205): Jingle:Port[0x7efd1406db20::1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Port created with network cost 50
+[241:128] [7113] (basicportallocator.cc:689): Adding allocated port for 336355d64fc94a4f835db3a87a2dbb92
+[241:128] [7113] (basicportallocator.cc:709): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Added port to allocator
+[241:128] [7113] (turnport.cc:676): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Starting TURN host lookup for turn.ipop-project.org:19302
+[241:131] [7113] (basicportallocator.cc:1134): Jingle:Net[docker_gwbridge:172.18.0.0/16:Unknown]: Allocation Phase=Relay
+[241:131] [7113] (port.cc:205): Jingle:Port[0x7efd1406e8c0::1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Port created with network cost 50
+[241:132] [7113] (basicportallocator.cc:689): Adding allocated port for 336355d64fc94a4f835db3a87a2dbb92
+[241:132] [7113] (basicportallocator.cc:709): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Added port to allocator
+[241:132] [7113] (turnport.cc:676): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Starting TURN host lookup for turn.ipop-project.org:19302
+[241:134] [7113] (turnport.cc:304): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: Trying to connect to TURN server via udp @ turn.ipop-project.org:19302
+[241:135] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request sent, id=4e414c5a6745734970506239
+[241:135] [7113] (turnport.cc:304): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Trying to connect to TURN server via udp @ turn.ipop-project.org:19302
+[241:136] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN allocate request sent, id=4e5a645a3772375171457268
+[241:137] [7113] (turnport.cc:1140): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Received TURN allocate error response, id=4e5a645a3772375171457268, code=401, rtt=2
+[241:137] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN allocate request sent, id=2f5a432b36674e6746466d77
+[241:137] [7113] (turnport.cc:304): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Trying to connect to TURN server via udp @ turn.ipop-project.org:19302
+[241:138] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN allocate request sent, id=6a3359776d762f7433676562
+[241:138] [7113] (turnport.cc:1099): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN allocate requested successfully, id=2f5a432b36674e6746466d77, code=0, rtt=1
+[241:138] [7113] (basicportallocator.cc:726): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Gathered candidate: Cand[:1108623675:1:udp:41819903:128.227.73.142:62102:relay:10.244.19.155:59263:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:2:50:0]
+[241:138] [7113] (basicportallocator.cc:753): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Port ready.
+[241:139] [7113] (basicportallocator.cc:835): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Port completed gathering candidates.
+[241:139] [7113] (turnport.cc:921): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Scheduled refresh in 3540000ms.
+[241:139] [7113] (turnport.cc:1140): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Received TURN allocate error response, id=6a3359776d762f7433676562, code=401, rtt=2
+[241:139] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN allocate request sent, id=793049634a77526966674972
+[241:140] [7113] (turnport.cc:1099): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN allocate requested successfully, id=793049634a77526966674972, code=0, rtt=2
+[241:141] [7113] (basicportallocator.cc:726): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Gathered candidate: Cand[:1108623675:1:udp:41754367:128.227.73.142:55050:relay:10.244.19.155:33858:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:1:50:0]
+[241:141] [7113] (basicportallocator.cc:753): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Port ready.
+[241:141] [7113] (basicportallocator.cc:835): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Port completed gathering candidates.
+[241:141] [7113] (turnport.cc:921): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Scheduled refresh in 3540000ms.
+[241:236] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request sent, id=4e414c5a6745734970506239
+[241:437] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request sent, id=4e414c5a6745734970506239
+[241:838] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request sent, id=4e414c5a6745734970506239
+[242:129] [7113] (basicportallocator.cc:1134): Jingle:Net[ipopbr0:10.10.0.0/24:Unknown]: Allocation Phase=Tcp
+[242:132] [7113] (basicportallocator.cc:1134): Jingle:Net[ens33:10.244.19.0/24:Unknown]: Allocation Phase=Tcp
+[242:135] [7113] (basicportallocator.cc:1134): Jingle:Net[docker_gwbridge:172.18.0.0/16:Unknown]: Allocation Phase=Tcp
+[242:639] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request sent, id=4e414c5a6745734970506239
+[243:131] [7113] (basicportallocator.cc:1134): Jingle:Net[ipopbr0:10.10.0.0/24:Unknown]: Allocation Phase=SslTcp
+[243:133] [7113] (basicportallocator.cc:1134): Jingle:Net[ens33:10.244.19.0/24:Unknown]: Allocation Phase=SslTcp
+[243:136] [7113] (basicportallocator.cc:1134): Jingle:Net[docker_gwbridge:172.18.0.0/16:Unknown]: Allocation Phase=SslTcp
+[244:240] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request sent, id=4e414c5a6745734970506239
+[245:841] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request sent, id=4e414c5a6745734970506239
+[247:441] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request sent, id=4e414c5a6745734970506239
+[249:043] [7113] (turnport.cc:1093): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request sent, id=4e414c5a6745734970506239
+[249:635] [7113] (stunport.cc:89): Binding request timed out from 10.10.0.11:43732 (ipopbr0)
+[249:636] [7113] (stunport.cc:89): Binding request timed out from 10.244.19.155:47945 (ens33)
+[249:636] [7113] (basicportallocator.cc:835): Jingle:Port[0x7efd14037af0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ens33:10.244.19.0/24:Unknown]]: Port completed gathering candidates.
+[249:640] [7113] (stunport.cc:89): Binding request timed out from 172.18.0.1:36559 (docker_gwbridge)
+[249:640] [7113] (basicportallocator.cc:835): Jingle:Port[0x7efd1405a650:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Port completed gathering candidates.
+[249:648] [7113] (stunport.cc:89): Binding request timed out from 10.10.0.11:43732 (ipopbr0)
+[249:648] [7113] (basicportallocator.cc:852): Jingle:Port[0x7efd14014fc0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ipopbr0:10.10.0.0/24:Unknown]]: Port encountered error while gathering candidates.
+[250:645] [7113] (turnport.cc:1168): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: TURN allocate request 4e414c5a6745734970506239 timout
+[250:645] [7113] (basicportallocator.cc:852): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: Port encountered error while gathering candidates.
+[250:645] [7113] (basicportallocator.cc:959): All candidates gathered for 336355d64fc94a4f835db3a87a2dbb92:1:0
+[250:645] [7113] (p2ptransportchannel.cc:568): P2PTransportChannel: 336355d64fc94a4f835db3a87a2dbb92, component 1 gathering complete
+[250:646] [7115] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanResponse",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "CreateLink",
+         "IP4" : null,
+         "IP4PrefixLen" : null,
+         "IgnoredNetInterfaces" : [ "ipopbr0", "bruce_gw" ],
+         "LinkId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "MTU4" : null,
+         "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "PeerInfo" : {
+            "CAS" : null,
+            "FPR" : "sha-1 99:58:BE:A8:81:FC:5D:2F:55:33:57:1D:C9:27:B5:B6:7D:58:2E:34",
+            "MAC" : "D287CD32C9CA",
+            "UID" : "66cd4db52fbb4d4f943fefad8634b63c",
+            "VIP4" : ""
+         },
+         "StunAddress" : "10.244.18.150:3478",
+         "TapName" : "bruce_gw",
+         "TurnAddress" : "turn.ipop-project.org:19302",
+         "TurnPass" : "ShrR4754shcTr",
+         "TurnUser" : "turn1",
+         "Type" : "TUNNEL"
+      },
+      "Response" : {
+         "Message" : {
+            "CAS" : "1:udp:10.10.0.11:43799:2122260223:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:2034755259 1:udp:10.244.19.155:41156:2122194687:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:317733758 1:udp:172.18.0.1:49119:2122129151:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:1051995033 1:udp:10.244.19.155:47945:1685987071:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:2478325194 1:udp:10.244.19.155:36559:1685921535:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:3717574005 1:udp:128.227.73.142:62102:41819903:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 1:udp:128.227.73.142:55050:41754367:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 ",
+            "FPR" : "sha-1 01:B8:8D:8C:88:E4:1A:D0:2E:9A:95:18:78:26:C3:70:B6:69:AD:A0",
+            "IP4PrefixLen" : 0,
+            "LinkIds" : [],
+            "MAC" : "46225463A7C5",
+            "MTU4" : 0,
+            "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92",
+            "TapName" : "bruce_gw",
+            "VIP4" : ""
+         },
+         "Success" : true
+      },
+      "TransactionId" : 938081426215351598
+   }
+}
+
+[261:197] [6797] (control_listener.cc:48): Received CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "CreateLink",
+         "IP4" : null,
+         "IP4PrefixLen" : null,
+         "IgnoredNetInterfaces" : null,
+         "LinkId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "MTU4" : null,
+         "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "PeerInfo" : {
+            "CAS" : "1:udp:10.10.0.10:54335:2122260223:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:3254485470 1:udp:10.244.19.119:55231:2122194687:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:2913346054 1:udp:10.244.19.119:36306:1685987071:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:753804466 1:udp:128.227.73.142:57834:41819903:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 ",
+            "FPR" : "",
+            "MAC" : "",
+            "UID" : "66cd4db52fbb4d4f943fefad8634b63c",
+            "VIP4" : null
+         },
+         "StunAddress" : null,
+         "TapName" : null,
+         "TurnAddress" : null,
+         "TurnPass" : null,
+         "TurnUser" : null,
+         "Type" : "TUNNEL"
+      },
+      "Response" : {},
+      "TransactionId" : 938081426215351606
+   }
+}
+
+[261:199] [7113] (turnport.cc:1336): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN create permission request sent, id=4b46676c477a6a5a7261774e
+[261:199] [7113] (port.cc:879): Jingle:Conn[0x7efd140a1fb0:336355d64fc94a4f835db3a87a2dbb92:RCJM2vaq:1:0:relay:udp:128.227.73.142:55050->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|179333644974702078|-]: Connection created
+[261:199] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (1 total)
+[261:199] [7113] (turnport.cc:1336): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN create permission request sent, id=636e2b6d61416a3763434c4d
+[261:200] [7113] (port.cc:879): Jingle:Conn[0x7efd140a2620:336355d64fc94a4f835db3a87a2dbb92:bTDxngMh:1:0:relay:udp:128.227.73.142:62102->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|179615119951412734|-]: Connection created
+[261:200] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (2 total)
+[261:200] [7113] (port.cc:879): Jingle:Conn[0x7efd140a3480:336355d64fc94a4f835db3a87a2dbb92:rAehzJH1:1:0:stun:udp:10.244.19.155:36559->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|7240977860691639806|-]: Connection created
+[261:200] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (3 total)
+[261:200] [7113] (port.cc:879): Jingle:Conn[0x7efd140a3f60:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|7241259335668350462|-]: Connection created
+[261:200] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (4 total)
+[261:200] [7113] (port.cc:879): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|9114475305677766142|-]: Connection created
+[261:200] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (5 total)
+[261:200] [7113] (port.cc:879): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|9114756780654476798|-]: Connection created
+[261:200] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (6 total)
+[261:200] [7113] (port.cc:879): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|9115038255631187454|-]: Connection created
+[261:200] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (7 total)
+[261:200] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Transport channel state changed from 0 to 1
+[261:200] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[261:200] [7113] (p2ptransportchannel.cc:1060): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Have a pingable connection for the first time; starting to ping.
+[261:201] [7113] (turnport.cc:1336): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN create permission request sent, id=453879623539364b676a734a
+[261:201] [7113] (port.cc:879): Jingle:Conn[0x7efd140a6d30:336355d64fc94a4f835db3a87a2dbb92:RCJM2vaq:1:0:relay:udp:128.227.73.142:55050->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|179333644974571006|-]: Connection created
+[261:202] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (8 total)
+[261:203] [7113] (turnport.cc:1336): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN create permission request sent, id=324c6d64735a6f6a4e4d487a
+[261:203] [7113] (port.cc:879): Jingle:Conn[0x7efd140a7c50:336355d64fc94a4f835db3a87a2dbb92:bTDxngMh:1:0:relay:udp:128.227.73.142:62102->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|179615119951281662|-]: Connection created
+[261:204] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (9 total)
+[261:204] [7113] (port.cc:879): Jingle:Conn[0x7efd140a8e00:336355d64fc94a4f835db3a87a2dbb92:rAehzJH1:1:0:stun:udp:10.244.19.155:36559->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|7240977860691508734|-]: Connection created
+[261:204] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (10 total)
+[261:204] [7113] (port.cc:879): Jingle:Conn[0x7efd140a9390:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|7241259335668219390|-]: Connection created
+[261:204] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (11 total)
+[261:205] [7113] (port.cc:879): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|9114475305677635070|-]: Connection created
+[261:205] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (12 total)
+[261:205] [7113] (port.cc:879): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|9114756780654345726|-]: Connection created
+[261:205] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (13 total)
+[261:205] [7113] (port.cc:879): Jingle:Conn[0x7efd140ab360:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|9114756780654476799|-]: Connection created
+[261:206] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (14 total)
+[261:207] [7113] (turnport.cc:1336): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN create permission request sent, id=657167706d7956756b7a6a57
+[261:207] [7113] (port.cc:879): Jingle:Conn[0x7efd140ac410:336355d64fc94a4f835db3a87a2dbb92:RCJM2vaq:1:0:relay:udp:128.227.73.142:55050->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|179333644102155774|-]: Connection created
+[261:207] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (15 total)
+[261:207] [7113] (turnport.cc:1336): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN create permission request sent, id=2f7741497a364969336a6552
+[261:207] [7113] (port.cc:879): Jingle:Conn[0x7efd140ad500:336355d64fc94a4f835db3a87a2dbb92:bTDxngMh:1:0:relay:udp:128.227.73.142:62102->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|179615119078866430|-]: Connection created
+[261:207] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (16 total)
+[261:208] [7113] (port.cc:879): Jingle:Conn[0x7efd140ae240:336355d64fc94a4f835db3a87a2dbb92:rAehzJH1:1:0:stun:udp:10.244.19.155:36559->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7240977859819093502|-]: Connection created
+[261:208] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (17 total)
+[261:208] [7113] (port.cc:879): Jingle:Conn[0x7efd140aecc0:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7241259334795804158|-]: Connection created
+[261:208] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (18 total)
+[261:208] [7113] (port.cc:879): Jingle:Conn[0x7efd140af4a0:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7241259335668088319|-]: Connection created
+[261:208] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (19 total)
+[261:208] [7113] (port.cc:879): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7241259335668219391|-]: Connection created
+[261:208] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (20 total)
+[261:208] [7113] (port.cc:879): Jingle:Conn[0x7efd140b0de0:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7241259335668350463|-]: Connection created
+[261:208] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (21 total)
+[261:209] [7113] (turnport.cc:1336): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN create permission request sent, id=7739556b67705a746e494e79
+[261:209] [7113] (port.cc:879): Jingle:Conn[0x7efd140b1b60:336355d64fc94a4f835db3a87a2dbb92:RCJM2vaq:1:0:relay:udp:128.227.73.142:55050->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179333640813821438|-]: Connection created
+[261:209] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (22 total)
+[261:209] [7113] (turnport.cc:1336): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN create permission request sent, id=4c34482b624e74377776786a
+[261:209] [7113] (port.cc:879): Jingle:Conn[0x7efd140b2aa0:336355d64fc94a4f835db3a87a2dbb92:bTDxngMh:1:0:relay:udp:128.227.73.142:62102->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615115790532094|-]: Connection created
+[261:209] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (23 total)
+[261:210] [7113] (port.cc:879): Jingle:Conn[0x7efd140b3c50:336355d64fc94a4f835db3a87a2dbb92:rAehzJH1:1:0:stun:udp:10.244.19.155:36559->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119078735359|-]: Connection created
+[261:210] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (24 total)
+[261:210] [7113] (port.cc:879): Jingle:Conn[0x7efd140b41e0:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119078866431|-]: Connection created
+[261:210] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (25 total)
+[261:210] [7113] (port.cc:879): Jingle:Conn[0x7efd140b4f50:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119951150591|-]: Connection created
+[261:210] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (26 total)
+[261:210] [7113] (port.cc:879): Jingle:Conn[0x7efd140b5a30:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119951281663|-]: Connection created
+[261:210] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (27 total)
+[261:210] [7113] (port.cc:879): Jingle:Conn[0x7efd140b6180:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119951412735|-]: Connection created
+[261:210] [7113] (p2ptransportchannel.cc:869): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: Created connection with origin=2, (28 total)
+[261:211] [6797] (tunnel.cc:44): Added remote CAS to vlink w/ peer 66cd4db52fbb4d4f943fefad8634b63c
+[261:211] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|9115038255631187454|-]: Sent STUN ping, id=4f69566e7759704342467a2f, use_candidate=1, nomination=0
+[261:211] [7113] (turnport.cc:1342): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN permission requested successfully, id=636e2b6d61416a3763434c4d, code=0, rtt=12
+[261:211] [7113] (turnport.cc:1496): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Create permission for 10.10.0.10:54335 succeeded
+[261:211] [6797] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanResponse",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "CreateLink",
+         "IP4" : null,
+         "IP4PrefixLen" : null,
+         "IgnoredNetInterfaces" : null,
+         "LinkId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "MTU4" : null,
+         "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "PeerInfo" : {
+            "CAS" : "1:udp:10.10.0.10:54335:2122260223:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:3254485470 1:udp:10.244.19.119:55231:2122194687:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:2913346054 1:udp:10.244.19.119:36306:1685987071:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:753804466 1:udp:128.227.73.142:57834:41819903:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 ",
+            "FPR" : "",
+            "MAC" : "",
+            "UID" : "66cd4db52fbb4d4f943fefad8634b63c",
+            "VIP4" : null
+         },
+         "StunAddress" : null,
+         "TapName" : null,
+         "TurnAddress" : null,
+         "TurnPass" : null,
+         "TurnUser" : null,
+         "Type" : "TUNNEL"
+      },
+      "Response" : {
+         "Message" : {
+            "CAS" : "1:udp:10.10.0.11:43799:2122260223:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:2034755259 1:udp:10.244.19.155:41156:2122194687:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:317733758 1:udp:172.18.0.1:49119:2122129151:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:local:0:1051995033 1:udp:10.244.19.155:47945:1685987071:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:2478325194 1:udp:10.244.19.155:36559:1685921535:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:stun:0:3717574005 1:udp:128.227.73.142:62102:41819903:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 1:udp:128.227.73.142:55050:41754367:_001IPOPICEUFRAG:_00000001IPOPICEPASSWORD:relay:0:1108623675 ",
+            "FPR" : "sha-1 01:B8:8D:8C:88:E4:1A:D0:2E:9A:95:18:78:26:C3:70:B6:69:AD:A0",
+            "IP4PrefixLen" : 0,
+            "LinkIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ],
+            "MAC" : "46225463A7C5",
+            "MTU4" : 0,
+            "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92",
+            "TapName" : "bruce_gw",
+            "VIP4" : ""
+         },
+         "Success" : true
+      },
+      "TransactionId" : 938081426215351606
+   }
+}
+
+[261:211] [7113] (turnport.cc:1509): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Scheduled create-permission-request in 240000ms.
+[261:212] [7113] (turnport.cc:1342): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN permission requested successfully, id=4b46676c477a6a5a7261774e, code=0, rtt=14
+[261:212] [7113] (turnport.cc:1496): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Create permission for 10.10.0.10:54335 succeeded
+[261:212] [7113] (turnport.cc:1509): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Scheduled create-permission-request in 240000ms.
+[261:212] [7113] (turnport.cc:1342): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN permission requested successfully, id=324c6d64735a6f6a4e4d487a, code=0, rtt=10
+[261:212] [7113] (turnport.cc:1496): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Create permission for 10.244.19.119:55231 succeeded
+[261:212] [7113] (turnport.cc:1509): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Scheduled create-permission-request in 240000ms.
+[261:212] [7113] (turnport.cc:1342): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN permission requested successfully, id=453879623539364b676a734a, code=0, rtt=11
+[261:212] [7113] (turnport.cc:1496): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Create permission for 10.244.19.119:55231 succeeded
+[261:213] [7113] (turnport.cc:1509): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Scheduled create-permission-request in 240000ms.
+[261:213] [7113] (turnport.cc:1342): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN permission requested successfully, id=2f7741497a364969336a6552, code=0, rtt=6
+[261:213] [7113] (turnport.cc:1496): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Create permission for 10.244.19.119:36306 succeeded
+[261:213] [7113] (turnport.cc:1509): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Scheduled create-permission-request in 240000ms.
+[261:213] [7113] (turnport.cc:1342): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN permission requested successfully, id=657167706d7956756b7a6a57, code=0, rtt=7
+[261:213] [7113] (turnport.cc:1496): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Create permission for 10.244.19.119:36306 succeeded
+[261:213] [7113] (turnport.cc:1509): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Scheduled create-permission-request in 240000ms.
+[261:213] [7113] (turnport.cc:1342): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN permission requested successfully, id=4c34482b624e74377776786a, code=0, rtt=4
+[261:213] [7113] (turnport.cc:1496): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Create permission for 128.227.73.142:57834 succeeded
+[261:214] [7113] (turnport.cc:1509): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: Scheduled create-permission-request in 240000ms.
+[261:214] [7113] (turnport.cc:1342): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN permission requested successfully, id=7739556b67705a746e494e79, code=0, rtt=6
+[261:214] [7113] (turnport.cc:1496): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Create permission for 128.227.73.142:57834 succeeded
+[261:214] [7113] (turnport.cc:1509): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Scheduled create-permission-request in 240000ms.
+[261:261] [7113] (port.cc:1413): Jingle:Conn[0x7efd140ab360:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|9114756780654476799|-]: Sent STUN ping, id=616a7a6d4430704a6c6a5941, use_candidate=1, nomination=0
+[261:310] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|9114756780654476798|-]: Sent STUN ping, id=31366d4e524c7937546c4661, use_candidate=1, nomination=0
+[261:360] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|9114756780654345726|-]: Sent STUN ping, id=6e6467544f47703452776b4c, use_candidate=1, nomination=0
+[261:362] [7113] (port.cc:1360): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--I|0|0|9114756780654345726|-]: Received STUN ping response, id=6e6467544f47703452776b4c, code=0, rtt=2, pings_since_last_response=6e6467544f47703452776b4c 
+[261:362] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[261:363] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: New selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|2250]
+[261:363] [7113] (opensslstreamadapter.cc:795): BeginSSL with peer.
+[261:363] [7113] (openssladapter.cc:852): SSL_connect:before connect initialization
+[261:363] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 write client hello A
+[261:363] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 flush data
+[261:363] [7113] (openssladapter.cc:862): SSL_connect:error in DTLS1 read hello verify request A
+[261:363] [7113] (dtlstransportchannel.cc:640): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: DtlsTransportChannelWrapper: Started DTLS handshake
+[261:367] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 read server hello A
+[261:367] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 read server certificate A
+[261:367] [7113] (opensslstreamadapter.cc:1134): Accepted peer certificate.
+[261:367] [7113] (opensslstreamadapter.cc:1134): Accepted peer certificate.
+[261:367] [7113] (openssladapter.cc:852): SSL_connect:unknown state
+[261:367] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 read server key exchange A
+[261:367] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 read server certificate request A
+[261:367] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 read server done A
+[261:367] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 write client certificate A
+[261:369] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 write client key exchange A
+[261:369] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 write certificate verify A
+[261:369] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 write change cipher spec
+[261:369] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 write finished A
+[261:369] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 flush data
+[261:369] [7113] (openssladapter.cc:862): SSL_connect:error in SSLv3 read server session ticket A
+[261:373] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 read server session ticket A
+[261:373] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 read change cipher spec
+[261:373] [7113] (openssladapter.cc:852): SSL_connect:SSLv3 read finished A
+[261:373] [7113] (dtlstransportchannel.cc:586): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|__]: DTLS handshake complete.
+[261:373] [7113] (transportcontroller.cc:737):  TransportChannel 336355d64fc94a4f835db3a87a2dbb92 1 writability changed to 1.
+[261:373] [7113] (virtual_link.cc:163): Connection established to: 66cd4db52fbb4d4f943fefad8634b63c
+[261:380] [7113] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "LinkStateChange",
+         "Data" : "LINK_STATE_UP",
+         "LinkId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92"
+      },
+      "TransactionId" : 1
+   }
+}
+
+[261:508] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|9114475305677766142|-]: Sent STUN ping, id=617273484571516b78746564, use_candidate=1, nomination=0
+[261:557] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|9114475305677635070|-]: Sent STUN ping, id=32484d413653473834517377, use_candidate=1, nomination=0
+[261:559] [7113] (port.cc:1360): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--I|0|0|9114475305677635070|-]: Received STUN ping response, id=32484d413653473834517377, code=0, rtt=2, pings_since_last_response=32484d413653473834517377 
+[261:559] [7113] (port.cc:1551): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114475305677635070|2250]: Updating local candidate type to prflx.
+[261:560] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[261:560] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|1265]
+[261:560] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|7961553801070788094|2250]
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140af4a0:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7241259335668088319|-]: Connection pruned
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140a3480:336355d64fc94a4f835db3a87a2dbb92:rAehzJH1:1:0:stun:udp:10.244.19.155:36559->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|7240977860691639806|-]: Connection pruned
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140a8e00:336355d64fc94a4f835db3a87a2dbb92:rAehzJH1:1:0:stun:udp:10.244.19.155:36559->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|7240977860691508734|-]: Connection pruned
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140ae240:336355d64fc94a4f835db3a87a2dbb92:rAehzJH1:1:0:stun:udp:10.244.19.155:36559->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7240977859819093502|-]: Connection pruned
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b4f50:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119951150591|-]: Connection pruned
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b3c50:336355d64fc94a4f835db3a87a2dbb92:rAehzJH1:1:0:stun:udp:10.244.19.155:36559->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119078735359|-]: Connection pruned
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140a1fb0:336355d64fc94a4f835db3a87a2dbb92:RCJM2vaq:1:0:relay:udp:128.227.73.142:55050->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|179333644974702078|-]: Connection pruned
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140a6d30:336355d64fc94a4f835db3a87a2dbb92:RCJM2vaq:1:0:relay:udp:128.227.73.142:55050->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|179333644974571006|-]: Connection pruned
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140ac410:336355d64fc94a4f835db3a87a2dbb92:RCJM2vaq:1:0:relay:udp:128.227.73.142:55050->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|179333644102155774|-]: Connection pruned
+[261:560] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b1b60:336355d64fc94a4f835db3a87a2dbb92:RCJM2vaq:1:0:relay:udp:128.227.73.142:55050->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179333640813821438|-]: Connection pruned
+[261:705] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0de0:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7241259335668350463|-]: Sent STUN ping, id=6f662b574178516177595059, use_candidate=0, nomination=0
+[261:754] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a3f60:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|7241259335668350462|-]: Sent STUN ping, id=6f335a554656616f30492b4b, use_candidate=0, nomination=0
+[261:804] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7241259335668219391|-]: Sent STUN ping, id=493450664b43726163585261, use_candidate=0, nomination=0
+[261:806] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--I|0|0|7241259335668219391|-]: Received STUN ping response, id=493450664b43726163585261, code=0, rtt=2, pings_since_last_response=493450664b43726163585261 
+[261:806] [7113] (port.cc:1117): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|1265]: Connection pruned
+[261:806] [7113] (port.cc:1117): Jingle:Conn[0x7efd140a9390:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|7241259335668219390|-]: Connection pruned
+[261:806] [7113] (port.cc:1117): Jingle:Conn[0x7efd140aecc0:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|7241259334795804158|-]: Connection pruned
+[261:806] [7113] (port.cc:1117): Jingle:Conn[0x7efd140a2620:336355d64fc94a4f835db3a87a2dbb92:bTDxngMh:1:0:relay:udp:128.227.73.142:62102->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--W|0|0|179615119951412734|-]: Connection pruned
+[261:806] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b5a30:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119951281663|-]: Connection pruned
+[261:806] [7113] (port.cc:1117): Jingle:Conn[0x7efd140a7c50:336355d64fc94a4f835db3a87a2dbb92:bTDxngMh:1:0:relay:udp:128.227.73.142:62102->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--W|0|0|179615119951281662|-]: Connection pruned
+[261:806] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b41e0:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119078866431|-]: Connection pruned
+[261:806] [7113] (port.cc:1117): Jingle:Conn[0x7efd140ad500:336355d64fc94a4f835db3a87a2dbb92:bTDxngMh:1:0:relay:udp:128.227.73.142:62102->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--W|0|0|179615119078866430|-]: Connection pruned
+[261:807] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b2aa0:336355d64fc94a4f835db3a87a2dbb92:bTDxngMh:1:0:relay:udp:128.227.73.142:62102->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615115790532094|-]: Connection pruned
+[261:854] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b6180:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--W|0|0|179615119951412735|-]: Sent STUN ping, id=2f457853437044744247736b, use_candidate=0, nomination=0
+[261:903] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9115038255631187454|-]: Sent STUN ping, id=6944344c54654e6f4a79344b, use_candidate=1, nomination=0
+[261:952] [7113] (port.cc:1413): Jingle:Conn[0x7efd140ab360:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--I|0|0|9114756780654476799|-]: Sent STUN ping, id=626a4748694f6541755a494c, use_candidate=1, nomination=0
+[262:002] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114756780654476798|-]: Sent STUN ping, id=6139634d555567526f6d7954, use_candidate=1, nomination=0
+[262:051] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114475305677766142|-]: Sent STUN ping, id=48736969307a385a33565362, use_candidate=1, nomination=0
+[262:100] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0de0:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--I|0|0|7241259335668350463|-]: Sent STUN ping, id=564630706563487445787a4e, use_candidate=0, nomination=0
+[262:151] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a3f60:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|7241259335668350462|-]: Sent STUN ping, id=75436a7759475056414d5571, use_candidate=0, nomination=0
+[262:235] [7152] (messagequeue.cc:537): Message took 854ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[262:249] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b6180:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--I|0|0|179615119951412735|-]: Sent STUN ping, id=4b5a654f4a34732f585a3932, use_candidate=0, nomination=0
+[262:298] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9115038255631187454|-]: Sent STUN ping, id=4863634f4534487356766946, use_candidate=1, nomination=0
+[262:347] [7113] (port.cc:1413): Jingle:Conn[0x7efd140ab360:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--I|0|0|9114756780654476799|-]: Sent STUN ping, id=764f7930704f784568507958, use_candidate=1, nomination=0
+[262:397] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114756780654476798|-]: Sent STUN ping, id=755035654e544c58462f5937, use_candidate=1, nomination=0
+[262:447] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114475305677766142|-]: Sent STUN ping, id=4f365a7470636851365a4f73, use_candidate=1, nomination=0
+[262:496] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0de0:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--I|0|0|7241259335668350463|-]: Sent STUN ping, id=6f64586d596b654e4363494e, use_candidate=0, nomination=0
+[262:525] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]: Received STUN ping, id=6831474b2b5a4d7a572f5172
+[262:525] [7113] (port.cc:609): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=6831474b2b5a4d7a572f5172
+[262:545] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a3f60:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|7241259335668350462|-]: Sent STUN ping, id=6234523937564c715a6c5236, use_candidate=0, nomination=0
+[262:693] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b6180:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--I|0|0|179615119951412735|-]: Sent STUN ping, id=674c4a6e312f6a54694a6e63, use_candidate=0, nomination=0
+[263:244] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9115038255631187454|-]: Sent STUN ping, id=55442b68616c52542f54616f, use_candidate=1, nomination=0
+[263:260] [7152] (messagequeue.cc:537): Message took 1024ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[263:269] [7113] (port.cc:1360): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114475305677766142|-]: Received STUN ping response, id=617273484571516b78746564, code=0, rtt=1761, pings_since_last_response=617273484571516b78746564 48736969307a385a33565362 4f365a7470636851365a4f73 
+[263:269] [7113] (port.cc:1551): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:0B0yDTU7:1:0:local:udp:172.18.0.1:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9114475305677766142|2690]: Updating local candidate type to prflx.
+[263:270] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[263:270] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|7961553801070788094|949]
+[263:270] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|2322]
+[263:270] [7113] (port.cc:1117): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|7961553801070788094|949]: Connection pruned
+[263:272] [7113] (port.cc:1360): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9115038255631187454|-]: Received STUN ping response, id=4f69566e7759704342467a2f, code=0, rtt=2061, pings_since_last_response=4f69566e7759704342467a2f 6944344c54654e6f4a79344b 4863634f4534487356766946 55442b68616c52542f54616f 
+[263:273] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[263:273] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|1947]
+[263:273] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|2765]
+[263:273] [7113] (port.cc:1117): Jingle:Conn[0x7efd140ab360:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C--I|0|0|9114756780654476799|-]: Connection pruned
+[263:273] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0de0:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C--I|0|0|7241259335668350463|-]: Connection pruned
+[263:274] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b6180:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->boP/YgWa:1:41819903:relay:udp:128.227.73.142:57834|C--I|0|0|179615119951412735|-]: Connection pruned
+[263:324] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[263:324] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|2765]
+[263:324] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|1266]
+[264:251] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114756780654476798|-]: Sent STUN ping, id=4a76574e374a68354b785075, use_candidate=1, nomination=0
+[264:251] [7152] (messagequeue.cc:537): Message took 919ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[265:255] [7152] (messagequeue.cc:537): Message took 1003ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[265:757] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a3f60:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|7241259335668350462|-]: Sent STUN ping, id=4f3273516a53423534627850, use_candidate=1, nomination=0
+[265:758] [7152] (messagequeue.cc:537): Message took 502ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[265:969] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]: Received STUN ping, id=527377364b74766648763547
+[265:969] [7113] (port.cc:609): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=527377364b74766648763547
+[266:017] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xS|0|0|7961553801070788094|949]: Received STUN ping, id=4e4d783532664a746c573852
+[266:017] [7113] (port.cc:609): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=4e4d783532664a746c573852
+[266:209] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]: Received STUN ping, id=6658446c4c2b334978556841
+[266:209] [7113] (port.cc:609): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=6658446c4c2b334978556841
+[266:257] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|7961553801070788094|949]: Received STUN ping, id=7a7265474b6f544b6d5a4164
+[266:257] [7113] (port.cc:609): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=7a7265474b6f544b6d5a4164
+[266:260] [7152] (messagequeue.cc:537): Message took 502ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[266:450] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]: Received STUN ping, id=4737436e434149305944736c
+[266:450] [7113] (port.cc:609): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=4737436e434149305944736c
+[266:497] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|7961553801070788094|949]: Received STUN ping, id=467768796567487177376c71
+[266:498] [7113] (port.cc:609): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=467768796567487177376c71
+[266:689] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]: Received STUN ping, id=6e466b54786d4e4b6f71316a
+[266:689] [7113] (port.cc:609): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=6e466b54786d4e4b6f71316a
+[266:737] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|7961553801070788094|949]: Received STUN ping, id=3339612b4931697a30497a67
+[266:745] [7113] (port.cc:609): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=3339612b4931697a30497a67
+[266:763] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114756780654476798|-]: Sent STUN ping, id=327a544a31596e78494b4148, use_candidate=1, nomination=0
+[266:763] [7152] (messagequeue.cc:537): Message took 503ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[266:904] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|2765]: Timing-out STUN ping 6944344c54654e6f4a79344b after 5001 ms
+[266:929] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]: Received STUN ping, id=5246732f74396b6a5868504e
+[266:930] [7113] (port.cc:609): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=5246732f74396b6a5868504e
+[266:977] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|7961553801070788094|949]: Received STUN ping, id=64327973585134344732714a
+[266:978] [7113] (port.cc:609): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=64327973585134344732714a
+[267:170] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]: Received STUN ping, id=785962745267487467305038
+[267:170] [7113] (port.cc:609): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=785962745267487467305038
+[267:186] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[267:186] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|996]
+[267:186] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWI|0|0|9115038255631187454|2765]
+[267:264] [7152] (messagequeue.cc:537): Message took 501ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[267:298] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWI|0|0|9115038255631187454|2320]: Timing-out STUN ping 4863634f4534487356766946 after 5000 ms
+[268:245] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWI|0|0|9115038255631187454|2320]: Timing-out STUN ping 55442b68616c52542f54616f after 5001 ms
+[269:763] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a3f60:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|7241259335668350462|-]: Sent STUN ping, id=483164346b694d484e53656c, use_candidate=1, nomination=0
+[270:014] [6797] (control_listener.cc:48): Received CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {},
+      "TransactionId" : 938081426215351624
+   }
+}
+
+[270:014] [6797] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanResponse",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {
+         "Message" : {
+            "336355d64fc94a4f835db3a87a2dbb92" : {
+               "336355d64fc94a4f835db3a87a2dbb92" : {
+                  "IceRole" : "Controlling",
+                  "Stats" : {
+                     "best_conn" : true,
+                     "local_addr" : "10.10.0.11:43799",
+                     "local_type" : "local",
+                     "new_conn" : true,
+                     "receiving" : true,
+                     "recv_bytes_second" : 0,
+                     "recv_total_bytes" : 4224,
+                     "rem_addr" : "10.10.0.10:54335",
+                     "rem_type" : "local",
+                     "rtt" : 2320,
+                     "sent_bytes_second" : 2225607,
+                     "sent_total_bytes" : 5991126,
+                     "timeout" : false,
+                     "writable" : true
+                  },
+                  "Status" : "ONLINE"
+               }
+            }
+         },
+         "Success" : true
+      },
+      "TransactionId" : 938081426215351624
+   }
+}
+
+[270:121] [7113] (port.cc:736): Jingle:Port[0x7efd14014fc0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ipopbr0:10.10.0.0/24:Unknown]]: Port deleted
+[270:121] [7113] (basicportallocator.cc:973): Jingle:Port[0x7efd14014fc0:336355d64fc94a4f835db3a87a2dbb92:1:0:stun:Net[ipopbr0:10.10.0.0/24:Unknown]]: Removed port from allocator (8 remaining)
+[270:228] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xS|0|0|7961553801070788094|949]: Received STUN ping, id=33715271494a436873794e76
+[270:228] [7113] (port.cc:609): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=33715271494a436873794e76
+[270:255] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|1947]: Timing-out STUN ping 4e344d307048786642516866 after 5000 ms
+[270:732] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xS|0|0|9114756780654345726|1265]: Received STUN ping, id=653336357a43494b38626e66
+[270:732] [7113] (port.cc:609): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=653336357a43494b38626e66
+[270:763] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114756780654476798|-]: Sent STUN ping, id=6b75745a3655696e65416e58, use_candidate=1, nomination=0
+[271:126] [7113] (port.cc:736): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: Port deleted
+[271:126] [7113] (basicportallocator.cc:973): Jingle:Port[0x7efd1406d2c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ipopbr0:10.10.0.0/24:Unknown]]: Removed port from allocator (7 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 3
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140ab360 (27 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 3
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140b0de0 (26 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a9390 (25 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140af4a0 (24 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140aecc0 (23 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a3480 (22 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a8e00 (21 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140ae240 (20 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 3
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140b6180 (19 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a2620 (18 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140b5a30 (17 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a7c50 (16 remaining)
+[271:263] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:263] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140b4f50 (15 remaining)
+[271:264] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:264] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140b41e0 (14 remaining)
+[271:264] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:264] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140ad500 (13 remaining)
+[271:264] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:264] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140b3c50 (12 remaining)
+[271:264] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:264] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140b2aa0 (11 remaining)
+[271:264] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:264] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a1fb0 (10 remaining)
+[271:264] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:264] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a6d30 (9 remaining)
+[271:264] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:264] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140ac410 (8 remaining)
+[271:264] [7113] (port.cc:1459): Connection deleted with number of pings sent: 0
+[271:264] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140b1b60 (7 remaining)
+[272:263] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWI|0|0|9115038255631187454|2320]: Timing-out STUN ping 5a44514135723539632f646f after 5000 ms
+[272:738] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|7961553801070788094|949]: Received STUN ping, id=346742423675536d4d467264
+[272:739] [7113] (port.cc:609): Jingle:Port[0x7efd14049480:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=346742423675536d4d467264
+[273:241] [7113] (port.cc:1005): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]: Received STUN ping, id=4c3161397143753059426a56
+[273:241] [7113] (port.cc:609): Jingle:Port[0x7efd14026c30:336355d64fc94a4f835db3a87a2dbb92:1:0:local:Net[ens33:10.244.19.0/24:Unknown]]: Sent STUN ping response, to=10.244.19.119:55231, id=4c3161397143753059426a56
+[273:263] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWI|0|0|9115038255631187454|2320]: Timing-out STUN ping 61676e355239737375684b6e after 5000 ms
+[273:763] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|1947]: Timing-out STUN ping 695041624a36735851327333 after 5000 ms
+[273:859] [7113] (p2ptransportchannel.cc:1963): Selecting connection for triggered check: Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|7961553801070788094|949]
+[273:859] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|7961553801070788094|949]: Sent STUN ping, id=333553625577736d62436645, use_candidate=0, nomination=0
+[273:860] [7113] (port.cc:1360): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxI|0|0|7961553801070788094|949]: Received STUN ping response, id=333553625577736d62436645, code=0, rtt=1, pings_since_last_response=333553625577736d62436645 
+[273:907] [7113] (p2ptransportchannel.cc:1963): Selecting connection for triggered check: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]
+[273:907] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxS|0|0|9114756780654345726|1265]: Sent STUN ping, id=36357038672f4a4d66495049, use_candidate=0, nomination=0
+[273:908] [7113] (port.cc:1360): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRxI|0|0|9114756780654345726|1265]: Received STUN ping response, id=36357038672f4a4d66495049, code=0, rtt=1, pings_since_last_response=36357038672f4a4d66495049 
+[273:908] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|420]: Connection pruned
+[273:955] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a3f60:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|7241259335668350462|-]: Sent STUN ping, id=416b5a636531414f35665772, use_candidate=1, nomination=0
+[274:003] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114756780654476798|-]: Sent STUN ping, id=66324648734e6f7535597949, use_candidate=1, nomination=0
+[274:099] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|420]: Sent STUN ping, id=50646d4672516d756a6d4a52, use_candidate=0, nomination=0
+[274:100] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|420]: Received STUN ping response, id=50646d4672516d756a6d4a52, code=0, rtt=1, pings_since_last_response=50646d4672516d756a6d4a52 
+[274:100] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|315]: Connection pruned
+[274:263] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|2320]: Timing-out STUN ping 586a774a346d576b6c466b75 after 5000 ms
+[274:291] [7113] (port.cc:1189): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|2320]: Unwritable after 5 ping failures and 7028 ms without a response, ms since last received ping=3055 ms since last received data=7052 rtt=3000
+[274:291] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a3f60:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|7241259335668350462|-]: Sent STUN ping, id=4f413178656d4576662b3835, use_candidate=1, nomination=0
+[274:291] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[274:291] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|9115038255631187454|2320]
+[274:291] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|712]
+[274:840] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114756780654476798|-]: Sent STUN ping, id=48714a4a334f725458664c35, use_candidate=1, nomination=0
+[274:840] [7152] (messagequeue.cc:537): Message took 106ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[275:342] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|9115038255631187454|2320]: Sent STUN ping, id=7234665349764a627a78466a, use_candidate=1, nomination=0
+[275:342] [7152] (messagequeue.cc:537): Message took 502ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[275:347] [7113] (port.cc:1360): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|9115038255631187454|2320]: Received STUN ping response, id=7234665349764a627a78466a, code=0, rtt=6, pings_since_last_response=5a44514135723539632f646f 61676e355239737375684b6e 586a774a346d576b6c466b75 78416f502b7334373934674a 6749776966626b714c787333 ... 4 more
+[275:347] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[275:347] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|712]
+[275:347] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|1741]
+[275:844] [7152] (messagequeue.cc:537): Message took 499ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[276:263] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|1741]: Timing-out STUN ping 6749776966626b714c787333 after 5000 ms
+[276:344] [7113] (port.cc:1205): Jingle:Conn[0x7efd140a5510:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|9114756780654476798|-]: Timed out after 15034 ms without a response, rtt=3000
+[276:344] [7113] (port.cc:1459): Connection deleted with number of pings sent: 8
+[276:344] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a5510 (6 remaining)
+[276:844] [7113] (port.cc:1205): Jingle:Conn[0x7efd140a3f60:336355d64fc94a4f835db3a87a2dbb92:j3rNP3Ly:1:0:stun:udp:10.244.19.155:47945->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C--I|0|0|7241259335668350462|-]: Timed out after 15090 ms without a response, rtt=3000
+[276:844] [7113] (port.cc:1459): Connection deleted with number of pings sent: 7
+[276:844] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a3f60 (5 remaining)
+[277:263] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWI|0|0|9115038255631187454|1741]: Timing-out STUN ping 4b7552354775514b5339472f after 5000 ms
+[277:344] [7113] (port.cc:1189): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|1947]: Unwritable after 5 ping failures and 12089 ms without a response, ms since last received ping=14068 ms since last received data=667013 rtt=3000
+[278:142] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xS|0|0|7241259335668219391|315]: Sent STUN ping, id=7668452f4d664a7058354d34, use_candidate=0, nomination=0
+[278:143] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xI|0|0|7241259335668219391|315]: Received STUN ping response, id=7668452f4d664a7058354d34, code=0, rtt=1, pings_since_last_response=7668452f4d664a7058354d34 
+[278:143] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|236]: Connection pruned
+[278:190] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|7961553801070919166|1947]: Sent STUN ping, id=2b653265412f33556f697a4e, use_candidate=0, nomination=0
+[278:263] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|1741]: Timing-out STUN ping 2b356d4d72474c2f7a577847 after 5000 ms
+[278:382] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|236]: Sent STUN ping, id=7946433059686163432b6247, use_candidate=0, nomination=0
+[278:383] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|236]: Received STUN ping response, id=7946433059686163432b6247, code=0, rtt=1, pings_since_last_response=7946433059686163432b6247 
+[278:383] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|177]: Connection pruned
+[278:430] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|7961553801070919166|1947]: Sent STUN ping, id=6e3068634f6d43417863304b, use_candidate=0, nomination=0
+[278:622] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|177]: Sent STUN ping, id=49356e557939393976615278, use_candidate=0, nomination=0
+[278:623] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|177]: Received STUN ping response, id=49356e557939393976615278, code=0, rtt=1, pings_since_last_response=49356e557939393976615278 
+[278:623] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|133]: Connection pruned
+[278:670] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|7961553801070919166|1947]: Sent STUN ping, id=63647179482b526955386730, use_candidate=0, nomination=0
+[278:862] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|133]: Sent STUN ping, id=3672494a466b49734a4b4239, use_candidate=0, nomination=0
+[278:863] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|133]: Received STUN ping response, id=3672494a466b49734a4b4239, code=0, rtt=1, pings_since_last_response=3672494a466b49734a4b4239 
+[278:863] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|100]: Connection pruned
+[278:910] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|7961553801070919166|1947]: Sent STUN ping, id=486f4d49715a6e56644d6f73, use_candidate=0, nomination=0
+[279:051] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|1741]: Timing-out STUN ping 2b6a61584d63332f59554754 after 5000 ms
+[279:094] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[279:094] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|1741]
+[279:094] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|169]
+[279:262] [7113] (port.cc:1360): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|7961553801070919166|1947]: Received STUN ping response, id=486f4d49715a6e56644d6f73, code=0, rtt=352, pings_since_last_response=4e344d307048786642516866 695041624a36735851327333 68574b4d4d75536344464848 7451647031366e3558794d52 315337582b53754961446261 ... 5 more
+[279:262] [7113] (port.cc:1117): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|7961553801070788094|95]: Connection pruned
+[279:262] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Transport channel state changed from 1 to 2
+[279:262] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[279:317] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[279:317] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|169]
+[279:317] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|1395]
+[280:844] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|1548]: Timing-out STUN ping 4f705a366f674a4a304f4e2b after 5000 ms
+[281:344] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWI|0|0|9115038255631187454|1395]: Timing-out STUN ping 4e6d305a76793638732b6848 after 5000 ms
+[281:948] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xS|0|0|7241259335668219391|100]: Sent STUN ping, id=43664e6f51743557336c6b36, use_candidate=0, nomination=0
+[281:949] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xI|0|0|7241259335668219391|100]: Received STUN ping response, id=43664e6f51743557336c6b36, code=0, rtt=1, pings_since_last_response=43664e6f51743557336c6b36 
+[281:949] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|75]: Connection pruned
+[281:996] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xS|0|0|7961553801070788094|95]: Sent STUN ping, id=656e636f4677524e4156444b, use_candidate=0, nomination=0
+[281:997] [7113] (port.cc:1360): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xI|0|0|7961553801070788094|95]: Received STUN ping response, id=656e636f4677524e4156444b, code=0, rtt=1, pings_since_last_response=656e636f4677524e4156444b 
+[281:997] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Transport channel state changed from 2 to 1
+[281:997] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[282:188] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|75]: Sent STUN ping, id=4947677048426a61665a3134, use_candidate=0, nomination=0
+[282:189] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|75]: Received STUN ping response, id=4947677048426a61665a3134, code=0, rtt=1, pings_since_last_response=4947677048426a61665a3134 
+[282:189] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|56]: Connection pruned
+[282:344] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|1395]: Timing-out STUN ping 4143476c515537416576506a after 5000 ms
+[282:428] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|56]: Sent STUN ping, id=44775a4e544f5a4463455474, use_candidate=0, nomination=0
+[282:429] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|56]: Received STUN ping response, id=44775a4e544f5a4463455474, code=0, rtt=1, pings_since_last_response=44775a4e544f5a4463455474 
+[282:429] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|42]: Connection pruned
+[282:668] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|42]: Sent STUN ping, id=54366a37703950524d573379, use_candidate=0, nomination=0
+[282:669] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|42]: Received STUN ping response, id=54366a37703950524d573379, code=0, rtt=1, pings_since_last_response=54366a37703950524d573379 
+[282:669] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|31]: Connection pruned
+[282:852] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[282:852] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|1395]
+[282:852] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|53]
+[282:896] [7113] (port.cc:1117): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|7961553801070788094|30]: Connection pruned
+[282:896] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Transport channel state changed from 1 to 2
+[282:896] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[283:121] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[283:121] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|53]
+[283:121] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|1135]
+[283:190] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|1242]: Timing-out STUN ping 2b653265412f33556f697a4e after 5000 ms
+[283:238] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|1135]: Timing-out STUN ping 706d7a6a564e6e4557554f32 after 5000 ms
+[283:430] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|1242]: Timing-out STUN ping 6e3068634f6d43417863304b after 5000 ms
+[283:478] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|1135]: Timing-out STUN ping 74754157624c4f592b4e4f64 after 5000 ms
+[283:670] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|1242]: Timing-out STUN ping 63647179482b526955386730 after 5000 ms
+[283:718] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|1135]: Timing-out STUN ping 57383364304944536d6c446c after 5000 ms
+[285:102] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|1135]: Timing-out STUN ping 69466652306d585133485832 after 5000 ms
+[285:956] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xS|0|0|7241259335668219391|31]: Sent STUN ping, id=4c674e512b69546c78464f6e, use_candidate=0, nomination=0
+[285:957] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xI|0|0|7241259335668219391|31]: Received STUN ping response, id=4c674e512b69546c78464f6e, code=0, rtt=1, pings_since_last_response=4c674e512b69546c78464f6e 
+[285:957] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|23]: Connection pruned
+[286:004] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xS|0|0|7961553801070788094|30]: Sent STUN ping, id=3050394e5169467a31743861, use_candidate=0, nomination=0
+[286:006] [7113] (port.cc:1360): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xI|0|0|7961553801070788094|30]: Received STUN ping response, id=3050394e5169467a31743861, code=0, rtt=2, pings_since_last_response=3050394e5169467a31743861 
+[286:006] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Transport channel state changed from 2 to 1
+[286:006] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[286:102] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|1135]: Timing-out STUN ping 77744b7471476b5978456f62 after 5000 ms
+[286:196] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|23]: Sent STUN ping, id=4e567172594e497573365668, use_candidate=0, nomination=0
+[286:197] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|23]: Received STUN ping response, id=4e567172594e497573365668, code=0, rtt=1, pings_since_last_response=4e567172594e497573365668 
+[286:197] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|17]: Connection pruned
+[286:436] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|17]: Sent STUN ping, id=434e6b48582b41524d444650, use_candidate=0, nomination=0
+[286:437] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|17]: Received STUN ping response, id=434e6b48582b41524d444650, code=0, rtt=1, pings_since_last_response=434e6b48582b41524d444650 
+[286:437] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|13]: Connection pruned
+[286:676] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|13]: Sent STUN ping, id=48476f3569797952325a6a4a, use_candidate=0, nomination=0
+[286:678] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|13]: Received STUN ping response, id=48476f3569797952325a6a4a, code=0, rtt=2, pings_since_last_response=48476f3569797952325a6a4a 
+[286:678] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|10]: Connection pruned
+[286:852] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|1242]: Timing-out STUN ping 5062426d6a462f746c56364e after 5000 ms
+[286:860] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[286:860] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|1135]
+[286:860] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|12]
+[286:871] [7113] (port.cc:1117): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|7961553801070788094|10]: Connection pruned
+[286:871] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Transport channel state changed from 1 to 2
+[286:871] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[287:044] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|1135]: Timing-out STUN ping 65366e73305a753566613755 after 5000 ms
+[287:092] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|992]: Timing-out STUN ping 375637737931476476347632 after 5000 ms
+[287:144] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[287:144] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|12]
+[287:144] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|944]
+[287:284] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|944]: Timing-out STUN ping 7152552b2b46624166456569 after 5000 ms
+[287:332] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|992]: Timing-out STUN ping 5a2b6e3862305a753275466e after 5000 ms
+[287:524] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|944]: Timing-out STUN ping 684663356f4a344837663956 after 5000 ms
+[287:812] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|992]: Timing-out STUN ping 4f55696e657435366f354d2b after 5000 ms
+[289:964] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xS|0|0|7241259335668219391|10]: Sent STUN ping, id=4b6b57494b52707649586278, use_candidate=0, nomination=0
+[289:965] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xI|0|0|7241259335668219391|10]: Received STUN ping response, id=4b6b57494b52707649586278, code=0, rtt=1, pings_since_last_response=4b6b57494b52707649586278 
+[289:966] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|7]: Connection pruned
+[290:012] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xS|0|0|7961553801070788094|10]: Sent STUN ping, id=417532344a63373779437075, use_candidate=0, nomination=0
+[290:013] [7113] (port.cc:1360): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xI|0|0|7961553801070788094|10]: Received STUN ping response, id=417532344a63373779437075, code=0, rtt=1, pings_since_last_response=417532344a63373779437075 
+[290:013] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Transport channel state changed from 2 to 1
+[290:013] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[290:204] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|7]: Sent STUN ping, id=6e4f4271527a484e594f6369, use_candidate=0, nomination=0
+[290:205] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|7]: Received STUN ping response, id=6e4f4271527a484e594f6369, code=0, rtt=1, pings_since_last_response=6e4f4271527a484e594f6369 
+[290:205] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|5]: Connection pruned
+[290:360] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|944]: Timing-out STUN ping 53514234556c4e78532f5578 after 5000 ms
+[290:444] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|5]: Sent STUN ping, id=5655416c357638356e6e5632, use_candidate=0, nomination=0
+[290:446] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|5]: Received STUN ping response, id=5655416c357638356e6e5632, code=0, rtt=2, pings_since_last_response=5655416c357638356e6e5632 
+[290:446] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|4]: Connection pruned
+[290:684] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|4]: Sent STUN ping, id=373962384c774b65712f6643, use_candidate=0, nomination=0
+[290:685] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|4]: Received STUN ping response, id=373962384c774b65712f6643, code=0, rtt=1, pings_since_last_response=373962384c774b65712f6643 
+[290:685] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|3]: Connection pruned
+[290:868] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[290:868] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|944]
+[290:868] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|4]
+[290:908] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|992]: Timing-out STUN ping 67697151425361795a736b65 after 5000 ms
+[290:926] [7113] (port.cc:1117): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|7961553801070788094|3]: Connection pruned
+[290:926] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Transport channel state changed from 1 to 2
+[290:926] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[291:052] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|944]: Timing-out STUN ping 73786541706e424f32674532 after 5000 ms
+[291:148] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|828]: Timing-out STUN ping 6434754e736163594b757479 after 5000 ms
+[291:158] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[291:158] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|4]
+[291:158] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|802]
+[291:292] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|802]: Timing-out STUN ping 4366587a6669376c5333494e after 5000 ms
+[291:388] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|828]: Timing-out STUN ping 694e79554b64636c37774a63 after 5000 ms
+[291:532] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|802]: Timing-out STUN ping 557470686d4d4b506a364131 after 5000 ms
+[293:972] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xS|0|0|7241259335668219391|3]: Sent STUN ping, id=42526365566f3045412b494a, use_candidate=0, nomination=0
+[293:973] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xI|0|0|7241259335668219391|3]: Received STUN ping response, id=42526365566f3045412b494a, code=0, rtt=1, pings_since_last_response=42526365566f3045412b494a 
+[293:973] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|2]: Connection pruned
+[294:020] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xS|0|0|7961553801070788094|3]: Sent STUN ping, id=484e7a376244395475525356, use_candidate=0, nomination=0
+[294:021] [7113] (port.cc:1360): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-xI|0|0|7961553801070788094|3]: Received STUN ping response, id=484e7a376244395475525356, code=0, rtt=1, pings_since_last_response=484e7a376244395475525356 
+[294:021] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Transport channel state changed from 2 to 1
+[294:021] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[294:212] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|2]: Sent STUN ping, id=45734337544156554e652b74, use_candidate=0, nomination=0
+[294:213] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|2]: Received STUN ping response, id=45734337544156554e652b74, code=0, rtt=1, pings_since_last_response=45734337544156554e652b74 
+[294:213] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|1]: Connection pruned
+[294:368] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|802]: Timing-out STUN ping 6935744b63567a5658376a4f after 5000 ms
+[294:452] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|1]: Sent STUN ping, id=3948507030346b3559774852, use_candidate=0, nomination=0
+[294:453] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|1]: Received STUN ping response, id=3948507030346b3559774852, code=0, rtt=1, pings_since_last_response=3948507030346b3559774852 
+[294:453] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|1]: Connection pruned
+[294:692] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|1]: Sent STUN ping, id=4373564b2f78672f74384748, use_candidate=0, nomination=0
+[294:693] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|1]: Received STUN ping response, id=4373564b2f78672f74384748, code=0, rtt=1, pings_since_last_response=4373564b2f78672f74384748 
+[294:693] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|1]: Connection pruned
+[294:868] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|828]: Timing-out STUN ping 52474c66736d74556c656272 after 5000 ms
+[294:876] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[294:876] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|802]
+[294:876] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|1]
+[294:880] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[294:880] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|1]
+[294:880] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|684]
+[295:060] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|684]: Timing-out STUN ping 784f6479534b505a31396536 after 5000 ms
+[295:108] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|828]: Timing-out STUN ping 693959395230573378667976 after 5000 ms
+[295:300] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|684]: Timing-out STUN ping 69676b78347354496c5a3068 after 5000 ms
+[295:348] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|828]: Timing-out STUN ping 774d582b38356155796f6951 after 5000 ms
+[295:540] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|9115038255631187454|684]: Timing-out STUN ping 6864447269693947414e6b64 after 5000 ms
+[295:829] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|828]: Timing-out STUN ping 766a792f46427a6f51614e6d after 5001 ms
+[296:379] [7152] (messagequeue.cc:537): Message took 722ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[297:404] [7152] (messagequeue.cc:537): Message took 1025ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[297:489] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xS|0|0|7241259335668219391|1]: Sent STUN ping, id=4a354c34335038496b6c5a6b, use_candidate=0, nomination=0
+[297:491] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|C-xI|0|0|7241259335668219391|1]: Received STUN ping response, id=4a354c34335038496b6c5a6b, code=0, rtt=2, pings_since_last_response=4a354c34335038496b6c5a6b 
+[297:491] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|1]: Connection pruned
+[297:735] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|1]: Sent STUN ping, id=5a42545834336b36686d444a, use_candidate=0, nomination=0
+[297:736] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|1]: Received STUN ping response, id=5a42545834336b36686d444a, code=0, rtt=1, pings_since_last_response=5a42545834336b36686d444a 
+[297:736] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|1]: Connection pruned
+[297:980] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|1]: Sent STUN ping, id=7033343963525271436e4e67, use_candidate=0, nomination=0
+[297:981] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|1]: Received STUN ping response, id=7033343963525271436e4e67, code=0, rtt=1, pings_since_last_response=7033343963525271436e4e67 
+[297:981] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|1]: Connection pruned
+[298:225] [7113] (port.cc:1413): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxS|0|0|7241259335668219391|1]: Sent STUN ping, id=4c6272435a34375a6766696b, use_candidate=0, nomination=0
+[298:226] [7113] (port.cc:1360): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRxI|0|0|7241259335668219391|1]: Received STUN ping response, id=4c6272435a34375a6766696b, code=0, rtt=2, pings_since_last_response=4c6272435a34375a6766696b 
+[298:227] [7113] (port.cc:1117): Jingle:Conn[0x7efd140b0300:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->4mjFoGsq:1:1685987071:stun:udp:10.244.19.119:36306|CRWS|0|0|7241259335668219391|1]: Connection pruned
+[298:377] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|684]: Timing-out STUN ping 3948744e4f4b4858792b3457 after 5001 ms
+[298:392] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[298:392] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Previous selected connection: Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|684]
+[298:392] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: New selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|9114756780654345726|1]
+[298:924] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|828]: Timing-out STUN ping 664d46556e304a48354d747a after 5000 ms
+[298:981] [7113] (port.cc:1189): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|828]: Unwritable after 5 ping failures and 5057 ms without a response, ms since last received ping=35705 ms since last received data=688650 rtt=1656
+[299:068] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|684]: Timing-out STUN ping 326e6b47544c374263564638 after 5000 ms
+[299:174] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|7961553801070919166|828]: Sent STUN ping, id=43344c5543313768687a794e, use_candidate=0, nomination=0
+[299:174] [7152] (messagequeue.cc:537): Message took 1770ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[299:181] [7113] (port.cc:1360): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|7961553801070919166|828]: Received STUN ping response, id=43344c5543313768687a794e, code=0, rtt=7, pings_since_last_response=664d46556e304a48354d747a 46414a38742b7934364f5071 6954326a5532335351725555 553075427677746d68397561 737071526a36723738654c69 ... 6 more
+[299:181] [7113] (port.cc:1117): Jingle:Conn[0x7efd140aa130:336355d64fc94a4f835db3a87a2dbb92:6DzCvC80:1:0:prflx:udp:10.244.19.155:49119->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|CRWS|0|0|7961553801070788094|2]: Connection pruned
+[299:181] [7113] (p2ptransportchannel.cc:1397): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Transport channel state changed from 1 to 2
+[299:181] [7113] (transportcontroller.cc:805): 336355d64fc94a4f835db3a87a2dbb92 TransportChannel 1 state changed. Check if state is complete.
+[299:309] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|684]: Timing-out STUN ping 5a6c7344487a63494c344c5a after 5001 ms
+[299:405] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|622]: Timing-out STUN ping 6954326a5532335351725555 after 5001 ms
+[299:645] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|622]: Timing-out STUN ping 553075427677746d68397561 after 5001 ms
+[299:789] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|684]: Timing-out STUN ping 6b6a68454d47534435746364 after 5002 ms
+[300:016] [6797] (control_listener.cc:48): Received CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {},
+      "TransactionId" : 938081426215351630
+   }
+}
+
+[300:018] [6797] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanResponse",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {
+         "Message" : {
+            "336355d64fc94a4f835db3a87a2dbb92" : {
+               "336355d64fc94a4f835db3a87a2dbb92" : {
+                  "IceRole" : "Controlling",
+                  "Stats" : {
+                     "best_conn" : true,
+                     "local_addr" : "10.244.19.155:41156",
+                     "local_type" : "local",
+                     "new_conn" : false,
+                     "receiving" : true,
+                     "recv_bytes_second" : 210,
+                     "recv_total_bytes" : 6933,
+                     "rem_addr" : "10.244.19.119:55231",
+                     "rem_type" : "local",
+                     "rtt" : 1,
+                     "sent_bytes_second" : 266,
+                     "sent_total_bytes" : 2686155,
+                     "timeout" : false,
+                     "writable" : true
+                  },
+                  "Status" : "ONLINE"
+               }
+            }
+         },
+         "Success" : true
+      },
+      "TransactionId" : 938081426215351630
+   }
+}
+
+[300:635] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|622]: Timing-out STUN ping 737071526a36723738654c69 after 5001 ms
+[301:639] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|CRWS|0|0|7961553801070919166|622]: Timing-out STUN ping 6a6238666e63335358467741 after 5000 ms
+[302:390] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|684]: Timing-out STUN ping 6753427230734b3756433546 after 5000 ms
+[302:435] [7113] (port.cc:1189): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|9115038255631187454|684]: Unwritable after 5 ping failures and 5045 ms without a response, ms since last received ping=31199 ms since last received data=35196 rtt=1368
+[302:588] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WS|0|0|7961553801070919166|622]: Timing-out STUN ping 37524a714d6873682f42772b after 5000 ms
+[302:832] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WS|0|0|7961553801070919166|622]: Timing-out STUN ping 6a523174644f645147517766 after 5001 ms
+[303:080] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WS|0|0|7961553801070919166|622]: Timing-out STUN ping 4b764876366b68565642366f after 5002 ms
+[303:324] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WS|0|0|7961553801070919166|622]: Timing-out STUN ping 39716b6356636a6165376775 after 5001 ms
+[304:184] [7152] (messagequeue.cc:537): Message took 5006ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[312:471] [7113] (port.cc:1205): Jingle:Conn[0x7efd140a5c90:336355d64fc94a4f835db3a87a2dbb92:OnvXqDlo:1:0:local:udp:10.10.0.11:43799->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|9115038255631187454|684]: Timed out after 15081 ms without a response, rtt=1368
+[324:264] [7152] (messagequeue.cc:537): Message took 20080ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[325:017] [7113] (port.cc:1459): Connection deleted with number of pings sent: 46
+[325:017] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140a5c90 (4 remaining)
+[326:265] [7152] (messagequeue.cc:537): Message took 2001ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[328:282] [7113] (port.cc:1459): Connection deleted with number of pings sent: 32
+[328:282] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140aa130 (3 remaining)
+[328:282] [7113] (port.cc:1459): Connection deleted with number of pings sent: 33
+[328:282] [7113] (p2ptransportchannel.cc:1812): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|RW]: Removed connection 0x7efd140b0300 (2 remaining)
+[329:404] [7152] (messagequeue.cc:537): Message took 3138ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[330:017] [6797] (control_listener.cc:48): Received CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {},
+      "TransactionId" : 938081426215351639
+   }
+}
+
+[330:018] [6797] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanResponse",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {
+         "Message" : {
+            "336355d64fc94a4f835db3a87a2dbb92" : {
+               "336355d64fc94a4f835db3a87a2dbb92" : {
+                  "IceRole" : "Controlling",
+                  "Stats" : {
+                     "best_conn" : true,
+                     "local_addr" : "10.244.19.155:41156",
+                     "local_type" : "local",
+                     "new_conn" : false,
+                     "receiving" : true,
+                     "recv_bytes_second" : 73,
+                     "recv_total_bytes" : 19847,
+                     "rem_addr" : "10.244.19.119:55231",
+                     "rem_type" : "local",
+                     "rtt" : 1,
+                     "sent_bytes_second" : 73,
+                     "sent_total_bytes" : 2686567,
+                     "timeout" : false,
+                     "writable" : true
+                  },
+                  "Status" : "ONLINE"
+               }
+            }
+         },
+         "Success" : true
+      },
+      "TransactionId" : 938081426215351639
+   }
+}
+
+[349:365] [7152] (messagequeue.cc:537): Message took 19960ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[354:384] [7152] (messagequeue.cc:537): Message took 5018ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[360:020] [6797] (control_listener.cc:48): Received CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {},
+      "TransactionId" : 938081426215351648
+   }
+}
+
+[360:020] [6797] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanResponse",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {
+         "Message" : {
+            "336355d64fc94a4f835db3a87a2dbb92" : {
+               "336355d64fc94a4f835db3a87a2dbb92" : {
+                  "IceRole" : "Controlling",
+                  "Stats" : {
+                     "best_conn" : true,
+                     "local_addr" : "10.244.19.155:41156",
+                     "local_type" : "local",
+                     "new_conn" : false,
+                     "receiving" : true,
+                     "recv_bytes_second" : 0,
+                     "recv_total_bytes" : 20057,
+                     "rem_addr" : "10.244.19.119:55231",
+                     "rem_type" : "local",
+                     "rtt" : 1,
+                     "sent_bytes_second" : 0,
+                     "sent_total_bytes" : 2686833,
+                     "timeout" : false,
+                     "writable" : true
+                  },
+                  "Status" : "ONLINE"
+               }
+            }
+         },
+         "Success" : true
+      },
+      "TransactionId" : 938081426215351648
+   }
+}
+
+[368:914] [7152] (messagequeue.cc:537): Message took 14530ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[369:915] [7152] (messagequeue.cc:537): Message took 1001ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[370:917] [7152] (messagequeue.cc:537): Message took 1002ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[371:928] [7152] (messagequeue.cc:537): Message took 1011ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[372:929] [7152] (messagequeue.cc:537): Message took 1000ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[373:931] [7152] (messagequeue.cc:537): Message took 1001ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[374:467] [7152] (messagequeue.cc:537): Message took 518ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[374:933] [7152] (messagequeue.cc:537): Message took 466ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[375:935] [7152] (messagequeue.cc:537): Message took 1001ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[376:936] [7152] (messagequeue.cc:537): Message took 1000ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[377:937] [7152] (messagequeue.cc:537): Message took 1000ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[378:938] [7152] (messagequeue.cc:537): Message took 1000ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[379:940] [7152] (messagequeue.cc:537): Message took 1002ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[380:942] [7152] (messagequeue.cc:537): Message took 1001ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[381:945] [7152] (messagequeue.cc:537): Message took 1002ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[382:947] [7152] (messagequeue.cc:537): Message took 1002ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[390:019] [6797] (control_listener.cc:48): Received CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {},
+      "TransactionId" : 938081426215351657
+   }
+}
+
+[390:020] [6797] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanResponse",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "QueryLinkStats",
+         "OverlayIds" : [ "336355d64fc94a4f835db3a87a2dbb92" ]
+      },
+      "Response" : {
+         "Message" : {
+            "336355d64fc94a4f835db3a87a2dbb92" : {
+               "336355d64fc94a4f835db3a87a2dbb92" : {
+                  "IceRole" : "Controlling",
+                  "Stats" : {
+                     "best_conn" : true,
+                     "local_addr" : "10.244.19.155:41156",
+                     "local_type" : "local",
+                     "new_conn" : false,
+                     "receiving" : true,
+                     "recv_bytes_second" : 138,
+                     "recv_total_bytes" : 22340,
+                     "rem_addr" : "10.244.19.119:55231",
+                     "rem_type" : "local",
+                     "rtt" : 1,
+                     "sent_bytes_second" : 0,
+                     "sent_total_bytes" : 2689034,
+                     "timeout" : false,
+                     "writable" : true
+                  },
+                  "Status" : "ONLINE"
+               }
+            }
+         },
+         "Success" : true
+      },
+      "TransactionId" : 938081426215351657
+   }
+}
+
+[399:556] [7152] (messagequeue.cc:537): Message took 16608ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[404:668] [7152] (messagequeue.cc:537): Message took 5111ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[412:152] [7152] (messagequeue.cc:537): Message took 7484ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[412:251] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[412:350] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[412:447] [7152] (messagequeue.cc:537): Message took 96ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[412:546] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[412:645] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[412:743] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[412:842] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[412:941] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:039] [7152] (messagequeue.cc:537): Message took 97ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:136] [7152] (messagequeue.cc:537): Message took 96ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:234] [7152] (messagequeue.cc:537): Message took 97ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:332] [7152] (messagequeue.cc:537): Message took 97ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:432] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:530] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:629] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:729] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:827] [7152] (messagequeue.cc:537): Message took 97ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[413:924] [7152] (messagequeue.cc:537): Message took 97ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:023] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:121] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:219] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:317] [7152] (messagequeue.cc:537): Message took 97ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:416] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:514] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:612] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:711] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:810] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[414:908] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:007] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:105] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:203] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:303] [7152] (messagequeue.cc:537): Message took 100ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:402] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:502] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:602] [7152] (messagequeue.cc:537): Message took 100ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:699] [7152] (messagequeue.cc:537): Message took 97ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:797] [7152] (messagequeue.cc:537): Message took 97ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:895] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[415:994] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[416:093] [7152] (messagequeue.cc:537): Message took 98ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[416:099] [7113] (port.cc:1405): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-WI|0|0|9114756780654345726|1]: Timing-out STUN ping 394933746243374f69546333 after 5000 ms
+[416:142] [7113] (port.cc:1189): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-WI|0|0|9114756780654345726|1]: Unwritable after 5 ping failures and 5043 ms without a response, ms since last received ping=6712 ms since last received data=11472 rtt=100
+[416:142] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=4d3977764e754b5379694173, use_candidate=1, nomination=0
+[416:143] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[416:143] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|_W]: Previous selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]
+[416:143] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|_W]: New selected connection: Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|199]
+[416:193] [7152] (messagequeue.cc:537): Message took 99ms to dispatch. Posted from: Read@../src/linux/tapdev_lnx.cc:238
+[416:241] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=6b4257683662574779643478, use_candidate=1, nomination=0
+[416:337] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=585a5555624e636f6e714170, use_candidate=1, nomination=0
+[416:433] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=753159635a4d2b6b3651426c, use_candidate=1, nomination=0
+[416:529] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=7a4c354f7651415532662b50, use_candidate=1, nomination=0
+[416:625] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=764f78475a7a7a5868314170, use_candidate=1, nomination=0
+[416:721] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=7363734867327648504d4c74, use_candidate=1, nomination=0
+[416:817] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=557a4c334f68704d416e6f4b, use_candidate=1, nomination=0
+[416:913] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=4b3432526c424c7063684652, use_candidate=1, nomination=0
+[417:009] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=686966456758434271306854, use_candidate=1, nomination=0
+[417:105] [7113] (port.cc:1413): Jingle:Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]: Sent STUN ping, id=384a592b6764375253505a49, use_candidate=1, nomination=0
+[417:151] [7113] (port.cc:1405): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|199]: Timing-out STUN ping 4e757234697a583362732b38 after 5000 ms
+[417:153] [7113] (port.cc:1189): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-WI|0|0|7961553801070919166|199]: Unwritable after 5 ping failures and 5002 ms without a response, ms since last received ping=153877 ms since last received data=806822 rtt=398
+[417:153] [7113] (port.cc:1413): Jingle:Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|7961553801070919166|199]: Sent STUN ping, id=446841636165302b31566a38, use_candidate=1, nomination=0
+[417:153] [7113] (p2ptransportchannel.cc:234): Switching selected connection due to sorting
+[417:153] [7113] (p2ptransportchannel.cc:1365): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|_W]: Previous selected connection: Conn[0x7efd140a46b0:336355d64fc94a4f835db3a87a2dbb92:inkcYhia:1:0:prflx:udp:10.10.0.11:49119->Hd2cl1GM:1:2122260223:local:udp:10.10.0.10:54335|C-wI|0|0|7961553801070919166|199]
+[417:153] [7113] (p2ptransportchannel.cc:1368): Jingle:Channel[336355d64fc94a4f835db3a87a2dbb92|1|_W]: New selected connection: Conn[0x7efd140aac10:336355d64fc94a4f835db3a87a2dbb92:kBlk00J6:1:0:local:udp:10.244.19.155:41156->KN1ExsV1:1:2122194687:local:udp:10.244.19.119:55231|C-wI|0|0|9114756780654345726|1]
+[417:153] [7113] (transportcontroller.cc:737):  TransportChannel 336355d64fc94a4f835db3a87a2dbb92 1 writability changed to 0.
+[417:153] [7113] (virtual_link.cc:168): Link NOT writeable: 66cd4db52fbb4d4f943fefad8634b63c
+[417:153] [7113] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "LinkStateChange",
+         "Data" : "LINK_STATE_DOWN",
+         "LinkId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92"
+      },
+      "TransactionId" : 2
+   }
+}
+
+[417:154] [6797] (control_listener.cc:48): Received CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "RemoveLink",
+         "LinkId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92"
+      },
+      "Response" : {},
+      "TransactionId" : 938081426215351663
+   }
+}
+
+[417:155] [7113] (opensslstreamadapter.cc:928): Cleanup
+[417:155] [7113] (openssladapter.cc:855): SSL3 alert write:warning:close notify
+[417:166] [7113] (turnport.cc:1268): Jingle:Port[0x7efd1406db20:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[ens33:10.244.19.0/24:Unknown]]: TURN refresh request sent, id=4c487a43302b534e526c3058
+[417:167] [7113] (turnport.cc:1268): Jingle:Port[0x7efd1406e8c0:336355d64fc94a4f835db3a87a2dbb92:1:0:relay:Net[docker_gwbridge:172.18.0.0/16:Unknown]]: TURN refresh request sent, id=41675a4a3263654e39595a4b
+[417:171] [6797] (control_listener.cc:64): Sending CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanResponse",
+      "ProtocolVersion" : 5,
+      "Request" : {
+         "Command" : "RemoveLink",
+         "LinkId" : "336355d64fc94a4f835db3a87a2dbb92",
+         "OverlayId" : "336355d64fc94a4f835db3a87a2dbb92"
+      },
+      "Response" : {
+         "Message" : "The RemoveLink operation succeeded",
+         "Success" : true
+      },
+      "TransactionId" : 938081426215351663
+   }
+}
+
+[417:173] [6797] (control_listener.cc:48): Received CONTROL: {
+   "IPOP" : {
+      "ControlType" : "TincanRequest",
+      "ProtocolVersion" : 5,
+      "Request
