@@ -11,74 +11,73 @@ from paramiko import SSHClient
 
 class configurationFactory():
 
-    def __init__(self, social_template_file, resources_template_file):
-        if (Path(social_template_file).exists() and Path(resources_template_file).exists):
-            with open(social_template_file) as social_template:
-                try:
-                    self.social_template = json.load(social_template)
-                except:
-                    print("malformed json file {}".format(social_template_file))
-                    exit()
-            with open(resources_template_file) as resource_template:
-                try:
-                    self.resource_template = json.load(resource_template)
-                except:
-                    print("malformed json file {}".format(resources_template_file))
-                    exit()
-            self.config_dir = Path(Path.cwd(),'configs')
-            if ( not self.config_dir.exists()):
-                self.config_dir.mkdir()
-        else:
-            print("check template json file paths, could not find a valid path.")
+    def __init__(self, **kwargs):
+        if (kwargs["type"] == "social"):
+            social_template_file = kwargs["social_template_file"]
+            resources_template_file = kwargs["resource_template_file"]
+            if (Path(social_template_file).exists() and Path(resources_template_file).exists):
+                with open(social_template_file) as social_template:
+                    try:
+                        self.social_template = json.load(social_template)
+                    except:
+                        print("malformed json file {}".format(social_template_file))
+                        exit()
+                with open(resources_template_file) as resource_template:
+                    try:
+                        self.resource_template = json.load(resource_template)
+                    except:
+                        print("malformed json file {}".format(resources_template_file))
+                        exit()
+                self.config_dir = Path(Path.cwd(), 'configs')
+                if (not self.config_dir.exists()):
+                    self.config_dir.mkdir()
+            else:
+                print("check template json file paths, could not find a valid path.")
+        elif (kwargs["type"] == "ipop"):
+            ipop_base_file_path = kwargs["ipop_base_file_path"]
+            base_username = kwargs["base_username"]
+            num_configs = kwargs["num_configs"]
+            if (Path(ipop_base_file_path).exists() and base_username != None and num_configs != None):
+                with open(ipop_base_file_path) as ipop_template:
+                    try:
+                        self.ipop_template = json.load(ipop_template)
+                    except:
+                        print("malformed json file {}".format(ipop_template))
+                        exit()
+                self.config_dir = Path(Path.cwd(), 'ipop-configs')
+                if (not self.config_dir.exists()):
+                    self.config_dir.mkdir()
+                self.create_ipop_config(base_username, num_configs)
+            else:
+                print("check template json file paths, could not find a valid path.")
 
-    ''' generate ipop configuration files using the given base user name'''
-    def __init__(self, ipop_base_file_path, base_username = None, num_configs = None):
-        if (Path(ipop_base_file_path).exists() and base_username != None and num_configs != None):
-            with open(ipop_base_file_path) as ipop_template:
-                try:
-                    self.ipop_template = json.load(ipop_template)
-                except:
-                    print("malformed json file {}".format(ipop_template))
-                    exit()
-            self.config_dir = Path(Path.cwd(),'ipop-configs')
-            if (not self.config_dir.exists()):
-                self.config_dir.mkdir()
-            self.create_ipop_config(base_username, num_configs)
-        else:
-            print("check template json file paths, could not find a valid path.")
+        elif (kwargs["type"] == "generic"):
+            template_path = kwargs["template_path"]
+            if (Path(template_path).exists()):
+                with open(template_path) as template_file:
+                    try:
+                        self.custom_template = json.load(template_file)
+                        self.arg_dict = {}
+                        self.arg_dict["config_type"] = self.custom_template["config_type"]
+                        self.arg_dict["base_file"] = self.custom_template["base_file"]
+                        self.arg_dict["base_user"] = self.custom_template["base_user"]
+                        self.arg_dict["server"] = self.custom_template["server"]
+                        self.arg_dict["num_nodes"] = self.custom_template["num_nodes"]
+                    except:
+                        print("malformed json file {}".format(template_path))
+                        exit()
+            if (self.arg_dict["config_type"] == "osnBridge"):
+                self.create_onos_osnBridge_config(self.arg_dict)
+            elif (self.arg_dict["config_type"] == "dns"):
+                self.create_dns_config(self.arg_dict)
+            elif (self.arg_dict["config_type"] == "dhcp"):
+                self.create_onos_dhcp_config(self.arg_dict)
 
-    def __init__(self, template_path = None):
-        '''
-        :param template_path:
-        :param config_type:
-        '''
-        if (Path(template_path).exists()):
-            with open(template_path) as template_file:
-                try:
-                    self.custom_template = json.load(template_file)
-                    self.arg_dict = {}
-                    self.arg_dict["config_type"] = self.custom_template["config_type"]
-                    self.arg_dict["base_file"] = self.custom_template["base_file"]
-                    self.arg_dict["base_user"] = self.custom_template["base_user"]
-                    self.arg_dict["server"] = self.custom_template["server"]
-                    self.arg_dict["num_nodes"] = self.custom_template["num_nodes"]
-                except:
-                    print("malformed json file {}".format(template_path))
-                    exit()
-        if (self.arg_dict["config_type"] == "osnBridge"):
-            self.create_onos_osnBridge_config(self.arg_dict)
-        elif (self.arg_dict["config_type"] == "dns"):
-            self.create_dns_config(self.arg_dict)
-        elif (self.arg_dict["config_type"] == "dhcp"):
-            self.create_onos_dhcp_config(self.arg_dict)
+        elif (kwargs["type"] == "remote"):
+            remoteinfo_config = kwargs["remoteinfo_config"]
+            self.rcd(remoteinfo_config)
 
-    ''' fix this thing, initializers signature is clashing'''
-
-    # def __init__(self, isRemote, remoteinfo_config):
-    #     if (isRemote):
-    #         self.rcd(remoteinfo_config)
-
-    def create_ipop_config(self, base_username, num_configs, bridge_name = "ipopbr0", base_ip = "10.10.10.100"):
+    def create_ipop_config(self, base_username, num_configs, bridge_name = "CLO-br", base_ip = "10.10.10.100"):
         overlay = self.ipop_template["CFx"]["Overlays"][0]
         domain_name = self.ipop_template["Signal"]["Overlays"][overlay]["HostAddress"]
         self.ipop_template["BridgeController"]["Overlays"][overlay]["BridgeName"] = bridge_name
@@ -274,12 +273,12 @@ if __name__=='__main__':
 
     args = parser.parse_args()
     if (args.social != None  and args.resources != None):
-        cf = configurationFactory(args.social, args.resources)
+        cf = configurationFactory(type = "social", social_template_file = args.social, resource_template_file = args.resources)
         cf.create_social_config()
         cf.create_static_resources()
     elif (args.ipop != None):
-        cf = configurationFactory(args.ipop, base_username="perso_", num_configs=5)
+        cf = configurationFactory(type = "ipop", ipop_base_file_path = args.ipop, base_username="perso_", num_configs = 7 )
     elif (args.generic != None):
-        cf = configurationFactory(args.generic)
+        cf = configurationFactory(type = "generic", template_path = args.generic)
     elif (args.remote != None):
-        cf = configurationFactory(True, remoteinfo=args.remote)
+        cf = configurationFactory(type = "remote", remoteinfo_config = args.remote)
