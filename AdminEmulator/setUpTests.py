@@ -1,5 +1,6 @@
 import json, pprint
 import argparse
+import time
 from pathlib import Path
 import random, shutil
 import traceback
@@ -145,7 +146,16 @@ class configurationFactory():
         sftp.put('remote_config.zip', 'remote_config.zip')
         ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command('unzip remote_config.zip')
 
+    ''' will receive sshclient reference of the remote machine'''
+    def execute_remotely(self, sshclient, sftp, index, infile):
+        config_archive = self.create_remote_config_folder(infile, index=index)
+        sftp.put(config_archive, 'configs.zip')
+        sshclient.exec_command('unzip configs.zip')
+        sshclient.exec_command('sudo ./postConfigUpload.sh')
 
+    ''' will parse json file from cloudlab to extract node login information'''
+    def parse_nodes(self, json_input_file):
+        pass
 
     def rcd(self, json_file):
         folder = self.create_remote_config_folder(json_file)
@@ -183,11 +193,11 @@ class configurationFactory():
 
         remote_config_dir.mkdir()
         shutil.copy(resource_config, Path(remote_config_dir,'static-resources.json').as_posix())
-        shutil.copy(ipop_config, Path(remote_config_dir, 'ipop_config.json').as_posix())
-        shutil.copy(social_config_admin, Path(remote_config_dir, 'social_config_admin.json').as_posix())
-        shutil.copy(dns_config, Path(remote_config_dir, 'dns_config.json').as_posix())
-        shutil.copy(onos_dhcp_config, Path(remote_config_dir, 'onos_dhcp_config.json').as_posix())
-        shutil.copy(onos_osnBridge_config, Path(remote_config_dir, 'onos_osnBridge_config.json').as_posix())
+        shutil.copy(ipop_config, Path(remote_config_dir, 'ipop-config.json').as_posix())
+        shutil.copy(social_config_admin, Path(remote_config_dir, 'social-config-admin.json').as_posix())
+        shutil.copy(dns_config, Path(remote_config_dir, 'dns-config.json').as_posix())
+        shutil.copy(onos_dhcp_config, Path(remote_config_dir, 'onos-dhcp-config.json').as_posix())
+        shutil.copy(onos_osnBridge_config, Path(remote_config_dir, 'onos-osnBridge-config.json').as_posix())
         shutil.make_archive("remote_config", 'zip', remote_config_dir.as_posix())
         return Path(Path.cwd(),"remote_config.zip").as_posix()
     '''for now lets have all social domains use same subnet'''

@@ -1,0 +1,1 @@
+{"apps": {"org.onosproject.dhcp": {"dhcp": {"ttl": "63", "router": "192.168.1.1", "ip": "192.168.1.10", "broadcast": "192.168.1.255", "lease": "3600", "delay": "2", "renew": "3600", "endip": "192.168.1.250", "mac": "ca:fe:ca:fe:ca:fe", "domain": "8.8.8.8", "timeout": "150", "startip": "192.168.1.50", "subnet": "255.255.0.0", "rebind": "200"}}}}
