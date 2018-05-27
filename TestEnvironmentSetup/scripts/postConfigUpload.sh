@@ -7,7 +7,6 @@ sudo ovs-vsctl set-controller CLO-br tcp:127.0.0.1:6653
 cp dns-config.json deployment/namingSupport
 cp ipop-config.json deployment/perso-ipop/
 sudo cp -r deployment/namingSupport /mnt/mydrive/Linuxcontainers/ubuntu_lxc/rootfs/
-sudo lxc-start -n ubuntu_lxc
 lxc-start -n ubuntu_lxc
 lxc-attach -n ubuntu_lxc -- echo "nameserver 127.0.0.1" | sudo tee -a /mnt/mydrive/Linuxcontainers/ubuntu_lxc/rootfs/etc/resolvconf/resolv.conf.d/head > /dev/null
 lxc-attach -n ubuntu_lxc -- resolvconf -u

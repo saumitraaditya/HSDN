@@ -143,15 +143,15 @@ class configurationFactory():
         ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command('sudo docker container ls')
         print(ssh_stdout.read())
         sftp = ssh.open_sftp()
-        sftp.put('remote_config.zip', 'remote_config.zip')
+        sftp.put('remote_config.zip', '/mnt/mydrive/remote_config.zip')
         ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command('unzip remote_config.zip')
 
     ''' will receive sshclient reference of the remote machine'''
     def execute_remotely(self, sshclient, sftp, index, infile):
         config_archive = self.create_remote_config_folder(infile, index=index)
-        sftp.put(config_archive, 'configs.zip')
-        sshclient.exec_command('unzip configs.zip')
-        sshclient.exec_command('sudo ./postConfigUpload.sh')
+        sftp.put(config_archive, '/mnt/mydrive/remote_config.zip')
+        sshclient.exec_command('unzip /mnt/mydrive/remote_config.zip')
+        ssh_stdin, ssh_stdout, ssh_stderr= sshclient.exec_command('cd /local/scripts/; sudo nohup sudo ./postConfigUpload.sh &')
 
     ''' will parse json file from cloudlab to extract node login information'''
     def parse_nodes(self, json_input_file):
