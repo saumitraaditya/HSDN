@@ -56,6 +56,14 @@ usermod -aG docker $USER
 su -
 su - $USER
 cd ~
-sudo docker pull saumitraaditya/social-gateway:1.00
-cd ~
+sudo docker pull saumitraaditya/social_gateway:1.1
+cd /mnt/mydrive/
 # download deployment folder
+wget https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/deployment.zip
+unzip deployment.zip
+sudo lxc-start -n ubuntu_lxc
+sudo lxc-attach -n ubuntu_lxc -- sudo apt-get install python
+sudo lxc-attach -n ubuntu_lxc -- sudo apt-get install python-pip
+sudo lxc-attach -n ubuntu_lxc -- sudo pip install sleekxmpp IPy netifaces pathlib dnslib
+sudo lxc-stop -n ubuntu_lxc
+wget https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/postConfigUpload.sh
