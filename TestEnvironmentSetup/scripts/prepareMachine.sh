@@ -61,8 +61,8 @@ cd /mnt/mydrive/
 # download deployment folder
 wget https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/deployment.zip
 unzip deployment.zip
-sudo lxc-start -n ubuntu_lxc -- sudo apt-get update
-sudo lxc-attach -n ubuntu_lxc -- sudo apt-get -y install python
+sudo lxc-start -n ubuntu_lxc
+sudo lxc-attach -n ubuntu_lxc -- sudo apt-get update
 sudo lxc-attach -n ubuntu_lxc -- sudo apt-get -y install python
 sudo lxc-attach -n ubuntu_lxc -- sudo apt-get -y install python-pip
 sudo lxc-attach -n ubuntu_lxc -- sudo pip install sleekxmpp IPy netifaces pathlib dnslib

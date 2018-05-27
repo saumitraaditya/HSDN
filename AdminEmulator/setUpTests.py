@@ -150,7 +150,7 @@ class configurationFactory():
     def execute_remotely(self, sshclient, sftp, index, infile):
         config_archive = self.create_remote_config_folder(infile, index=index)
         sftp.put(config_archive, '/mnt/mydrive/remote_config.zip')
-        sshclient.exec_command('unzip /mnt/mydrive/remote_config.zip')
+        sshclient.exec_command('cd /mnt/mydrive/; unzip remote_config.zip')
         ssh_stdin, ssh_stdout, ssh_stderr= sshclient.exec_command('cd /local/scripts/; sudo nohup sudo ./postConfigUpload.sh &')
 
     ''' will parse json file from cloudlab to extract node login information'''
