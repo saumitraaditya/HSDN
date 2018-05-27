@@ -7,7 +7,7 @@ sudo ovs-vsctl set-controller CLO-br tcp:127.0.0.1:6653
 cp dns-config.json deployment/namingSupport
 cp ipop-config.json deployment/perso-ipop/
 sudo cp -r deployment/namingSupport /mnt/mydrive/Linuxcontainers/ubuntu_lxc/rootfs/
-lxc-start -n ubuntu_lxc
+#lxc-start -n ubuntu_lxc
 lxc-attach -n ubuntu_lxc -- echo "nameserver 127.0.0.1" | sudo tee -a /mnt/mydrive/Linuxcontainers/ubuntu_lxc/rootfs/etc/resolvconf/resolv.conf.d/head > /dev/null
 lxc-attach -n ubuntu_lxc -- resolvconf -u
 sudo docker container run -t -d  -p 6633:6633 -p 6653:6653 --name onos1 saumitraaditya/social_gateway:1.1
