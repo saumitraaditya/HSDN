@@ -62,6 +62,7 @@ cd /mnt/mydrive/
 wget https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/deployment.zip
 unzip deployment.zip
 sudo lxc-start -n ubuntu_lxc
+sleep 10
 sudo lxc-attach -n ubuntu_lxc -- sudo apt-get update
 sudo lxc-attach -n ubuntu_lxc -- sudo apt-get -y install python
 sudo lxc-attach -n ubuntu_lxc -- sudo apt-get -y install python-pip

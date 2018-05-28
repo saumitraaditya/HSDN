@@ -1,4 +1,9 @@
 #!/bin/bash
+# just to be on safe side
+sudo lxc-attach -n ubuntu_lxc -- sudo apt-get update
+sudo lxc-attach -n ubuntu_lxc -- sudo apt-get -y install python
+sudo lxc-attach -n ubuntu_lxc -- sudo apt-get -y install python-pip
+sudo lxc-attach -n ubuntu_lxc -- sudo pip install sleekxmpp IPy netifaces pathlib dnslib
 cd /mnt/mydrive
 unzip remote_config.zip
 sudo ovs-vsctl add-br CLO-br
