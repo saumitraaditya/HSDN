@@ -151,7 +151,7 @@ class configurationFactory():
         config_archive = self.create_remote_config_folder(infile, index=index)
         sftp.put(config_archive, '/mnt/mydrive/remote_config.zip')
         sshclient.exec_command('cd /mnt/mydrive/; unzip remote_config.zip')
-        ssh_stdin, ssh_stdout, ssh_stderr= sshclient.exec_command('cd /local/scripts/; sudo nohup sudo ./postConfigUpload.sh &')
+        ssh_stdin, ssh_stdout, ssh_stderr= sshclient.exec_command('cd /local/scripts/; sudo nohup sudo ./postConfigUpload.sh < /dev/null > /dev/null 2>&1 &')
 
     ''' will parse json file from cloudlab to extract node login information'''
     def parse_nodes(self, json_input_file):
@@ -160,10 +160,9 @@ class configurationFactory():
     def rcd(self, json_file):
         folder = self.create_remote_config_folder(json_file)
 
-    ''' this method will create a folder containing executables and configuration for remote test node
+    ''' this method will create a folder containing configuration for remote test node
     will need
-    1. create root application folder
-    2. copy all relevant configuration files
+    1. copy all relevant configuration files
     '''
     def create_remote_config_folder(self, in_file, index=0):
 
@@ -200,6 +199,7 @@ class configurationFactory():
         shutil.copy(onos_osnBridge_config, Path(remote_config_dir, 'onos-osnBridge-config.json').as_posix())
         shutil.make_archive("remote_config", 'zip', remote_config_dir.as_posix())
         return Path(Path.cwd(),"remote_config.zip").as_posix()
+
     '''for now lets have all social domains use same subnet'''
     def create_onos_dhcp_config(self, kwargs):
         base_file = kwargs["base_file"]

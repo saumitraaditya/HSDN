@@ -33,12 +33,12 @@ sudo lxc-attach -n ubuntu_lxc -- nohup ./namingSupport/script.sh
 cd deployment/perso-ipop
 sudo rm -rf logs
 sudo rm nid
-sudo ./ipop-tincan &
+sudo nohup ./ipop-tincan &
 output=$(ps -ef | grep "ipop-tincan" | grep -v "grep" | wc -l)
 if [ "$output" -eq 0 ]; then
 	echo "No process found."
 	sudo ./ipop-tincan &
 fi
-python3 -m controller.Controller -c ipop-config.json &
+nohup python3 -m controller.Controller -c ipop-config.json &
 cd ..
-python3 admin_main.py -s ../social-config-admin.json -r ../static-resources.json &
+nohup python3 admin_main.py -s ../social-config-admin.json -r ../static-resources.json &
