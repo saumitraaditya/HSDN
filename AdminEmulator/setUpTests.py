@@ -147,35 +147,63 @@ class configurationFactory():
         ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command('unzip remote_config.zip')
 
     ''' will receive sshclient reference of the remote machine'''
-    def execute_remotely(self, sshclient, sftp, index, infile):
-        config_archive = self.create_remote_config_folder(infile, index=index)
-        sftp.put(config_archive, '/mnt/mydrive/remote_config.zip')
-        sshclient.exec_command('cd /mnt/mydrive/; unzip remote_config.zip')
-        ssh_stdin, ssh_stdout, ssh_stderr= sshclient.exec_command('cd /local/scripts/; sudo nohup sudo ./postConfigUpload.sh < /dev/null > /dev/null 2>&1 &')
+    def execute_remotely(self, ssh, config_archive_path, index):
+        sftp = ssh.open_sftp()
+        sftp.put(config_archive_path, '/mnt/mydrive/remote_config.zip')
+        ssh.exec_command('cd /mnt/mydrive/; unzip remote_config.zip')
+        if (index != 6):
+            ssh_stdin, ssh_stdout, ssh_stderr= ssh.exec_command('cd /local/scripts/; sudo nohup sudo ./postConfigUpload.sh < /dev/null > /dev/null 2>&1 &')
+            print("Invoked on node-{}".format(index))
 
-    ''' will parse json file from cloudlab to extract node login information'''
-    def parse_nodes(self, json_input_file):
-        pass
 
     def rcd(self, json_file):
-        folder = self.create_remote_config_folder(json_file)
+        json_load = self.vaildate_file(json_file)
+        if (json_load != None):
+            manifest_file_path = json_load["manifest"]
+            manifest_json = self.vaildate_file(manifest_file_path)
+            _index = 0
+            if (manifest_json != None):
+                for machine in manifest_json["rspec"]["node"]:
+                    login_info = machine["services"]["login"][0]
+                    hostname = login_info["_hostname"]
+                    port = login_info["_port"]
+                    config_archive = self.create_remote_config_folder(json_load, _index)
+                    # print("machine-id {}, hostname {}, port {}".format(machine["_client_id"], hostname, port))
+                    # print ("Path: {}".format(config_archive))
+                    ssh = SSHClient()
+                    ssh.load_system_host_keys()
+                    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+                    ssh.connect(hostname, int(port), "sam")
+                    self.execute_remotely(ssh, config_archive, _index)
+                    _index+=1
+
+
+
+    def vaildate_file(self, file_path):
+        json_load = None
+        if (not Path(file_path).exists()):
+            print("path {} given is not valid".format(file_path))
+            exit()
+        try:
+            with open(file_path) as json_file:
+                try:
+                    json_load = json.load(json_file)
+                    return json_load
+                except:
+                    print("malformed json file {}".format(json_file))
+                    exit()
+        except Exception:
+            print(traceback.format_exc())
+
+
 
     ''' this method will create a folder containing configuration for remote test node
     will need
     1. copy all relevant configuration files
     '''
-    def create_remote_config_folder(self, in_file, index=0):
+    def create_remote_config_folder(self,arguments, index=0):
 
-        if (not Path(in_file).exists()):
-            print("path {} given is not valid".format(in_file))
-            exit()
         try:
-            with open(in_file) as argument_file:
-                try:
-                    arguments = json.load(argument_file)
-                except:
-                    print("malformed json file {}".format(argument_file))
-                    exit()
             resource_config = arguments["admin-resource"] + str(index) + ".json"
             social_config_admin = arguments["admin-social"] + str(index) + ".json"
             dns_config = arguments["dns"]+ str(index) + ".json"
