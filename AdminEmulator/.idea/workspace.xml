@@ -9,32 +9,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="manifest.json" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/manifest.json">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="840">
-                    <caret line="56" column="24" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="24" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="setUpTests.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="manifest.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/manifest.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5850">
+              <caret line="390" column="92" selection-start-line="390" selection-start-column="92" selection-end-line="390" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setUpTests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setUpTests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="155" column="35" selection-start-line="155" selection-start-column="35" selection-end-line="155" selection-end-column="35" />
+            <state relative-caret-position="510">
+              <caret line="129" column="90" selection-start-line="129" selection-start-column="90" selection-end-line="129" selection-end-column="90" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -42,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="remote_configs.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/remote_configs.json">
+      <file leaf-file-name="layered_policy.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/layered_policy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+            <state relative-caret-position="-442">
+              <caret line="57" column="73" selection-start-line="57" selection-start-column="73" selection-end-line="57" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -98,11 +88,11 @@
         <option value="$PROJECT_DIR$/LayeredPolicy.py" />
         <option value="$PROJECT_DIR$/template-one.json" />
         <option value="$PROJECT_DIR$/Task.py" />
-        <option value="$PROJECT_DIR$/layered_policy.py" />
         <option value="$PROJECT_DIR$/admin_main.py" />
-        <option value="$PROJECT_DIR$/manifest.json" />
         <option value="$PROJECT_DIR$/remote_configs.json" />
         <option value="$PROJECT_DIR$/setUpTests.py" />
+        <option value="$PROJECT_DIR$/manifest.json" />
+        <option value="$PROJECT_DIR$/layered_policy.py" />
       </list>
     </option>
   </component>
@@ -117,7 +107,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -129,6 +118,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -148,7 +138,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.setUpTests">
+  <component name="RunManager" selected="Python.LayeredPolicy">
     <configuration name="LayeredPolicy" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AdminEmulator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -248,8 +238,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.setUpTests" />
         <item itemvalue="Python.LayeredPolicy" />
+        <item itemvalue="Python.setUpTests" />
         <item itemvalue="Python.setUpNetwork" />
         <item itemvalue="Python.admin3" />
         <item itemvalue="Python.admin_main_1" />
@@ -270,15 +260,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="64" y="-11" width="1653" height="939" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11105121" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14778922" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30470347" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.51431495" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -518,20 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setUpNetwork.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="63" column="33" lean-forward="true" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alltoall.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin_main_1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -630,20 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layered_policy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="24" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/remote_configs.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -651,13 +613,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/setUpNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-495" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alltoall.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5850">
+          <caret line="390" column="92" selection-start-line="390" selection-start-column="92" selection-end-line="390" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/setUpTests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="155" column="35" selection-start-line="155" selection-start-column="35" selection-end-line="155" selection-end-column="35" />
+        <state relative-caret-position="510">
+          <caret line="129" column="90" selection-start-line="129" selection-start-column="90" selection-end-line="129" selection-end-column="90" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layered_policy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="57" column="73" selection-start-line="57" selection-start-column="73" selection-end-line="57" selection-end-column="73" />
         </state>
       </provider>
     </entry>

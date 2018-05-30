@@ -3,6 +3,24 @@ import random, math
 '''Layered topology policy, number of layers is the number of layers except last layer,
 distribution is division of linux computes in the middle layers, top layer will always have root node
 '''
+
+class UnitTest:
+
+    def __init__(self, num_cams, num_computes):
+        ''' create list of available devices'''
+        self.cameras = []
+        self.computes = []
+        for i in range(num_cams):
+            self.cameras.append(dict(info=dict(social_gw='perso_' + str(i) + '@xmpp.ipop-project.org', device_type='camera'),
+                                name="camera" + str(i)))
+        for i in range(num_computes):
+            self.computes.append(dict(
+                info=dict(social_gw='perso_' + str(i + num_cams) + '@xmpp.ipop-project.org', device_type='linux_computes'),
+                name="linux_computes" + str(i + num_cams)))
+        print("\n CAMERAS \n {}".format(self.cameras))
+        print("\n COMPUTES \n {}".format(self.computes))
+
+
 class LayeredPolicy:
     def __init__(self, cameras, linux_computes, admin_ref, num_layers=2, distribution=[1]):
         self.cameras = cameras
@@ -30,11 +48,14 @@ class LayeredPolicy:
     def send_tunnel_solicitation(self, *args):
         print ("POLICY sending tunnel solicitation for {} from {} to {} at {}"
                .format(args[0].name, args[0].social_gw, args[1].name, args[1].social_gw))
-        self.admin_ref.tunnel_solicitation(args[0].social_gw, args[1].social_gw)
-        if (args[0].social_gw not in self.admin_ref._task.links_requested.keys()):
-            self.admin_ref._task.links_requested[args[0].social_gw] = dict(num_links=0, completion=[])
-        self.admin_ref._task.links_requested[args[0].social_gw]["num_links"]+=1
-        self.admin_ref._task.total_links_requested+=1
+        if (self.admin_ref != None):
+            self.admin_ref.tunnel_solicitation(args[0].social_gw, args[1].social_gw)
+            if (args[0].social_gw not in self.admin_ref._task.links_requested.keys()):
+                self.admin_ref._task.links_requested[args[0].social_gw] = dict(num_links=0, completion=[])
+            self.admin_ref._task.links_requested[args[0].social_gw]["num_links"]+=1
+            self.admin_ref._task.total_links_requested+=1
+        else:
+            print ("admin ref is undefined, is it a local unit test run!!")
 
     '''num layers inclusive of root and penultimate layer, has to be atleast 1.'''
     def split_into_layers(self, input_list, num_layers):
@@ -91,18 +112,21 @@ class LayeredPolicy:
                 self.connect_layers(graph, layer_num+1)
 
 
-
 if __name__ == '__main__':
-    cameras1 = [{'info': {'social_gw': 'perso_5@xmpp.ipop-project.org', 'device_type': 'camera'}, 'name': 'camera3'},
-               {'info': {'social_gw': 'perso_4@xmpp.ipop-project.org', 'device_type': 'camera'}, 'name': 'camera6'},
-               {'info': {'social_gw': 'perso_3@xmpp.ipop-project.org', 'device_type': 'camera'}, 'name': 'camera3'}]
-    linux_computes1 = [{'info': {'social_gw': 'perso_0@xmpp.ipop-project.org', 'device_type': 'linux_computes'},
-                       'name': 'linux_computes0'},
-                      {'info': {'social_gw': 'perso_1@xmpp.ipop-project.org', 'device_type': 'linux_computes'}, 'name': 'linux_computes0'},
-                      {'info': {'social_gw': 'perso_2@xmpp.ipop-project.org', 'device_type': 'linux_computes'}, 'name': 'linux_computes2'}]
-    cameras = [{'info': {'social_gw': 'perso_5@xmpp.ipop-project.org', 'device_type': 'camera'}, 'name': 'camera3'}]
-    linux_computes = [{'info': {'social_gw': 'perso_0@xmpp.ipop-project.org', 'device_type': 'linux_computes'},
-                        'name': 'linux_computes0'},
-                       {'info': {'social_gw': 'perso_1@xmpp.ipop-project.org', 'device_type': 'linux_computes'},
-                        'name': 'linux_computes0'}]
-    lp = LayeredPolicy(cameras, linux_computes)
+    # cameras1 = [{'info': {'social_gw': 'perso_5@xmpp.ipop-project.org', 'device_type': 'camera'}, 'name': 'camera3'},
+    #            {'info': {'social_gw': 'perso_4@xmpp.ipop-project.org', 'device_type': 'camera'}, 'name': 'camera6'},
+    #            {'info': {'social_gw': 'perso_3@xmpp.ipop-project.org', 'device_type': 'camera'}, 'name': 'camera3'}]
+    # linux_computes1 = [{'info': {'social_gw': 'perso_0@xmpp.ipop-project.org', 'device_type': 'linux_computes'},
+    #                    'name': 'linux_computes0'},
+    #                   {'info': {'social_gw': 'perso_1@xmpp.ipop-project.org', 'device_type': 'linux_computes'}, 'name': 'linux_computes0'},
+    #                   {'info': {'social_gw': 'perso_2@xmpp.ipop-project.org', 'device_type': 'linux_computes'}, 'name': 'linux_computes2'}]
+    # cameras = [{'info': {'social_gw': 'perso_5@xmpp.ipop-project.org', 'device_type': 'camera'}, 'name': 'camera3'}]
+    # linux_computes = [{'info': {'social_gw': 'perso_0@xmpp.ipop-project.org', 'device_type': 'linux_computes'},
+    #                     'name': 'linux_computes0'},
+    #                    {'info': {'social_gw': 'perso_1@xmpp.ipop-project.org', 'device_type': 'linux_computes'},
+    #                     'name': 'linux_computes0'}]
+    # lp = LayeredPolicy(cameras, linux_computes)
+
+    unit_test = UnitTest(80,20)
+    lp = LayeredPolicy(unit_test.cameras, unit_test.computes, None)
+

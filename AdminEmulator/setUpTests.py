@@ -165,8 +165,8 @@ class configurationFactory():
             if (manifest_json != None):
                 for machine in manifest_json["rspec"]["node"]:
                     login_info = machine["services"]["login"][0]
-                    hostname = login_info["_hostname"]
-                    port = login_info["_port"]
+                    hostname = login_info["-hostname"]
+                    port = login_info["-port"]
                     config_archive = self.create_remote_config_folder(json_load, _index)
                     # print("machine-id {}, hostname {}, port {}".format(machine["_client_id"], hostname, port))
                     # print ("Path: {}".format(config_archive))

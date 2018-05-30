@@ -1,491 +1,453 @@
 {
-   "rspec": {
-      "node": [
-         {
-            "sliver_type": {
-               "disk_image": {
-                  "_name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
-               },
-               "xen": {
-                  "_cores": "4",
-                  "_ram": "8192",
-                  "_disk": "60"
-               },
-               "_name": "emulab-xen"
+  "rspec": {
+    "-xmlns": "http://www.geni.net/resources/rspec/3",
+    "-xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
+    "-xmlns:tour": "http://www.protogeni.net/resources/rspec/ext/apt-tour/1",
+    "-xmlns:jacks": "http://www.protogeni.net/resources/rspec/ext/jacks/1",
+    "-xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "-xsi:schemaLocation": "http://www.geni.net/resources/rspec/3    http://www.geni.net/resources/rspec/3/request.xsd",
+    "-type": "request",
+    "node": [
+      {
+        "-xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
+        "-client_id": "node-0",
+        "-exclusive": "false",
+        "-component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
+        "-component_id": "urn:publicid:IDN+apt.emulab.net+node+apt068",
+        "-sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153347",
+        "sliver_type": {
+          "-name": "emulab-xen",
+          "disk_image": { "-name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD" },
+          "emulab:xen": {
+            "-cores": "4",
+            "-ram": "8192",
+            "-disk": "60"
+          }
+        },
+        "services": {
+          "login": [
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt068.apt.emulab.net",
+              "-port": "25610",
+              "-username": "sam"
             },
-            "services": {
-               "login": [
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt127.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "sam"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt127.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "renato"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt127.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "kyuho"
-                  }
-               ],
-               "console": {
-                  "_server": "apt127.apt.emulab.net"
-               },
-               "execute": {
-                  "_shell": "bash",
-                  "_command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
-               },
-               "install": {
-                  "_url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
-                  "_install_path": "/local"
-               }
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt068.apt.emulab.net",
+              "-port": "25610",
+              "-username": "renato"
             },
-            "vnode": {
-               "_name": "aptvm127-1",
-               "_hardware_type": "pcvm"
-            },
-            "host": {
-               "_name": "node-0.FuFu-7.personet-PG0.apt.emulab.net"
-            },
-            "_xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
-            "_client_id": "node-0",
-            "_exclusive": "true",
-            "_component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
-            "_component_id": "urn:publicid:IDN+apt.emulab.net+node+apt127",
-            "_sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+152999"
-         },
-         {
-            "sliver_type": {
-               "disk_image": {
-                  "_name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
-               },
-               "xen": {
-                  "_cores": "4",
-                  "_ram": "8192",
-                  "_disk": "60"
-               },
-               "_name": "emulab-xen"
-            },
-            "services": {
-               "login": [
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt068.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "sam"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt068.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "renato"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt068.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "kyuho"
-                  }
-               ],
-               "console": {
-                  "_server": "apt068.apt.emulab.net"
-               },
-               "execute": {
-                  "_shell": "bash",
-                  "_command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
-               },
-               "install": {
-                  "_url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
-                  "_install_path": "/local"
-               }
-            },
-            "vnode": {
-               "_name": "aptvm068-6",
-               "_hardware_type": "pcvm"
-            },
-            "host": {
-               "_name": "node-1.FuFu-7.personet-PG0.apt.emulab.net"
-            },
-            "_xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
-            "_client_id": "node-1",
-            "_exclusive": "false",
-            "_component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
-            "_component_id": "urn:publicid:IDN+apt.emulab.net+node+apt068",
-            "_sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153004"
-         },
-         {
-            "sliver_type": {
-               "disk_image": {
-                  "_name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
-               },
-               "xen": {
-                  "_cores": "4",
-                  "_ram": "8192",
-                  "_disk": "60"
-               },
-               "_name": "emulab-xen"
-            },
-            "services": {
-               "login": [
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt067.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "sam"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt067.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "renato"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt067.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "kyuho"
-                  }
-               ],
-               "console": {
-                  "_server": "apt067.apt.emulab.net"
-               },
-               "execute": {
-                  "_shell": "bash",
-                  "_command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
-               },
-               "install": {
-                  "_url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
-                  "_install_path": "/local"
-               }
-            },
-            "vnode": {
-               "_name": "aptvm067-3",
-               "_hardware_type": "pcvm"
-            },
-            "host": {
-               "_name": "node-2.FuFu-7.personet-PG0.apt.emulab.net"
-            },
-            "_xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
-            "_client_id": "node-2",
-            "_exclusive": "false",
-            "_component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
-            "_component_id": "urn:publicid:IDN+apt.emulab.net+node+apt067",
-            "_sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153000"
-         },
-         {
-            "sliver_type": {
-               "disk_image": {
-                  "_name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
-               },
-               "xen": {
-                  "_cores": "4",
-                  "_ram": "8192",
-                  "_disk": "60"
-               },
-               "_name": "emulab-xen"
-            },
-            "services": {
-               "login": [
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt071.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "sam"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt071.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "renato"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt071.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "kyuho"
-                  }
-               ],
-               "console": {
-                  "_server": "apt071.apt.emulab.net"
-               },
-               "execute": {
-                  "_shell": "bash",
-                  "_command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
-               },
-               "install": {
-                  "_url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
-                  "_install_path": "/local"
-               }
-            },
-            "vnode": {
-               "_name": "aptvm071-3",
-               "_hardware_type": "pcvm"
-            },
-            "host": {
-               "_name": "node-3.FuFu-7.personet-PG0.apt.emulab.net"
-            },
-            "_xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
-            "_client_id": "node-3",
-            "_exclusive": "false",
-            "_component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
-            "_component_id": "urn:publicid:IDN+apt.emulab.net+node+apt071",
-            "_sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+152998"
-         },
-         {
-            "sliver_type": {
-               "disk_image": {
-                  "_name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
-               },
-               "xen": {
-                  "_cores": "4",
-                  "_ram": "8192",
-                  "_disk": "60"
-               },
-               "_name": "emulab-xen"
-            },
-            "services": {
-               "login": [
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt066.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "sam"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt066.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "renato"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt066.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "kyuho"
-                  }
-               ],
-               "console": {
-                  "_server": "apt066.apt.emulab.net"
-               },
-               "execute": {
-                  "_shell": "bash",
-                  "_command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
-               },
-               "install": {
-                  "_url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
-                  "_install_path": "/local"
-               }
-            },
-            "vnode": {
-               "_name": "aptvm066-3",
-               "_hardware_type": "pcvm"
-            },
-            "host": {
-               "_name": "node-4.FuFu-7.personet-PG0.apt.emulab.net"
-            },
-            "_xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
-            "_client_id": "node-4",
-            "_exclusive": "false",
-            "_component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
-            "_component_id": "urn:publicid:IDN+apt.emulab.net+node+apt066",
-            "_sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153003"
-         },
-         {
-            "sliver_type": {
-               "disk_image": {
-                  "_name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
-               },
-               "xen": {
-                  "_cores": "4",
-                  "_ram": "8192",
-                  "_disk": "60"
-               },
-               "_name": "emulab-xen"
-            },
-            "services": {
-               "login": [
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt070.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "sam"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt070.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "renato"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt070.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "kyuho"
-                  }
-               ],
-               "console": {
-                  "_server": "apt070.apt.emulab.net"
-               },
-               "execute": {
-                  "_shell": "bash",
-                  "_command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
-               },
-               "install": {
-                  "_url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
-                  "_install_path": "/local"
-               }
-            },
-            "vnode": {
-               "_name": "aptvm070-4",
-               "_hardware_type": "pcvm"
-            },
-            "host": {
-               "_name": "node-5.FuFu-7.personet-PG0.apt.emulab.net"
-            },
-            "_xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
-            "_client_id": "node-5",
-            "_exclusive": "false",
-            "_component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
-            "_component_id": "urn:publicid:IDN+apt.emulab.net+node+apt070",
-            "_sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153002"
-         },
-         {
-            "sliver_type": {
-               "disk_image": {
-                  "_name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
-               },
-               "xen": {
-                  "_cores": "4",
-                  "_ram": "8192",
-                  "_disk": "60"
-               },
-               "_name": "emulab-xen"
-            },
-            "services": {
-               "login": [
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt072.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "sam"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt072.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "renato"
-                  },
-                  {
-                     "_authentication": "ssh-keys",
-                     "_hostname": "apt072.apt.emulab.net",
-                     "_port": "25010",
-                     "_username": "kyuho"
-                  }
-               ],
-               "console": {
-                  "_server": "apt072.apt.emulab.net"
-               },
-               "execute": {
-                  "_shell": "bash",
-                  "_command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
-               },
-               "install": {
-                  "_url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
-                  "_install_path": "/local"
-               }
-            },
-            "vnode": {
-               "_name": "aptvm072-6",
-               "_hardware_type": "pcvm"
-            },
-            "host": {
-               "_name": "node-6.FuFu-7.personet-PG0.apt.emulab.net"
-            },
-            "_xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
-            "_client_id": "node-6",
-            "_exclusive": "false",
-            "_component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
-            "_component_id": "urn:publicid:IDN+apt.emulab.net+node+apt072",
-            "_sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153001"
-         }
-      ],
-      "rspec_tour": {
-         "description": {
-            "_type": "markdown",
-            "__text": "An example of constructing a profile with a single Xen VM."
-         },
-         "instructions": {
-            "_type": "markdown",
-            "__text": "Wait for the profile instance to start, and then log in to the VM via the\nssh port specified below.  (Note that in this case, you will need to access\nthe VM through a high port on the physical host, since we have not requested\na public IP address for the VM itself.)"
-         },
-         "_xmlns": "http://www.protogeni.net/resources/rspec/ext/apt-tour/1"
-      },
-      "vhost": {
-         "vnode": {
-            "_name": "apt127",
-            "_hardware_type": "r320"
-         },
-         "host": {
-            "_name": "vhost-0.FuFu-7.personet-PG0.apt.emulab.net",
-            "_ipv4": "128.110.96.127"
-         },
-         "services": {
-            "login": [
-               {
-                  "_authentication": "ssh-keys",
-                  "_hostname": "apt127.apt.emulab.net",
-                  "_port": "22",
-                  "_username": "sam"
-               },
-               {
-                  "_authentication": "ssh-keys",
-                  "_hostname": "apt127.apt.emulab.net",
-                  "_port": "22",
-                  "_username": "renato"
-               },
-               {
-                  "_authentication": "ssh-keys",
-                  "_hostname": "apt127.apt.emulab.net",
-                  "_port": "22",
-                  "_username": "kyuho"
-               }
-            ],
-            "console": {
-               "_server": "boss.apt.emulab.net"
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt068.apt.emulab.net",
+              "-port": "25610",
+              "-username": "kyuho"
             }
-         },
-         "vmlist": {
-            "vm": {
-               "_client_id": "node-0",
-               "_vnode": "aptvm127-1"
+          ],
+          "emulab:console": { "-server": "apt068.apt.emulab.net" },
+          "execute": {
+            "-shell": "bash",
+            "-command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
+          },
+          "install": {
+            "-url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
+            "-install_path": "/local"
+          }
+        },
+        "emulab:vnode": {
+          "-name": "aptvm068-6",
+          "-hardware_type": "pcvm"
+        },
+        "host": { "-name": "node-0.Perso-7.personet-PG0.apt.emulab.net" }
+      },
+      {
+        "-xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
+        "-client_id": "node-1",
+        "-exclusive": "true",
+        "-component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
+        "-component_id": "urn:publicid:IDN+apt.emulab.net+node+apt026",
+        "-sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153349",
+        "sliver_type": {
+          "-name": "emulab-xen",
+          "disk_image": { "-name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD" },
+          "emulab:xen": {
+            "-cores": "4",
+            "-ram": "8192",
+            "-disk": "60"
+          }
+        },
+        "services": {
+          "login": [
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt026.apt.emulab.net",
+              "-port": "25610",
+              "-username": "sam"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt026.apt.emulab.net",
+              "-port": "25610",
+              "-username": "renato"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt026.apt.emulab.net",
+              "-port": "25610",
+              "-username": "kyuho"
             }
-         },
-         "_client_id": "apt127",
-         "_exclusive": "1",
-         "_component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
-         "_component_id": "urn:publicid:IDN+apt.emulab.net+node+apt127",
-         "_sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153005"
+          ],
+          "emulab:console": { "-server": "apt026.apt.emulab.net" },
+          "execute": {
+            "-shell": "bash",
+            "-command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
+          },
+          "install": {
+            "-url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
+            "-install_path": "/local"
+          }
+        },
+        "emulab:vnode": {
+          "-name": "aptvm026-1",
+          "-hardware_type": "pcvm"
+        },
+        "host": { "-name": "node-1.Perso-7.personet-PG0.apt.emulab.net" }
       },
-      "site_info": {
-         "location": {
-            "_country": "US",
-            "_latitude": "40.750714",
-            "_longitude": "-111.893288"
-         },
-         "_xmlns:rs": "http://www.protogeni.net/resources/rspec/ext/site-info/1"
+      {
+        "-xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
+        "-client_id": "node-2",
+        "-exclusive": "false",
+        "-component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
+        "-component_id": "urn:publicid:IDN+apt.emulab.net+node+apt070",
+        "-sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153346",
+        "sliver_type": {
+          "-name": "emulab-xen",
+          "disk_image": { "-name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD" },
+          "emulab:xen": {
+            "-cores": "4",
+            "-ram": "8192",
+            "-disk": "60"
+          }
+        },
+        "services": {
+          "login": [
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt070.apt.emulab.net",
+              "-port": "25610",
+              "-username": "sam"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt070.apt.emulab.net",
+              "-port": "25610",
+              "-username": "renato"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt070.apt.emulab.net",
+              "-port": "25610",
+              "-username": "kyuho"
+            }
+          ],
+          "emulab:console": { "-server": "apt070.apt.emulab.net" },
+          "execute": {
+            "-shell": "bash",
+            "-command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
+          },
+          "install": {
+            "-url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
+            "-install_path": "/local"
+          }
+        },
+        "emulab:vnode": {
+          "-name": "aptvm070-4",
+          "-hardware_type": "pcvm"
+        },
+        "host": { "-name": "node-2.Perso-7.personet-PG0.apt.emulab.net" }
       },
-      "_xmlns": "http://www.geni.net/resources/rspec/3",
-      "_xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
-      "_xmlns:tour": "http://www.protogeni.net/resources/rspec/ext/apt-tour/1",
-      "_xmlns:jacks": "http://www.protogeni.net/resources/rspec/ext/jacks/1",
-      "_xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-      "_xsi:schemaLocation": "http://www.geni.net/resources/rspec/3    http://www.geni.net/resources/rspec/3/request.xsd",
-      "_type": "request"
-   }
+      {
+        "-xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
+        "-client_id": "node-3",
+        "-exclusive": "true",
+        "-component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
+        "-component_id": "urn:publicid:IDN+apt.emulab.net+node+apt026",
+        "-sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153350",
+        "sliver_type": {
+          "-name": "emulab-xen",
+          "disk_image": { "-name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD" },
+          "emulab:xen": {
+            "-cores": "4",
+            "-ram": "8192",
+            "-disk": "60"
+          }
+        },
+        "services": {
+          "login": [
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt026.apt.emulab.net",
+              "-port": "25611",
+              "-username": "sam"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt026.apt.emulab.net",
+              "-port": "25611",
+              "-username": "renato"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt026.apt.emulab.net",
+              "-port": "25611",
+              "-username": "kyuho"
+            }
+          ],
+          "emulab:console": { "-server": "apt026.apt.emulab.net" },
+          "execute": {
+            "-shell": "bash",
+            "-command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
+          },
+          "install": {
+            "-url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
+            "-install_path": "/local"
+          }
+        },
+        "emulab:vnode": {
+          "-name": "aptvm026-2",
+          "-hardware_type": "pcvm"
+        },
+        "host": { "-name": "node-3.Perso-7.personet-PG0.apt.emulab.net" }
+      },
+      {
+        "-xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
+        "-client_id": "node-4",
+        "-exclusive": "false",
+        "-component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
+        "-component_id": "urn:publicid:IDN+apt.emulab.net+node+apt071",
+        "-sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153351",
+        "sliver_type": {
+          "-name": "emulab-xen",
+          "disk_image": { "-name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD" },
+          "emulab:xen": {
+            "-cores": "4",
+            "-ram": "8192",
+            "-disk": "60"
+          }
+        },
+        "services": {
+          "login": [
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt071.apt.emulab.net",
+              "-port": "25610",
+              "-username": "sam"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt071.apt.emulab.net",
+              "-port": "25610",
+              "-username": "renato"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt071.apt.emulab.net",
+              "-port": "25610",
+              "-username": "kyuho"
+            }
+          ],
+          "emulab:console": { "-server": "apt071.apt.emulab.net" },
+          "execute": {
+            "-shell": "bash",
+            "-command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
+          },
+          "install": {
+            "-url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
+            "-install_path": "/local"
+          }
+        },
+        "emulab:vnode": {
+          "-name": "aptvm071-3",
+          "-hardware_type": "pcvm"
+        },
+        "host": { "-name": "node-4.Perso-7.personet-PG0.apt.emulab.net" }
+      },
+      {
+        "-xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
+        "-client_id": "node-5",
+        "-exclusive": "false",
+        "-component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
+        "-component_id": "urn:publicid:IDN+apt.emulab.net+node+apt066",
+        "-sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153348",
+        "sliver_type": {
+          "-name": "emulab-xen",
+          "disk_image": { "-name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD" },
+          "emulab:xen": {
+            "-cores": "4",
+            "-ram": "8192",
+            "-disk": "60"
+          }
+        },
+        "services": {
+          "login": [
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt066.apt.emulab.net",
+              "-port": "25610",
+              "-username": "sam"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt066.apt.emulab.net",
+              "-port": "25610",
+              "-username": "renato"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt066.apt.emulab.net",
+              "-port": "25610",
+              "-username": "kyuho"
+            }
+          ],
+          "emulab:console": { "-server": "apt066.apt.emulab.net" },
+          "execute": {
+            "-shell": "bash",
+            "-command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
+          },
+          "install": {
+            "-url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
+            "-install_path": "/local"
+          }
+        },
+        "emulab:vnode": {
+          "-name": "aptvm066-3",
+          "-hardware_type": "pcvm"
+        },
+        "host": { "-name": "node-5.Perso-7.personet-PG0.apt.emulab.net" }
+      },
+      {
+        "-xmlns:emulab": "http://www.protogeni.net/resources/rspec/ext/emulab/1",
+        "-client_id": "node-6",
+        "-exclusive": "false",
+        "-component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
+        "-component_id": "urn:publicid:IDN+apt.emulab.net+node+apt067",
+        "-sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153345",
+        "sliver_type": {
+          "-name": "emulab-xen",
+          "disk_image": { "-name": "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD" },
+          "emulab:xen": {
+            "-cores": "4",
+            "-ram": "8192",
+            "-disk": "60"
+          }
+        },
+        "services": {
+          "login": [
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt067.apt.emulab.net",
+              "-port": "25610",
+              "-username": "sam"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt067.apt.emulab.net",
+              "-port": "25610",
+              "-username": "renato"
+            },
+            {
+              "-authentication": "ssh-keys",
+              "-hostname": "apt067.apt.emulab.net",
+              "-port": "25610",
+              "-username": "kyuho"
+            }
+          ],
+          "emulab:console": { "-server": "apt067.apt.emulab.net" },
+          "execute": {
+            "-shell": "bash",
+            "-command": "sudo chmod +x /local/scripts/*.sh; sudo ./local/scripts/prepareMachine.sh"
+          },
+          "install": {
+            "-url": "https://github.com/saumitraaditya/PerSoNet/raw/master/TestEnvironmentSetup/scripts.tar.gz",
+            "-install_path": "/local"
+          }
+        },
+        "emulab:vnode": {
+          "-name": "aptvm067-3",
+          "-hardware_type": "pcvm"
+        },
+        "host": { "-name": "node-6.Perso-7.personet-PG0.apt.emulab.net" }
+      }
+    ],
+    "rspec_tour": {
+      "-xmlns": "http://www.protogeni.net/resources/rspec/ext/apt-tour/1",
+      "description": {
+        "-type": "markdown",
+        "#text": "An example of constructing a profile with a single Xen VM."
+      },
+      "instructions": {
+        "-type": "markdown",
+        "#text": "Wait for the profile instance to start, and then log in to the VM via the"
+      }
+    },
+    "emulab:vhost": {
+      "-client_id": "apt026",
+      "-exclusive": "1",
+      "-component_manager_id": "urn:publicid:IDN+apt.emulab.net+authority+cm",
+      "-component_id": "urn:publicid:IDN+apt.emulab.net+node+apt026",
+      "-sliver_id": "urn:publicid:IDN+apt.emulab.net+sliver+153352",
+      "emulab:vnode": {
+        "-name": "apt026",
+        "-hardware_type": "c6220"
+      },
+      "emulab:host": {
+        "-name": "vhost-0.Perso-7.personet-PG0.apt.emulab.net",
+        "-ipv4": "128.110.96.26"
+      },
+      "emulab:services": {
+        "emulab:login": [
+          {
+            "-authentication": "ssh-keys",
+            "-hostname": "apt026.apt.emulab.net",
+            "-port": "22",
+            "-username": "sam"
+          },
+          {
+            "-authentication": "ssh-keys",
+            "-hostname": "apt026.apt.emulab.net",
+            "-port": "22",
+            "-username": "renato"
+          },
+          {
+            "-authentication": "ssh-keys",
+            "-hostname": "apt026.apt.emulab.net",
+            "-port": "22",
+            "-username": "kyuho"
+          }
+        ],
+        "emulab:console": { "-server": "boss.apt.emulab.net" }
+      },
+      "emulab:vmlist": {
+        "emulab:vm": [
+          {
+            "-client_id": "node-1",
+            "-vnode": "aptvm026-1"
+          },
+          {
+            "-client_id": "node-3",
+            "-vnode": "aptvm026-2"
+          }
+        ]
+      }
+    },
+    "rs:site_info": {
+      "-xmlns:rs": "http://www.protogeni.net/resources/rspec/ext/site-info/1",
+      "rs:location": {
+        "-country": "US",
+        "-latitude": "40.750714",
+        "-longitude": "-111.893288"
+      }
+    }
+  }
 }
