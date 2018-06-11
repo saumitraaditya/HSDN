@@ -493,5 +493,9 @@ public class gatewayManager implements gatewayService{
         //log.info("Doing something ha ha ha");
     }
 
+    public String get_mapped_to_remote(String mapped_address){
+        return dst_src.get(Ip4Address.valueOf(mapped_address)).toString();
+    }
+
 
 }

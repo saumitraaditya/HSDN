@@ -117,6 +117,13 @@ public class osnBridgeManager implements osnBridgeService{
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected NetworkConfigService configService;
 
+    /*
+    * maintain a cache of IP addresses allocated to remote devices
+    *
+    *
+    * */
+    private Map<String, String> mapped_names = Maps.newConcurrentMap();
+
 
     private Thread thread;
     private volatile boolean xmpp_active = false;
@@ -267,13 +274,28 @@ public class osnBridgeManager implements osnBridgeService{
                 //send(orig_sender,"RESP_IC",query,"10.10.10.100",tag);
                 break;
             case "RESP_IC":
-                String mapped_addr = GatewayService.find_free_address().toString();
+                String mapped_addr;
                 String remote_addr = response;
                 /**
                  *  populate arp addresses will
                  *  1. make the controller respond to arp requests for the mapped addresses.
                  *  2. map the mapped address to outgoing port and mac.
+                 *  check if the mapped address is already in cache else allocate new addresss
+                 *  TODO when to remove the entry from cache?
                  */
+                if (mapped_names.containsKey(query)){
+                    String cached_mapped_addr = mapped_names.get(query);
+                    if (GatewayService.get_mapped_to_remote(cached_mapped_addr).equals(remote_addr)) {
+                        mapped_addr = cached_mapped_addr;
+                    } else {
+                        mapped_addr = GatewayService.find_free_address().toString();
+                        mapped_names.remove(query);
+                        mapped_names.put(query, mapped_addr);
+                    }
+                } else{
+                    mapped_addr = GatewayService.find_free_address().toString();
+                    mapped_names.put(query, mapped_addr);
+                }
                 String sender_gw = orig_sender.split("@")[0];
                 GatewayService.populate_arped_addresseses(mapped_addr,sender_gw);
                 GatewayService.translate_address(mapped_addr,remote_addr,false);
