@@ -48,7 +48,7 @@ contract Networking_Delegation{
             );
     }
     
-    function register_network(address delegate_to) public {
+    function register_network(address delegate_to) public canCall(manager){
         locate_missing_cat(delegate_to).register_networking_delegates(social_domain);
     }
 }
@@ -80,6 +80,10 @@ contract locate_missing_cat{
         uint res_interval;
     }
     
+    event network_delegate_registered(
+        address peer,
+        string social_domain);
+    
     constructor () public payable {
         Initiator = msg.sender;
         num_computing_resources = 0;
@@ -95,9 +99,10 @@ contract locate_missing_cat{
     function register_networking_delegates(string social_domain) public {
         network_addresses.push(msg.sender);
         networking_delegates[social_domain] = msg.sender;
+        emit network_delegate_registered(msg.sender, social_domain);
     }
     /// Install dns resololution path on a social domain.
-    function dns_resolution_flow(string dns_target, string social_domain, string from_domain, string to_domain) public payable
+    function dns_resolution_flow(string dns_target, string social_domain, string from_domain, string to_domain) public 
     canCall(Initiator) {
         address socialDomain = networking_delegates[social_domain];
         Networking_Delegation(socialDomain).install_dns_path(dns_target, from_domain, to_domain);
