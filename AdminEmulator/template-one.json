@@ -1,9 +1,12 @@
 {
-	"task": "locate missing cat",
+	"task": "locate_missing_cat",
 	"initiator": null,
 	"identifier": null,
 	"devices_needed": ["camera", "linux_computes"],
 	"location_area": "Bogdonoff drive, Seffner, Fl",
 	"camera":[],
-	"linux_computes":[]
+	"linux_computes":[],
+	"contract":"https://raw.githubusercontent.com/saumitraaditya/PerSoNet/master/contracts/task_manager.sol",
+	"blockchain_node":"http://10.244.37.233:8545",
+	"task_contract_address":""
 }
